@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The $497 Team Member · Regesta</title>
+<meta name="description" content="Add a team member to your agency for $497 a month. Ten roles, every one of them revenue-critical, completely hands-off.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stage:#0a1020; --stage2:#0d1526; --panel:#101a30; --line:#1d2c49;
+    --ink:#eef3fb; --dim:#93a5c4; --faint:#5b6d8f;
+    --green:#3ddc97; --green-deep:#0f2e24; --red:#ff6b6b; --red-deep:#331116;
+    --amber:#ffc24b; --blue:#5aa9ff;
+    --screen:#f7f8fb; --screen-ink:#111827; --screen-dim:#6b7280; --screen-line:#e5e7eb;
+    --bubble-in:#e9ebf0; --bubble-out:#1273ea;
+    --disp:"Space Grotesk",sans-serif; --body:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--stage);color:var(--ink);font-family:var(--body);line-height:1.6;overflow-x:hidden}
+  ::selection{background:var(--blue);color:#fff}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
+
+  /* ---------- shared chips / stamps ---------- */
+  .chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--dim);text-transform:uppercase}
+  .chip .dot{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+  .stamp{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.24em;padding:8px 16px;border:2px solid var(--green);color:var(--green);background:var(--green-deep);transform:scale(1.5) rotate(-4deg);opacity:0;border-radius:4px}
+  .on .stamp{animation:stampIn .45s cubic-bezier(.2,1.6,.4,1) forwards}
+  .stamp.bad{border-color:var(--red);color:var(--red);background:var(--red-deep)}
+  @keyframes stampIn{to{transform:scale(1) rotate(-2deg);opacity:1}}
+
+  /* ---------- reveal system ---------- */
+  .r{opacity:0;transform:translateY(22px)}
+  .on .r{animation:rise .7s cubic-bezier(.2,.8,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .on .d1{animation-delay:.15s}.on .d2{animation-delay:.3s}.on .d3{animation-delay:.5s}
+  .on .d4{animation-delay:.7s}.on .d5{animation-delay:.95s}.on .d6{animation-delay:1.2s}
+  .on .d7{animation-delay:1.5s}.on .d8{animation-delay:1.8s}.on .d9{animation-delay:2.15s}
+  .on .d10{animation-delay:2.5s}.on .d11{animation-delay:2.9s}.on .d12{animation-delay:3.3s}
+  .on .d13{animation-delay:3.7s}.on .d14{animation-delay:4.1s}
+
+  /* ---------- hero ---------- */
+  .hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding:96px 0 64px;position:relative}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(900px 500px at 75% 8%, rgba(90,169,255,.10), transparent 60%),
+    radial-gradient(700px 420px at 15% 90%, rgba(61,220,151,.07), transparent 60%);pointer-events:none}
+  .hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(40px,7vw,84px);line-height:1.02;letter-spacing:-.02em;margin:22px 0 20px;max-width:900px}
+  .hero h1 em{font-style:normal;color:var(--green)}
+  .hero .sub{font-size:clamp(17px,2vw,21px);color:var(--dim);max-width:640px}
+  .hero .sub b{color:var(--ink);font-weight:600}
+
+  .payroll{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px}
+  .pay-card{border:1px solid var(--line);border-radius:14px;padding:24px 26px;background:linear-gradient(180deg,var(--panel),var(--stage2))}
+  .pay-card .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--faint);text-transform:uppercase}
+  .pay-card .amt{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.4vw,46px);margin:10px 0 6px;letter-spacing:-.01em}
+  .pay-card .per{font-size:13px;color:var(--dim)}
+  .pay-card.you{border-color:rgba(61,220,151,.45);box-shadow:0 0 60px rgba(61,220,151,.07) inset}
+  .pay-card.you .amt{color:var(--green)}
+  .pay-note{grid-column:1/-1;font-size:12.5px;color:var(--faint)}
+  .scrollcue{margin-top:56px;display:inline-flex;align-items:center;gap:12px;color:var(--dim);font-family:var(--mono);font-size:12px;letter-spacing:.2em}
+  .scrollcue .bar{width:1px;height:44px;background:linear-gradient(var(--dim),transparent);animation:cue 1.6s ease-in-out infinite}
+  @keyframes cue{50%{transform:translateY(8px);opacity:.4}}
+
+  /* ---------- role rail ---------- */
+  .rail{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:10px}
+  .rail a{width:8px;height:8px;border-radius:50%;background:var(--line);display:block;transition:.25s;position:relative}
+  .rail a.live{background:var(--green);transform:scale(1.35)}
+  .rail a span{position:absolute;right:18px;top:50%;transform:translateY(-50%);white-space:nowrap;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim);opacity:0;transition:.2s;pointer-events:none;text-transform:uppercase}
+  .rail a:hover span,.rail a.live span{opacity:1}
+  @media(max-width:900px){.rail{display:none}}
+
+  /* ---------- scene scaffold ---------- */
+  .scene{padding:110px 0;border-top:1px solid rgba(29,44,73,.6);position:relative}
+  .scene-head{margin-bottom:44px;max-width:760px}
+  .scene-head .role-tag{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .role-num{font-family:var(--mono);font-size:11px;color:var(--stage);background:var(--green);padding:3px 9px;border-radius:3px;font-weight:700;letter-spacing:.1em}
+  .role-num.def{background:var(--blue)}
+  .role-name{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+  .scene-head h2{font-family:var(--disp);font-weight:700;font-size:clamp(26px,3.6vw,42px);line-height:1.12;letter-spacing:-.015em}
+  .scene-head h2 em{font-style:normal;color:var(--green)}
+  .scene-head h2 em.loss{color:var(--red)}
+  .scene-head .why{margin-top:14px;color:var(--dim);font-size:16px;max-width:620px}
+  .scene-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+  @media(max-width:860px){.scene-body{grid-template-columns:1fr;gap:32px}}
+  .aside .pt{border-left:2px solid var(--line);padding:2px 0 2px 20px;margin-bottom:22px}
+  .aside .pt.hot{border-color:var(--green)}
+  .aside .pt .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--green);text-transform:uppercase;margin-bottom:6px}
+  .aside .pt.mut .k{color:var(--faint)}
+  .aside .pt p{color:var(--dim);font-size:15px}
+  .aside .pt p b{color:var(--ink);font-weight:600}
+
+  /* ---------- phone chrome ---------- */
+  .phone{width:min(330px,88vw);margin:0 auto;background:#0b0d12;border-radius:42px;padding:10px;box-shadow:0 24px 80px rgba(0,0,0,.55),0 0 0 1px #232a38, 0 0 90px rgba(90,169,255,.06);position:relative}
+  .phone .screen{background:var(--screen);border-radius:34px;overflow:hidden;min-height:560px;display:flex;flex-direction:column;position:relative}
+  .phone .notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:110px;height:26px;background:#0b0d12;border-radius:16px;z-index:5}
+  .statusbar{display:flex;justify-content:space-between;padding:14px 22px 6px;font-size:12px;font-weight:600;color:var(--screen-ink);font-family:var(--body)}
+  .phone.dark .screen{background:#101319}
+  .phone.dark .statusbar{color:#e5e7eb}
+  .phone-cap{margin-top:18px;text-align:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--faint);text-transform:uppercase}
+
+  /* ---------- incoming call UI ---------- */
+  .callui{flex:1;display:flex;flex-direction:column;align-items:center;padding:64px 24px 40px;background:linear-gradient(180deg,#1a2030,#0e1119);color:#fff}
+  .callui .from{font-size:13px;color:#9aa4b5;letter-spacing:.06em}
+  .callui .who{font-family:var(--disp);font-size:24px;font-weight:600;margin-top:8px;text-align:center}
+  .callui .num{font-size:14px;color:#9aa4b5;margin-top:6px}
+  .ringwrap{margin:34px 0 8px;position:relative;width:92px;height:92px}
+  .ringwrap .avatar{position:absolute;inset:0;border-radius:50%;background:#2a3347;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-size:30px;font-weight:600;color:#c8d2e4}
+  .on .ringwrap::before,.on .ringwrap::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(90,169,255,.5);animation:ring 1.4s ease-out infinite}
+  .on .ringwrap::after{animation-delay:.7s}
+  @keyframes ring{from{transform:scale(1);opacity:1}to{transform:scale(1.7);opacity:0}}
+  .ringing-lbl{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:#8fa3c0;margin-top:14px}
+  .on .ringing-lbl{animation:blink 1.1s steps(1) infinite}
+  @keyframes blink{50%{opacity:.35}}
+  .callbtns{margin-top:auto;display:flex;gap:70px}
+  .cbtn{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px}
+  .cbtn.red{background:#ff453a}.cbtn.grn{background:#30d158}
+  .missbanner{position:absolute;left:12px;right:12px;top:52px;background:rgba(24,28,38,.96);border-radius:16px;padding:12px 16px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.4);opacity:0;transform:translateY(-16px);z-index:6}
+  .on .missbanner{animation:drop .5s cubic-bezier(.2,1.4,.4,1) 2.6s forwards}
+  @keyframes drop{to{opacity:1;transform:none}}
+  .missbanner .t{font-size:12px;font-weight:600}.missbanner .s{font-size:11.5px;color:#9aa4b5}
+
+  /* ---------- iMessage thread ---------- */
+  .thread{flex:1;display:flex;flex-direction:column;padding:16px 14px 20px;gap:8px;background:var(--screen)}
+  .thread-head{text-align:center;padding:26px 0 8px}
+  .thread-head .av{width:44px;height:44px;border-radius:50%;background:#d7dbe4;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:600;color:#3c4453}
+  .thread-head .nm{font-size:12.5px;color:var(--screen-ink);font-weight:600}
+  .tstamp{text-align:center;font-size:10.5px;color:var(--screen-dim);margin:4px 0}
+  .msg{max-width:78%;padding:9px 13px;border-radius:18px;font-size:13.5px;line-height:1.45;opacity:0;transform:translateY(10px) scale(.97)}
+  .on .msg{animation:pop .4s cubic-bezier(.2,1.3,.4,1) forwards}
+  .msg.in{align-self:flex-start;background:var(--bubble-in);color:var(--screen-ink);border-bottom-left-radius:6px}
+  .msg.out{align-self:flex-end;background:var(--bubble-out);color:#fff;border-bottom-right-radius:6px}
+  @keyframes pop{to{opacity:1;transform:none}}
+  .typing{align-self:flex-start;background:var(--bubble-in);border-radius:18px;border-bottom-left-radius:6px;padding:12px 15px;display:flex;gap:4px;opacity:0}
+  .on .typing{animation:typeShow .01s linear forwards, typeHide .01s linear forwards}
+  .typing i{width:7px;height:7px;border-radius:50%;background:#9aa2b1;animation:tdot 1s ease-in-out infinite}
+  .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+  @keyframes tdot{40%{transform:translateY(-4px)}}
+  .delivered{align-self:flex-end;font-size:10px;color:var(--screen-dim);margin-top:-4px;opacity:0}
+  .on .delivered{animation:rise .4s forwards}
+  .thread .stampline{align-self:center;margin-top:10px}
+
+  /* ---------- generic app screen ---------- */
+  .app{flex:1;background:var(--screen);display:flex;flex-direction:column}
+  .app-head{padding:30px 18px 12px;border-bottom:1px solid var(--screen-line);display:flex;align-items:center;gap:10px}
+  .app-logo{width:30px;height:30px;border-radius:8px;background:#12395c;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:700;font-size:13px}
+  .app-head .t{font-size:14px;font-weight:700;color:var(--screen-ink);font-family:var(--disp)}
+  .app-head .s{font-size:10.5px;color:var(--screen-dim)}
+  .rowitem{display:flex;gap:12px;padding:13px 16px;border-bottom:1px solid var(--screen-line);opacity:0;transform:translateX(26px);background:#fff}
+  .on .rowitem{animation:slidein .45s cubic-bezier(.2,1,.3,1) forwards}
+  @keyframes slidein{to{opacity:1;transform:none}}
+  .ric{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex:none}
+  .ric.call{background:#e8f1ff}.ric.txt{background:#e9fbf2}.ric.rev{background:#fff6e5}.ric.q{background:#f3e9ff}
+  .rowitem .rt{font-size:12.5px;font-weight:600;color:var(--screen-ink)}
+  .rowitem .rs{font-size:11.5px;color:var(--screen-dim)}
+  .rowitem .rtime{margin-left:auto;font-size:10px;color:var(--screen-dim);flex:none}
+  .newpill{margin-left:auto;flex:none;font-size:9px;font-weight:700;letter-spacing:.08em;color:#0a7a4b;background:#dcfce7;padding:3px 7px;border-radius:99px;align-self:center}
+
+  /* ---------- big panels (non-phone scenes) ---------- */
+  .panelbox{border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--panel),var(--stage2));padding:26px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  .panel-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .panel-title .t{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+
+  /* calendar */
+  .cal{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .cal .dhead{font-family:var(--mono);font-size:10px;color:var(--faint);text-align:center;letter-spacing:.14em;padding-bottom:4px}
+  .slot{height:40px;border:1px dashed var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--faint)}
+  .slot.taken{border-style:solid;background:rgba(90,169,255,.08);color:var(--dim)}
+  .slot.fill{border:1px solid var(--green);position:relative;overflow:hidden}
+  .slot.fill .inner{position:absolute;inset:0;background:rgba(61,220,151,.15);display:flex;align-items:center;justify-content:center;color:var(--green);font-weight:700;opacity:0;transform:scale(.7)}
+  .on .slot.fill .inner{animation:pop .5s cubic-bezier(.2,1.5,.4,1) 1.6s forwards}
+  .on .slot.fill{animation:pulse 1.2s ease-in-out 2}
+  @keyframes pulse{50%{box-shadow:0 0 0 6px rgba(61,220,151,.12)}}
+  .remrow{display:flex;gap:10px;align-items:center;margin-top:14px;font-size:13px;color:var(--dim)}
+  .remrow .tick{color:var(--green);font-weight:700}
+
+  /* channels */
+  .chan-grid{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+  .chan{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:99px;padding:7px 14px;font-size:12.5px;color:var(--dim);opacity:.35;transition:.3s}
+  .chan .cd{width:8px;height:8px;border-radius:50%;background:var(--faint)}
+  .on .chan{animation:chanOn .4s forwards}
+  .on .chan:nth-child(1){animation-delay:.4s}.on .chan:nth-child(2){animation-delay:.9s}
+  .on .chan:nth-child(3){animation-delay:1.4s}.on .chan:nth-child(4){animation-delay:1.9s}
+  .on .chan:nth-child(5){animation-delay:2.4s}
+  @keyframes chanOn{to{opacity:1;border-color:rgba(61,220,151,.5)}}
+  .on .chan .cd{background:var(--green)}
+
+  /* reactivation dashboard */
+  .seg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+  @media(max-width:560px){.seg-grid{grid-template-columns:1fr}}
+  .seg{border:1px solid var(--line);border-radius:12px;padding:18px;background:rgba(255,255,255,.02)}
+  .seg .num{font-family:var(--disp);font-weight:700;font-size:34px;color:var(--ink)}
+  .seg .num.money{color:var(--green)}
+  .seg .lb{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase;margin-top:6px;line-height:1.5}
+  .quote-rows{border-top:1px solid var(--line)}
+  .qrow{display:flex;align-items:center;gap:12px;padding:11px 4px;border-bottom:1px solid var(--line);font-size:13px;color:var(--dim);opacity:0;transform:translateY(8px)}
+  .on .qrow{animation:rise .45s forwards}
+  .qrow .st-dead{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--red);flex:none}
+  .qrow .st-live{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--green);flex:none;margin-left:auto}
+  .qrow b{color:var(--ink);font-weight:600}
+
+  /* review card */
+  .gcard{background:#fff;border-radius:14px;padding:20px;color:var(--screen-ink);box-shadow:0 18px 50px rgba(0,0,0,.4)}
+  .gcard .gtop{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .gav{width:36px;height:36px;border-radius:50%;background:#7c5cff;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:var(--disp)}
+  .gcard .gname{font-size:13.5px;font-weight:600}
+  .gcard .gmeta{font-size:11px;color:var(--screen-dim)}
+  .stars{display:flex;gap:3px;margin:6px 0 8px}
+  .stars svg{width:18px;height:18px;fill:#d1d5db;transform:scale(.6);opacity:0}
+  .on .stars svg{animation:starIn .35s cubic-bezier(.2,1.6,.4,1) forwards}
+  .on .stars svg.gold{fill:#fbbc04}
+  .on .stars svg:nth-child(1){animation-delay:.9s}.on .stars svg:nth-child(2){animation-delay:1.05s}
+  .on .stars svg:nth-child(3){animation-delay:1.2s}.on .stars svg:nth-child(4){animation-delay:1.35s}
+  .on .stars svg:nth-child(5){animation-delay:1.5s}
+  @keyframes starIn{to{transform:scale(1);opacity:1}}
+  .gtext{font-size:13.5px;line-height:1.55}
+  .greply{margin-top:14px;border-left:3px solid #4285f4;background:#f6f8fc;border-radius:0 10px 10px 0;padding:12px 14px;opacity:0;transform:translateY(10px)}
+  .on .greply{animation:rise .5s 2.6s forwards}
+  .greply .rh{font-size:11px;font-weight:700;color:#1a56c4;margin-bottom:4px;display:flex;gap:8px;align-items:center}
+  .greply .rh .ai{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;background:#e3ecff;padding:2px 6px;border-radius:3px}
+  .greply p{font-size:12.5px;color:#374151}
+  .rating-line{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
+  .rating-big{font-family:var(--disp);font-weight:700;font-size:44px}
+  .rating-line .rc{color:var(--dim);font-size:13px}
+  .heldchip{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--amber);border:1px solid rgba(255,194,75,.4);padding:6px 12px;border-radius:6px;opacity:0}
+  .on .heldchip{animation:rise .5s 3.4s forwards}
+
+  /* website scene */
+  .browser{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+  .browser .bar{display:flex;align-items:center;gap:8px;background:#0e1524;padding:10px 14px}
+  .browser .bar i{width:10px;height:10px;border-radius:50%;background:#2a3854}
+  .browser .url{margin-left:8px;font-family:var(--mono);font-size:10.5px;color:var(--dim);background:#0a0f1c;border-radius:6px;padding:4px 12px;flex:1}
+  .site{padding:22px;color:var(--screen-ink)}
+  .site .snav{display:flex;gap:14px;font-size:10.5px;font-weight:600;color:#374151;border-bottom:1px solid var(--screen-line);padding-bottom:10px;flex-wrap:wrap}
+  .site h4{font-family:var(--disp);font-size:19px;margin:16px 0 4px}
+  .site .ssub{font-size:12px;color:var(--screen-dim)}
+  .pagegrid{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .pg{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;border:1px solid var(--screen-line);border-radius:5px;padding:5px 9px;color:#374151;opacity:0;transform:scale(.85)}
+  .on .pg{animation:pop .3s forwards}
+  .optbox{margin-top:18px;border:1px dashed var(--line);border-radius:12px;padding:18px 20px;color:var(--dim);font-size:14px}
+  .optbox b{color:var(--ink)}
+  .optbox .opt-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--amber);display:block;margin-bottom:8px}
+
+  /* voice transcript */
+  .voxrow{display:flex;gap:12px;margin-bottom:14px;opacity:0;transform:translateY(10px)}
+  .on .voxrow{animation:rise .5s forwards}
+  .voxrow .who{flex:none;width:64px;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;padding-top:4px}
+  .voxrow.ai .who{color:var(--green)}.voxrow.hum .who{color:var(--blue)}
+  .voxrow p{font-size:14px;color:var(--dim)}
+  .voxrow.ai p{color:var(--ink)}
+  .wave{display:flex;gap:3px;align-items:center;height:22px;margin-bottom:18px}
+  .wave i{width:3px;background:var(--green);border-radius:2px;height:6px}
+  .on .wave i{animation:wv 1s ease-in-out infinite}
+  @keyframes wv{50%{height:20px}}
+  .wave i:nth-child(2n){animation-delay:.15s}.wave i:nth-child(3n){animation-delay:.3s}.wave i:nth-child(5n){animation-delay:.45s}
+  .freechip{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--stage);background:var(--amber);padding:6px 13px;border-radius:4px;font-weight:700;margin-bottom:16px}
+  .honest{margin-top:16px;font-size:12.5px;color:var(--faint);border-top:1px solid var(--line);padding-top:12px}
+
+  /* stats band */
+  .band{padding:90px 0;border-top:1px solid rgba(29,44,73,.6);background:linear-gradient(180deg,rgba(16,26,48,.5),transparent)}
+  .band h3{font-family:var(--disp);font-size:clamp(22px,3vw,32px);font-weight:700;max-width:700px;margin-bottom:36px}
+  .statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:760px){.statgrid{grid-template-columns:1fr}}
+  .stat{border:1px solid var(--line);border-radius:14px;padding:26px}
+  .stat .big{font-family:var(--disp);font-weight:700;font-size:42px;color:var(--green)}
+  .stat .big.red{color:var(--red)}
+  .stat p{color:var(--dim);font-size:14px;margin-top:8px}
+  .srcnote{margin-top:18px;font-size:11.5px;color:var(--faint)}
+
+  /* close */
+  .close{padding:120px 0 90px;border-top:1px solid rgba(29,44,73,.6);text-align:center;position:relative}
+  .close::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 50% 30%,rgba(61,220,151,.08),transparent 65%);pointer-events:none}
+  .close h2{font-family:var(--disp);font-weight:700;font-size:clamp(30px,5vw,58px);letter-spacing:-.02em;max-width:820px;margin:0 auto 18px}
+  .close .cs{color:var(--dim);font-size:17px;max-width:560px;margin:0 auto}
+  .plate{margin:44px auto 0;max-width:460px;border:1px solid rgba(61,220,151,.45);border-radius:18px;padding:38px 30px;background:linear-gradient(180deg,var(--panel),var(--stage2));box-shadow:0 0 90px rgba(61,220,151,.08)}
+  .plate .p-amt{font-family:var(--disp);font-weight:700;font-size:64px;color:var(--green);line-height:1}
+  .plate .p-per{font-family:var(--mono);font-size:11px;letter-spacing:.26em;color:var(--dim);margin-top:8px;text-transform:uppercase}
+  .plate ul{list-style:none;margin-top:26px;text-align:left}
+  .plate li{display:flex;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:14.5px;color:var(--dim)}
+  .plate li b{color:var(--ink);font-weight:600}
+  .plate li .tk{color:var(--green);font-weight:700;flex:none}
+  footer{padding:40px 0 60px;border-top:1px solid rgba(29,44,73,.6)}
+  footer p{font-size:11.5px;color:var(--faint);max-width:760px}
+  footer .brand{font-family:var(--disp);font-weight:700;color:var(--dim);margin-bottom:10px;font-size:14px}
+
+  @media(prefers-reduced-motion:reduce){
+    *,.on .r,.on .msg,.on .stamp{animation:none!important;opacity:1!important;transform:none!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ ROLE RAIL ============ -->
+<nav class="rail" id="rail">
+  <a href="#r1"><span>01 · Text-Back</span></a>
+  <a href="#r2"><span>02 · Follow-Up</span></a>
+  <a href="#r3"><span>03 · Booking</span></a>
+  <a href="#r4"><span>04 · AI Chat</span></a>
+  <a href="#r5"><span>05 · Agency App</span></a>
+  <a href="#r6"><span>06 · Reactivation</span></a>
+  <a href="#r7"><span>07 · Reviews</span></a>
+  <a href="#r8"><span>08 · Responses</span></a>
+  <a href="#r9"><span>09 · Website</span></a>
+  <a href="#r10"><span>10 · Voice AI</span></a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero scene on" id="top">
+  <div class="wrap">
+    <span class="chip r"><span class="dot"></span>REGESTA · FOR INDEPENDENT INSURANCE AGENCIES</span>
+    <h1 class="r d1">Add a team member for <em>$497 a month.</em></h1>
+    <p class="sub r d2">Ten roles. Every one of them touches revenue: missed policy inquiries, renewals about to lapse, quotes that went cold. <b>Completely hands-off: we install it, we run it, you just answer the phone when it buzzes with a live one.</b></p>
+    <div class="payroll r d3">
+      <div class="pay-card">
+        <div class="lbl">A licensed CSR</div>
+        <div class="amt">$5,163<span style="font-size:.4em;color:var(--dim)">/mo</span></div>
+        <div class="per">Office hours. Some of these roles.</div>
+      </div>
+      <div class="pay-card you">
+        <div class="lbl">This team member</div>
+        <div class="amt">$497<span style="font-size:.4em;color:var(--dim)">/mo</span></div>
+        <div class="per">24/7. All ten roles. Never calls in sick.</div>
+      </div>
+      <div class="pay-note">CSR figure: Glassdoor 2026 U.S. average for a licensed insurance CSR, $61,961/yr. Not a replacement for your people, it works the hours and the follow-ups they can't.</div>
+    </div>
+    <div class="scrollcue r d4"><span class="bar"></span>WATCH IT WORK A DAY</div>
+  </div>
+</section>
+
+<!-- ============ ROLE 01 · MISSED-CALL TEXT-BACK ============ -->
+<section class="scene" id="r1">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num">ROLE 01</span><span class="role-name">Missed-Call Text-Back</span></span>
+      <h2>A missed call isn't a missed call. <em class="loss">It's a missed policy.</em></h2>
+      <p class="why">Tuesday, 2:14 PM. Your team's on other lines. The caller could be a $600 auto policy, or a commercial account with a fleet. You don't know, because it went to voicemail.</p>
+    </div>
+    <div class="scene-body">
+      <div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="missbanner">
+            <div class="t">Missed Call</div>
+            <div class="s">(830) 555-0163 · 2:14 PM</div>
+          </div>
+          <div class="screen">
+            <div class="callui">
+              <div class="from">incoming call</div>
+              <div class="who">Unknown Caller</div>
+              <div class="num">(830) 555-0163</div>
+              <div class="ringwrap"><div class="avatar">?</div></div>
+              <div class="ringing-lbl">RINGING…</div>
+              <div class="callbtns"><div class="cbtn red">✕</div><div class="cbtn grn">✓</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">Your office line, everyone's tied up</div>
+      </div>
+      <div>
+        <div class="phone" style="width:min(330px,88vw)">
+          <div class="notch"></div>
+          <div class="screen">
+            <div class="thread">
+              <div class="thread-head">
+                <div class="av">HW</div>
+                <div class="nm">Hartwell Insurance</div>
+              </div>
+              <div class="tstamp">Today 2:14 PM</div>
+              <div class="msg out d5">Sorry we missed you, this is Hartwell Insurance. Want us to call you right back, or grab a time here: hartwell.ins/book</div>
+              <div class="delivered d6">Delivered · 9 seconds after the missed call</div>
+              <div class="msg in d7">Oh great. Calling about insurance for our work trucks, we just added 12 vehicles</div>
+              <div class="msg out d8">We can absolutely help with that. Ray handles our commercial fleet accounts, tomorrow 9:30 or 11:00?</div>
+              <div class="msg in d9">9:30 works</div>
+              <div class="stampline"><span class="stamp">COMMERCIAL INQUIRY · SAVED</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">The caller's phone, nine seconds later</div>
+      </div>
+    </div>
+    <div class="aside" style="margin-top:36px;max-width:640px">
+      <div class="pt hot r d10">
+        <div class="k">What just happened</div>
+        <p>A fleet account that was one voicemail away from dialing the next agency on Google is <b>booked for tomorrow at 9:30</b>. After hours, weekends, all lines busy, same nine seconds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 02 · INSTANT LEAD FOLLOW-UP ============ -->
+<section class="scene" id="r2">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num">ROLE 02</span><span class="role-name">Instant Lead Follow-Up</span></span>
+      <h2>A quote form at 11:02 PM. <em>Answered by 11:02 PM.</em></h2>
+      <p class="why">People shop for insurance after the kids are down. The first agency to respond is usually the one that writes the policy, and at 11 PM, that's nobody. Now it's you.</p>
+    </div>
+    <div class="scene-body">
+      <div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="screen">
+            <div class="thread">
+              <div class="thread-head">
+                <div class="av">HW</div>
+                <div class="nm">Hartwell Insurance</div>
+              </div>
+              <div class="tstamp">Today 11:02 PM</div>
+              <div class="msg out d2">Hi Maria, got your request for a home + auto quote just now. We'll have numbers for you first thing. Anything special about the house we should know?</div>
+              <div class="delivered d3">Delivered · 11:02 PM</div>
+              <div class="msg in d4">wow that was fast, it has a new roof as of March if that helps</div>
+              <div class="msg out d5">It does, that usually helps the rate. Talk tomorrow!</div>
+              <div class="stampline"><span class="stamp">FIRST TO RESPOND</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">The lead's phone, seconds after the form</div>
+      </div>
+      <div>
+        <div class="phone dark">
+          <div class="notch"></div>
+          <div class="screen">
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:24px;gap:12px">
+              <div style="text-align:center;color:#8b93a5;font-family:var(--mono);font-size:10px;letter-spacing:.3em" class="r d3">11:02 PM</div>
+              <div class="r d4" style="background:rgba(255,255,255,.08);border-radius:16px;padding:14px 16px;color:#fff">
+                <div style="display:flex;justify-content:space-between;font-size:11px;color:#9aa4b5;margin-bottom:4px"><span><b style="color:#fff">Agency App</b></span><span>now</span></div>
+                <div style="font-size:13px;font-weight:600">New quote request · Maria G.</div>
+                <div style="font-size:12px;color:#c3cad8">Home + auto · New Braunfels · already replied, wants a call tomorrow</div>
+              </div>
+              <div class="r d6" style="text-align:center;color:#5b6d8f;font-size:12px">Your phone. It tells you <b style="color:#e5e7eb">who to call and why</b>, you don't dig for it.</div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">Your phone, same moment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 03 · ONLINE BOOKING ============ -->
+<section class="scene" id="r3">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num">ROLE 03</span><span class="role-name">Online Booking</span></span>
+      <h2>A no-show is a policy that <em class="loss">never happened.</em></h2>
+      <p class="why">Leads book themselves straight off the site or the text thread. Reminders go out automatically, so the appointment actually occurs, and the premium actually gets written.</p>
+    </div>
+    <div class="scene-body">
+      <div class="panelbox">
+        <div class="panel-title"><span class="t">Ray's calendar · this week</span><span class="chip"><span class="dot"></span>LIVE</span></div>
+        <div class="cal">
+          <div class="dhead">MON</div><div class="dhead">TUE</div><div class="dhead">WED</div><div class="dhead">THU</div><div class="dhead">FRI</div>
+          <div class="slot taken">9:00</div><div class="slot">9:00</div><div class="slot taken">9:00</div><div class="slot">9:00</div><div class="slot taken">9:00</div>
+          <div class="slot">9:30</div><div class="slot taken">9:30</div><div class="slot">9:30</div><div class="slot fill">9:30<div class="inner">FLEET QUOTE ✓</div></div><div class="slot">9:30</div>
+          <div class="slot taken">11:00</div><div class="slot">11:00</div><div class="slot">11:00</div><div class="slot taken">11:00</div><div class="slot">11:00</div>
+          <div class="slot">2:00</div><div class="slot">2:00</div><div class="slot taken">2:00</div><div class="slot">2:00</div><div class="slot taken">2:00</div>
+        </div>
+        <div class="remrow r d5"><span class="tick">✓</span> Reminder sent · 24 hours before</div>
+        <div class="remrow r d6"><span class="tick">✓</span> Reminder sent · 1 hour before</div>
+        <div class="remrow r d7" style="color:var(--green);font-weight:600"><span class="tick">✓</span> Showed up. Quote in progress.</div>
+      </div>
+      <div class="aside">
+        <div class="pt hot r d3">
+          <div class="k">Why it matters</div>
+          <p>The fleet lead from Role 01 didn't just say "call me sometime." They picked a slot, got two reminders, and <b>showed up</b>. No phone tag, no "let me check and get back to you."</p>
+        </div>
+        <div class="pt mut r d5">
+          <div class="k">Zero staff effort</div>
+          <p>Nobody at the agency scheduled this. It booked itself into a real open slot on Ray's actual calendar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 04 · CONVERSATIONAL AI ============ -->
+<section class="scene" id="r4">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num def">ROLE 04</span><span class="role-name">Conversational AI</span></span>
+      <h2>One AI, trained on your agency, <em>on every channel at once.</em></h2>
+      <p class="why">Website chat, text, Facebook Messenger, Instagram, WhatsApp. Wherever the lead shows up, it answers, qualifies, and books, and logs everything in the CRM.</p>
+    </div>
+    <div class="scene-body">
+      <div class="panelbox">
+        <div class="chan-grid">
+          <span class="chan"><span class="cd"></span>Website chat</span>
+          <span class="chan"><span class="cd"></span>Text</span>
+          <span class="chan"><span class="cd"></span>Messenger</span>
+          <span class="chan"><span class="cd"></span>Instagram</span>
+          <span class="chan"><span class="cd"></span>WhatsApp</span>
+        </div>
+        <div style="background:var(--screen);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px">
+          <div class="msg in d4" style="align-self:flex-start">Do you guys do renters insurance? My landlord needs proof by Friday</div>
+          <div class="msg out d5">We do, usually one call and it's done, and proof goes to your landlord same day. Are you bundling with an auto policy? That often offsets most of the cost.</div>
+          <div class="msg in d6">oh really. yeah I have a car</div>
+          <div class="msg out d7">Then let's quote both together. Ray has 2:00 PM Tuesday open, want it?</div>
+          <div class="msg in d8">yes please</div>
+        </div>
+        <div class="stampline" style="text-align:center;margin-top:18px"><span class="stamp">QUALIFIED · BOOKED · LOGGED</span></div>
+      </div>
+      <div class="aside">
+        <div class="pt hot r d3">
+          <div class="k">It sells the bundle</div>
+          <p>A renters-proof errand became a <b>renters + auto bundle appointment</b>, because the AI is trained on how your agency actually quotes, not generic chatbot scripts.</p>
+        </div>
+        <div class="pt mut r d5">
+          <div class="k">Every channel, one brain</div>
+          <p>The same conversation could have started on Instagram at midnight. Same answers, same booking, same CRM entry.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 05 · THE AGENCY APP ============ -->
+<section class="scene" id="r5">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num def">ROLE 05</span><span class="role-name">The Agency App</span></span>
+      <h2>Everything it touches lands in <em>one inbox with your name on it.</em></h2>
+      <p class="why">Calls, texts, reviews, quote requests, one branded app on your phone. Not five logins, not "check the portal," not wondering what happened overnight.</p>
+    </div>
+    <div class="scene-body">
+      <div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="screen">
+            <div class="app">
+              <div class="app-head">
+                <div class="app-logo">HW</div>
+                <div><div class="t">Hartwell Insurance</div><div class="s">Unified inbox · Tuesday</div></div>
+              </div>
+              <div class="rowitem d3"><div class="ric call">📞</div><div><div class="rt">Missed call → texted back</div><div class="rs">(830) 555-0163 · fleet inquiry · booked 9:30</div></div><span class="newpill">BOOKED</span></div>
+              <div class="rowitem d4"><div class="ric q">📋</div><div><div class="rt">Quote request, Maria G.</div><div class="rs">Home + auto · replied at 11:02 PM</div></div><span class="rtime">11:02 PM</span></div>
+              <div class="rowitem d5"><div class="ric rev">⭐</div><div><div class="rt">New 5-star Google review</div><div class="rs">Dana R., "one phone call, both policies moved"</div></div><span class="newpill">REPLIED</span></div>
+              <div class="rowitem d6"><div class="ric txt">💬</div><div><div class="rt">Renters + auto, booked Tue 2:00</div><div class="rs">via website chat</div></div><span class="rtime">4:40 PM</span></div>
+              <div class="rowitem d7"><div class="ric q">🔁</div><div><div class="rt">Cold quote revived, J. Alvarez</div><div class="rs">wants the auto quote redone</div></div><span class="newpill">NEW</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">White-labeled under your agency's brand</div>
+      </div>
+      <div class="aside">
+        <div class="pt hot r d3">
+          <div class="k">The whole day, visible</div>
+          <p>This is what your team member did today, <b>while your team did their actual jobs</b>. Every item is a conversation that would otherwise have died quietly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 06 · DATABASE REACTIVATION ============ -->
+<section class="scene" id="r6">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num">ROLE 06</span><span class="role-name">Database Reactivation · The Offense Role</span></span>
+      <h2>The other nine roles stop losses. <em>This one goes and makes money.</em></h2>
+      <p class="why">Your book of business is already full of revenue: renewals coming due, single-policy households that should be bundles, and every quote you ever gave that never closed. Once a month, your team member works all three.</p>
+    </div>
+    <div class="panelbox">
+      <div class="panel-title"><span class="t">Hartwell Insurance · reactivation sweep · illustrative data</span><span class="chip"><span class="dot"></span>MONTHLY</span></div>
+      <div class="seg-grid">
+        <div class="seg r d2"><div class="num" data-count="34">0</div><div class="lb">Renewals due<br>next 30 days</div></div>
+        <div class="seg r d3"><div class="num" data-count="61">0</div><div class="lb">Single-policy households<br>flagged for bundle</div></div>
+        <div class="seg r d4"><div class="num money" data-count="217">0</div><div class="lb">Quotes given<br>that never closed</div></div>
+      </div>
+      <div class="quote-rows">
+        <div class="qrow d6"><span class="st-dead">COLD 8 MO</span><b>J. Alvarez</b>, auto quote, never bound<span class="st-live">REPLIED, "redo my quote"</span></div>
+        <div class="qrow d7"><span class="st-dead">COLD 3 MO</span><b>T. Nguyen</b>, home quote, went quiet<span class="st-live">BOOKED · Thu 11:00</span></div>
+        <div class="qrow d8"><span class="st-dead">RENEWAL 12 DAYS</span><b>Baker Wholesale LLC</b>, commercial package<span class="st-live">REMINDED · renewal call set</span></div>
+        <div class="qrow d9"><span class="st-dead">AUTO ONLY</span><b>The Herrera family</b>, no home policy with you<span class="st-live">BUNDLE QUOTE REQUESTED</span></div>
+      </div>
+      <div class="stampline" style="text-align:center;margin-top:22px"><span class="stamp">REVENUE FOUND IN YOUR OWN BOOK</span></div>
+    </div>
+    <div class="aside" style="margin-top:36px;max-width:680px">
+      <div class="pt hot r d10">
+        <div class="k">Why the cold quotes matter most</div>
+        <p>Independent P&C agencies close roughly <b>22 to 30% of the quotes they give</b>, the rest go cold. And industry data attributes <b>25-40% of that loss to follow-up failure</b>, not lack of interest. Those people wanted a quote from you. Nobody ever called them back. This role does, every month, forever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 07 · THE REVIEW ENGINE ============ -->
+<section class="scene" id="r7">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num def">ROLE 07</span><span class="role-name">The Review Engine</span></span>
+      <h2>Reviews are rankings. <em>Rankings are calls.</em></h2>
+      <p class="why">Every customer you help gets a one-tap review request. No response? It politely follows up for a month. You never chase a review again, they just accumulate.</p>
+    </div>
+    <div class="scene-body">
+      <div>
+        <div class="rating-line">
+          <span class="rating-big r d2">4.9</span>
+          <span class="rc r d3">Google rating · <b id="revcount" style="color:var(--ink)">87</b> reviews and counting</span>
+        </div>
+        <div class="gcard">
+          <div class="gtop">
+            <div class="gav">D</div>
+            <div><div class="gname">Dana R.</div><div class="gmeta">just now · posted to Google</div></div>
+          </div>
+          <div class="stars">
+            <svg class="gold" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="gold" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="gold" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="gold" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="gold" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
+          </div>
+          <p class="gtext">Called about my auto going up ninety dollars. They requoted everything, moved me, and my home went down too. One phone call.</p>
+          <div class="greply">
+            <div class="rh">Response from Hartwell Insurance <span class="ai">AUTO-DRAFTED</span></div>
+            <p>Thanks Dana, that's exactly what we're here for. Glad we could get both policies working harder for you.</p>
+          </div>
+        </div>
+      </div>
+      <div class="aside">
+        <div class="pt hot r d3">
+          <div class="k">The ask → chase → post loop</div>
+          <p>Customer helped → one-tap request sent → gentle reminders for a month if needed → review lands on <b>your actual Google Business Profile</b>, where the next shopper is looking.</p>
+        </div>
+        <div class="pt mut r d5">
+          <div class="k">Set once, runs forever</div>
+          <p>Your team tags the customer. Everything after that is your team member's job.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 08 · REVIEW RESPONSE AI ============ -->
+<section class="scene" id="r8">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num def">ROLE 08</span><span class="role-name">Review Response AI</span></span>
+      <h2>Every review answered. <em>In your voice. Every time.</em></h2>
+      <p class="why">Google notices whether you respond to reviews, and so does every prospect reading them. Answered reviews are a ranking signal and a trust signal, and most agencies fail both.</p>
+    </div>
+    <div class="scene-body">
+      <div>
+        <div class="gcard">
+          <div class="gtop">
+            <div class="gav" style="background:#0ea5e9">M</div>
+            <div><div class="gname">Marcus T.</div><div class="gmeta">2 minutes ago</div></div>
+          </div>
+          <div class="stars">
+            <svg class="gold" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="gold" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="gold" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="gold" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="gold" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
+          </div>
+          <p class="gtext">They actually came out and looked at the shop before quoting. Found two things my old policy didn't cover.</p>
+          <div class="greply">
+            <div class="rh">Response from Hartwell Insurance <span class="ai">ANSWERED IN 2 MIN</span></div>
+            <p>Thank you, Marcus. Walking the operation first is the only way to write commercial coverage properly, glad it showed.</p>
+          </div>
+        </div>
+        <span class="heldchip">⚠ NEGATIVE REVIEWS HELD FOR A HUMAN. ALWAYS.</span>
+      </div>
+      <div class="aside">
+        <div class="pt hot r d3">
+          <div class="k">Roles 07 + 08 together</div>
+          <p>One gets the reviews. The other answers them. Rating, freshness, and response rate, <b>the three signals</b>, all handled, on autopilot.</p>
+        </div>
+        <div class="pt mut r d5">
+          <div class="k">The honest limit</div>
+          <p>Anything under four stars is never auto-answered. It's flagged to you, because an upset customer deserves a person.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 09 · THE WEBSITE ============ -->
+<section class="scene" id="r9">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num def">ROLE 09</span><span class="role-name">The Website · Optional</span></span>
+      <h2>A storefront Google can <em>actually find.</em></h2>
+      <p class="why">If you want it, we rebuild your site conversion-first: a page for every line you write and every city you serve, locally SEO-optimized so Google surfaces you, not the agency across town.</p>
+    </div>
+    <div class="scene-body">
+      <div class="browser">
+        <div class="bar"><i></i><i></i><i></i><span class="url">hartwellinsurance.com</span></div>
+        <div class="site">
+          <div class="snav"><span>Auto</span><span>Home</span><span>Commercial</span><span>Life</span><span>Umbrella</span><span>Flood</span><span>Get a Quote</span></div>
+          <h4>Independent insurance for New Braunfels</h4>
+          <div class="ssub">24 carriers quoted side by side · ⭐ 4.9 (87 Google reviews)</div>
+          <div class="pagegrid">
+            <span class="pg d3">/auto-insurance</span><span class="pg d3">/home-insurance</span><span class="pg d4">/commercial-insurance</span>
+            <span class="pg d4">/life-insurance</span><span class="pg d5">/umbrella-insurance</span><span class="pg d5">/flood-insurance</span>
+            <span class="pg d6">/new-braunfels</span><span class="pg d6">/san-marcos</span><span class="pg d7">/seguin</span>
+            <span class="pg d7">/canyon-lake</span><span class="pg d8">/boerne</span><span class="pg d8">+ every line, every city</span>
+          </div>
+        </div>
+      </div>
+      <div class="aside">
+        <div class="pt hot r d3">
+          <div class="k">Exactly what your agency needs</div>
+          <p>Not a page count for its own sake, <b>every line of business and every city you serve gets its own page</b>, because that's what local search rewards.</p>
+        </div>
+        <div class="optbox r d5">
+          <span class="opt-tag">YOUR CALL, ENTIRELY OPTIONAL</span>
+          <b>Want to keep your current website?</b> Keep it. Every other role plugs into the site you already have. The rebuild is here if you want Google finding you easier, not a condition of working together.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 10 · VOICE AI ============ -->
+<section class="scene" id="r10">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num">ROLE 10</span><span class="role-name">Voice AI · The Callback</span></span>
+      <h2>If a call ever does slip through, <em>it calls them back itself.</em></h2>
+      <p class="why">The text-back catches most missed calls. This catches the rest: it phones the lead back, picks up where the text left off, and books them straight into the calendar.</p>
+    </div>
+    <div class="scene-body">
+      <div class="panelbox">
+        <div class="panel-title"><span class="t">Outbound callback · live transcript</span><span class="chip"><span class="dot"></span>00:41</span></div>
+        <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="voxrow ai d3"><span class="who">AGENT</span><p>Hi, this is the assistant at Hartwell Insurance. You called us a little earlier and we couldn't get to the phone. Sorry about that. What were you calling about?</p></div>
+        <div class="voxrow hum d5"><span class="who">CALLER</span><p>Yeah, I wanted to get a quote on my truck and maybe the house too.</p></div>
+        <div class="voxrow ai d7"><span class="who">AGENT</span><p>Perfect. Ray handles those together, which usually gets a better rate. He's open tomorrow at 9:30 or Thursday at 2. Which works better?</p></div>
+        <div class="voxrow hum d9"><span class="who">CALLER</span><p>Thursday at 2.</p></div>
+        <div class="voxrow ai d10"><span class="who">AGENT</span><p>You're booked. You'll get a text confirming it right now. Thanks for calling us back-… for letting us call you back!</p></div>
+        <div class="stampline" style="text-align:center;margin-top:16px"><span class="stamp">CAUGHT · BOOKED · THURS 2:00</span></div>
+        <div class="honest">Scope, honestly: this role calls missed leads back and books them. It never sells, never discusses coverage or policy detail, anything substantive goes straight to your people.</div>
+      </div>
+      <div class="aside">
+        <div class="freechip r d2">FOUNDING TEN · FREE</div>
+        <div class="pt hot r d3">
+          <div class="k">For the first ten agencies</div>
+          <p>Voice AI is normally a separate upgrade. The first ten agencies that move fast get it <b>included free</b>. We're building our documented case studies at this rate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS BAND ============ -->
+<section class="band scene" id="numbers">
+  <div class="wrap">
+    <h3 class="r">The money this team member works with is money you've already earned once.</h3>
+    <div class="statgrid">
+      <div class="stat r d2"><div class="big red">70-78%</div><p>of quotes independent P&C agencies give never turn into a policy.</p></div>
+      <div class="stat r d3"><div class="big red">25-40%</div><p>of that quote-to-bind loss is attributed to inconsistent follow-up, not lack of interest.</p></div>
+      <div class="stat r d4"><div class="big">$400-800</div><p>real cost per acquired customer on shared marketplace leads. Your own book costs nothing to re-work.</p></div>
+    </div>
+    <p class="srcnote r d5">Sources: industry P&C close-rate and follow-up data; insurance lead-marketplace CPA reporting; Glassdoor 2026 salary data. Screens above are a conceptual demonstration with illustrative agency data.</p>
+  </div>
+</section>
+
+<!-- ============ CLOSE ============ -->
+<section class="close scene" id="hire">
+  <div class="wrap">
+    <span class="chip r"><span class="dot"></span>THE HIRE</span>
+    <h2 class="r d1">Ten roles. Zero payroll. <br>Nothing for you to run.</h2>
+    <p class="cs r d2">We install everything, we manage everything, and your team keeps doing exactly what they do now, except the phone buzzes with live ones.</p>
+    <div class="plate r d3">
+      <div class="p-amt">$497</div>
+      <div class="p-per">per month · never more</div>
+      <ul>
+        <li><span class="tk">✓</span><span><b>No setup fee.</b> We build it before you pay anything.</span></li>
+        <li><span class="tk">✓</span><span><b>No contract.</b> Month to month, cancel anytime.</span></li>
+        <li><span class="tk">✓</span><span><b>Completely hands-off.</b> Managed for you, every day.</span></li>
+        <li><span class="tk">✓</span><span><b>Founding Ten:</b> Voice AI included free for the first ten agencies.</span></li>
+      </ul>
+    </div>
+    <p class="cs r d4" style="margin-top:36px">One conversation gets it hired. <b style="color:var(--ink)">Andrew Cherry · Regesta</b></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="brand">REGESTA</p>
+    <p>This page is a conceptual demonstration of the Regesta AI team member for independent insurance agencies. "Hartwell Insurance" and all customer names, conversations, reviews, and figures shown in the product screens are illustrative examples, not records of real customers. Offer terms shown ($497/month, no setup fee, no contract) are the current live offer. Statistics cited from published industry sources; details on request. Built and managed by Regesta, a RequityAI company.</p>
+  </div>
+</footer>
+
+<script>
+  // Scene activation
+  const scenes = document.querySelectorAll(".scene");
+  const railLinks = document.querySelectorAll("#rail a");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("on");
+        const id = e.target.id;
+        railLinks.forEach(a => a.classList.toggle("live", a.getAttribute("href") === "#" + id));
+        // counters
+        e.target.querySelectorAll("[data-count]").forEach(el => {
+          if (el.dataset.done) return;
+          el.dataset.done = "1";
+          const target = +el.dataset.count, t0 = performance.now(), dur = 1400;
+          const step = (t) => {
+            const p = Math.min((t - t0) / dur, 1);
+            el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+            if (p < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        });
+      } else if (e.intersectionRatio === 0 && e.target.id !== "top") {
+        // reset when fully out of view so scroll-back replays (good for filming)
+        e.target.classList.remove("on");
+        e.target.querySelectorAll("[data-count]").forEach(el => { delete el.dataset.done; el.textContent = "0"; });
+      }
+    });
+  }, { threshold: [0, 0.3] });
+  scenes.forEach(s => io.observe(s));
+
+  // review counter easter egg: ticks 87 -> 88 when review scene plays
+  const revScene = document.getElementById("r7");
+  const revIO = new IntersectionObserver((es) => {
+    es.forEach(e => {
+      const el = document.getElementById("revcount");
+      if (e.isIntersecting) { setTimeout(() => { if (revScene.classList.contains("on")) el.textContent = "88"; }, 2600); }
+      else if (e.intersectionRatio === 0) { el.textContent = "87"; }
+    });
+  }, { threshold: [0, 0.3] });
+  revIO.observe(revScene);
+</script>
+</body>
+</html>
