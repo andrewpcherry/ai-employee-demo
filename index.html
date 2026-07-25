@@ -279,7 +279,7 @@
   /* stats band */
   .band{padding:90px 0;border-top:1px solid rgba(29,44,73,.6);background:linear-gradient(180deg,rgba(16,26,48,.5),transparent)}
   .band h3{font-family:var(--disp);font-size:clamp(22px,3vw,32px);font-weight:700;max-width:700px;margin-bottom:36px}
-  .statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
   @media(max-width:760px){.statgrid{grid-template-columns:1fr}}
   .stat{border:1px solid var(--line);border-radius:14px;padding:26px}
   .stat .big{font-family:var(--disp);font-weight:700;font-size:42px;color:var(--green)}
@@ -587,7 +587,7 @@
       <div class="panel-title"><span class="t">Hartwell Insurance · reactivation sweep · illustrative data</span><span class="chip"><span class="dot"></span>MONTHLY</span></div>
       <div class="seg-grid">
         <div class="seg r d2"><div class="num" data-count="34">0</div><div class="lb">Renewals due<br>next 30 days</div></div>
-        <div class="seg r d3"><div class="num" data-count="61">0</div><div class="lb">Single-policy households<br>flagged for bundle</div></div>
+        <div class="seg r d3"><div class="num" data-count="61">0</div><div class="lb">Single-policy households<br>retaining at 67%, not 91%</div></div>
         <div class="seg r d4"><div class="num money" data-count="217">0</div><div class="lb">Quotes given<br>that never closed</div></div>
       </div>
       <div class="quote-rows">
@@ -599,6 +599,10 @@
       <div class="stampline" style="text-align:center;margin-top:22px"><span class="stamp">REVENUE FOUND IN YOUR OWN BOOK</span></div>
     </div>
     <div class="aside" style="margin-top:36px;max-width:680px">
+      <div class="pt hot r d9">
+        <div class="k">The single-policy leak</div>
+        <p>A household with two policies with you retains at about <b>91%</b>. A household with one retains at about <b>67%</b>. Every single-policy customer in the book is roughly <b>three times likelier to leave</b>, and most have never been asked about the second policy. This role asks, every month.</p>
+      </div>
       <div class="pt hot r d10">
         <div class="k">Why the cold quotes matter most</div>
         <p>Independent P&C agencies close roughly <b>22 to 30% of the quotes they give</b>, the rest go cold. And industry data attributes <b>25-40% of that loss to follow-up failure</b>, not lack of interest. Those people wanted a quote from you. Nobody ever called them back. This role does, every month, forever.</p>
@@ -801,6 +805,7 @@
       <div class="stat r d2"><div class="big red">70-78%</div><p>of quotes independent P&C agencies give never turn into a policy.</p></div>
       <div class="stat r d3"><div class="big red">25-40%</div><p>of that quote-to-bind loss is attributed to inconsistent follow-up, not lack of interest.</p></div>
       <div class="stat r d4"><div class="big">$400-800</div><p>real cost per acquired customer on shared marketplace leads. Your own book costs nothing to re-work.</p></div>
+      <div class="stat r d5"><div class="big red">67% vs 91%</div><p>retention on single-policy households versus bundled ones. The bundle conversation is a retention play, not an upsell.</p></div>
     </div>
     <p class="srcnote r d5">Sources: industry P&C close-rate and follow-up data; insurance lead-marketplace CPA reporting; Glassdoor 2026 salary data. Screens above are a conceptual demonstration with illustrative agency data.</p>
   </div>
