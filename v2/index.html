@@ -478,6 +478,20 @@
   .qsent{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:#0a7a4b;text-transform:uppercase;margin-top:10px;opacity:0}
   .on .qsent{animation:rise .4s ease 4.4s forwards}
 
+  /* ================= FOLLOW-UP LADDER ================= */
+  .ladder{border-left:2px solid var(--line);margin-left:8px;padding-left:0}
+  .lrow{position:relative;padding:0 0 18px 26px;opacity:0;transform:translateY(10px)}
+  .on .lrow{animation:rise .5s cubic-bezier(.2,.9,.25,1) forwards}
+  .lrow::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--stage);border:2px solid var(--blue)}
+  .lrow.sent::before{border-color:var(--green);background:var(--green)}
+  .lrow .lwhen{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+  .lrow .lwhat{font-size:14.5px;color:var(--ink);margin-top:4px;line-height:1.45}
+  .lrow .lwhat i{font-style:normal;color:var(--dim)}
+  .lrow .lch{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:4px;padding:2px 7px;margin-right:8px;color:var(--dim);vertical-align:1px}
+  .lstop{border:1px solid rgba(61,220,151,.45);background:rgba(61,220,151,.06);border-radius:12px;padding:16px 18px;margin-top:6px;font-size:14.5px;color:var(--dim);line-height:1.55}
+  .lstop b{color:var(--green)}
+  .lhand{border:1px dashed var(--line);border-radius:12px;padding:16px 18px;margin-top:12px;font-size:14.5px;color:var(--dim);line-height:1.55}
+  .lhand b{color:var(--ink)}
   /* ================= BOOKING WIDGET ================= */
   .bookui{background:#fff;border-radius:12px;padding:16px;color:var(--screen-ink)}
   .bkhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
@@ -916,7 +930,7 @@
       <ul class="revlist">
         <li><b>No more missed calls.</b><span>Every one gets a text back in nine seconds, at any hour, on any day.</span></li>
         <li><b>No more voicemails nobody returns.</b><span>It phones them back, asks what they need, and books them or puts them straight through to your team.</span></li>
-        <li><b>No more leads going cold overnight.</b><span>Every form, chat and DM answered in seconds, while they are still sitting there.</span></li>
+        <li><b>No more leads going cold.</b><span>Answered in seconds, then followed up for two weeks by text and email until they book or tell you to stop.</span></li>
         <li><b>No more phone tag.</b><span>They pick a slot themselves, get reminded twice, and turn up.</span></li>
         <li><b>No more one-policy customers walking.</b><span>The bundle conversation nobody has time to have, had every single month.</span></li>
         <li><b>No more chasing people for reviews.</b><span>Asked automatically, chased politely for a month, landed on your Google listing.</span></li>
@@ -1157,8 +1171,8 @@
     <div class="scene-head">
       <span class="role-tag"><span class="role-num">ROLE 02</span><span class="role-name">Instant Lead Follow-Up</span></span>
       <span class="surf"><span class="sq"></span>WHERE YOU SEE IT: <b>your quote form, their phone, your phone</b></span>
-      <h2>A quote form at 11:02 PM. <em>Answered by 11:02 PM.</em></h2>
-      <p class="why">People shop for insurance after the kids are down. The first agency to respond is usually the one that writes the policy, and at 11 PM, that's nobody. Now it's you.</p>
+      <h2>Answered in seconds. <em>Then followed up for a fortnight.</em></h2>
+      <p class="why">People shop for insurance after the kids are down. The first agency to respond is usually the one that writes the policy, and at 11 PM that is nobody. But answering first only gets you into the running. What actually wins the policy is the follow-up nobody has time to do, and that is the half of this role that never gets talked about.</p>
     </div>
 
     <div class="bframe" style="max-width:560px;margin:0 0 34px">
@@ -1216,10 +1230,51 @@
         <div class="phone-cap">Your phone, same moment</div>
       </div>
     </div>
-    <div class="aside" style="margin-top:36px;max-width:660px">
-      <div class="pt hot r d11">
-        <div class="k">Three surfaces, one trigger</div>
-        <p>One form fill at 11:02 PM. A text on her phone, a notification on yours, and a record in the CRM, <b>before anyone at the agency wakes up</b>.</p>
+    <div class="scene-body" style="margin-top:48px;align-items:start">
+      <div>
+        <div class="panel-title" style="margin-bottom:20px"><span class="t">And then it keeps going · Maria has not booked yet</span><span class="chip"><span class="dot"></span>AUTOMATIC</span></div>
+        <div class="ladder">
+          <div class="lrow sent" style="animation-delay:.2s">
+            <div class="lwhen">Day 0 · 11:02 PM</div>
+            <div class="lwhat"><span class="lch">Text</span>Got your request, we'll have numbers first thing. <i>Replied to in nine seconds.</i></div>
+          </div>
+          <div class="lrow sent" style="animation-delay:.5s">
+            <div class="lwhen">Day 1 · 9:15 AM</div>
+            <div class="lwhat"><span class="lch">Text</span>Morning Maria, your numbers are ready. Want them sent over, or a quick call?</div>
+          </div>
+          <div class="lrow sent" style="animation-delay:.8s">
+            <div class="lwhen">Day 2</div>
+            <div class="lwhat"><span class="lch">Email</span>The home and auto comparison, side by side, with the bundle number.</div>
+          </div>
+          <div class="lrow sent" style="animation-delay:1.1s">
+            <div class="lwhen">Day 5</div>
+            <div class="lwhat"><span class="lch">Text</span>Still shopping? Happy to re-run it if anything's changed.</div>
+          </div>
+          <div class="lrow sent" style="animation-delay:1.4s">
+            <div class="lwhen">Day 9</div>
+            <div class="lwhat"><span class="lch">Email</span>What actually changes your rate, and what does not.</div>
+          </div>
+          <div class="lrow sent" style="animation-delay:1.7s">
+            <div class="lwhen">Day 14</div>
+            <div class="lwhat"><span class="lch">Text</span>Last one from me. Want me to keep the quote on file?</div>
+          </div>
+        </div>
+        <div class="lstop r d8">Every one of these <b>stops the moment she replies or books.</b> It follows up, it does not pester, and it never sends a fourteenth text to somebody who answered on day one.</div>
+        <div class="lhand r d9">And if she never answers at all, <b>she is not dropped</b>. She rolls into the monthly database sweep in Role 06 and gets asked again, for as long as she is on the book.</div>
+      </div>
+      <div class="aside">
+        <div class="pt hot r d3">
+          <div class="k">Three surfaces, one trigger</div>
+          <p>One form fill at 11:02 PM. A text on her phone, a notification on yours, and a record in the CRM, <b>before anyone at the agency wakes up</b>.</p>
+        </div>
+        <div class="pt hot r d5">
+          <div class="k">This is the part that books the business</div>
+          <p>The first text gets you in the door. <b>The next six are what turn a quote into a policy.</b> Roughly a quarter to two fifths of every quote an agency loses is lost to inconsistent follow-up rather than to price or to interest, and inconsistent is exactly what human follow-up is when everyone is already on the phone.</p>
+        </div>
+        <div class="pt mut r d7">
+          <div class="k">Nobody at the agency runs this</div>
+          <p>No reminders to set, no list to work, no note in a diary. It runs on every single lead, in the same order, at the same times, <b>whether it is a Tuesday or Boxing Day</b>.</p>
+        </div>
       </div>
     </div>
   </div>
