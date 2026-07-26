@@ -478,6 +478,14 @@
   .qsent{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:#0a7a4b;text-transform:uppercase;margin-top:10px;opacity:0}
   .on .qsent{animation:rise .4s ease 4.4s forwards}
 
+  .audit{border:1px solid rgba(255,194,75,.45);background:rgba(255,194,75,.05);border-radius:14px;padding:20px 22px;margin-bottom:26px}
+  .audit .aq{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+  .audit ol{list-style:none;counter-reset:a}
+  .audit li{counter-increment:a;position:relative;padding:9px 0 9px 32px;font-size:15.5px;color:var(--ink);line-height:1.45;border-bottom:1px solid rgba(44,64,105,.55)}
+  .audit li::before{content:counter(a);position:absolute;left:0;top:9px;width:21px;height:21px;border-radius:50%;border:1px solid rgba(255,194,75,.6);color:var(--amber);font-family:var(--mono);font-size:11px;display:flex;align-items:center;justify-content:center}
+  .audit li:last-child{border-bottom:0}
+  .audit .ans{margin-top:14px;font-size:14.5px;color:var(--dim);line-height:1.55}
+  .audit .ans b{color:var(--ink)}
   .everyone{border:1px solid rgba(90,169,255,.4);background:rgba(90,169,255,.06);border-radius:14px;padding:18px 20px;margin-bottom:24px}
   .ev-lead{font-size:16px;color:var(--ink);font-weight:600;line-height:1.5;margin-bottom:14px}
   .ev-lead b{color:var(--blue)}
@@ -935,6 +943,7 @@
       <span>Reactivate every renewal.</span>
     </div>
     <p class="sub r d4"><b style="color:var(--red)">Missed calls are missed opportunities.</b> Think about the last time you needed somebody local. A plumber, a locksmith, anyone. You called, nobody picked up, and you did not leave a message and wait for them. You called the next one on the list and never thought about the first one again. Nobody does. <b>If you don't pick up, you don't get the business.</b> That happens at your agency every week and you never find out, because a policy you never wrote does not show up anywhere in your books.</p>
+    <p class="sub r d5" style="margin-top:20px">Underneath all ten roles it is one machine, and the machine is follow-up. Every call, form, chat and message that comes in gets answered, then chased for thirty days, then asked again every quarter for as long as they are on your book. <b>Nothing that ever contacts your agency gets dropped.</b></p>
     <p class="sub r d5" style="margin-top:20px">But the missed call is only the leak you can feel. <b>The others are quieter, and they are bigger.</b> The quote you worked up in March that nobody followed up on. The renewal that lapsed because nobody called. The customer with one policy who should have two. The review that never got asked for, and the one that never got answered. Every one of those is money you already earned once and lost anyway, and no agency loses it on purpose. They lose it because everyone is on the phone.</p>
 
     <div class="revband r d6">
@@ -1320,6 +1329,15 @@
         <div class="lhand r d9">Thirty days hard, then <b>once a quarter for as long as she is on the book</b>. Insurance renews every year, so somebody who was not buying in March is often buying by October. Four touches a year means you are never more than ninety days from being in front of her when that happens.<br><br><b style="color:var(--green)">Nobody who ever contacts your agency is dropped. Not after a month, not after a year, not ever.</b></div>
       </div>
       <div class="aside">
+        <div class="audit r d2">
+          <div class="aq">Three questions about your own agency</div>
+          <ol>
+            <li>How many quotes did you give last month?</li>
+            <li>How many of those got a third follow-up? A fifth?</li>
+            <li>Who at your agency would notice if one never got called back at all?</li>
+          </ol>
+          <div class="ans">Most owners know the first number and nobody knows the second. <b>That is not a discipline problem and nobody here is bad at their job.</b> Follow-up on day nine is simply the first thing that goes when the phone is ringing, in every agency, every week. It is the only part of the job that has no deadline and no one chasing it.</div>
+        </div>
         <div class="pt hot r d3">
           <div class="k">Three surfaces, one trigger</div>
           <p>One form fill at 11:02 PM. A text on her phone, a notification on yours, and a record in the CRM, <b>before anyone at the agency wakes up</b>.</p>
