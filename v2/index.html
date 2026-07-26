@@ -1,0 +1,2210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The $497 Agentic Team Member · Regesta · V2</title>
+<meta name="description" content="Watch the agentic team member work a day, on the actual screens your customers and your team look at. Ten roles, 24/7, $497 a month.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stage:#0a1020; --stage2:#0d1526; --panel:#101a30; --line:#1d2c49;
+    --ink:#eef3fb; --dim:#93a5c4; --faint:#5b6d8f;
+    --green:#3ddc97; --green-deep:#0f2e24; --red:#ff6b6b; --red-deep:#331116;
+    --amber:#ffc24b; --blue:#5aa9ff;
+    --screen:#f7f8fb; --screen-ink:#111827; --screen-dim:#6b7280; --screen-line:#e5e7eb;
+    --bubble-in:#e9ebf0; --bubble-out:#1273ea;
+    --disp:"Space Grotesk",sans-serif; --body:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--stage);color:var(--ink);font-family:var(--body);line-height:1.6;overflow-x:hidden}
+  ::selection{background:var(--blue);color:#fff}
+  img,svg{max-width:100%}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
+
+  /* ---------- shared chips / stamps ---------- */
+  .chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--dim);text-transform:uppercase}
+  .chip .dot{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+  .stamp{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.24em;padding:8px 16px;border:2px solid var(--green);color:var(--green);background:var(--green-deep);transform:scale(1.5) rotate(-4deg);opacity:0;border-radius:4px}
+  .on .stamp{animation:stampIn .45s cubic-bezier(.2,1.6,.4,1) forwards}
+  .stamp.bad{border-color:var(--red);color:var(--red);background:var(--red-deep)}
+  @keyframes stampIn{to{transform:scale(1) rotate(-2deg);opacity:1}}
+
+  /* ---------- reveal system ---------- */
+  .r{opacity:0;transform:translateY(22px)}
+  .on .r{animation:rise .7s cubic-bezier(.2,.8,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .on .d1{animation-delay:.15s}.on .d2{animation-delay:.3s}.on .d3{animation-delay:.5s}
+  .on .d4{animation-delay:.7s}.on .d5{animation-delay:.95s}.on .d6{animation-delay:1.2s}
+  .on .d7{animation-delay:1.5s}.on .d8{animation-delay:1.8s}.on .d9{animation-delay:2.15s}
+  .on .d10{animation-delay:2.5s}.on .d11{animation-delay:2.9s}.on .d12{animation-delay:3.3s}
+  .on .d13{animation-delay:3.7s}.on .d14{animation-delay:4.1s}
+
+  /* ---------- version switcher ---------- */
+  .vswitch{position:fixed;top:16px;right:18px;z-index:80;display:flex;border:1px solid var(--line);border-radius:99px;background:rgba(10,16,32,.82);backdrop-filter:blur(8px);overflow:hidden;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em}
+  .vswitch a{padding:7px 14px;color:var(--dim);text-decoration:none}
+  .vswitch a.cur{background:var(--green);color:var(--stage);font-weight:700}
+  @media(max-width:520px){.vswitch{top:10px;right:10px}.vswitch a{padding:6px 11px;font-size:9.5px}}
+
+  /* ---------- hero ---------- */
+  .hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding:96px 0 64px;position:relative}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(900px 500px at 75% 8%, rgba(90,169,255,.10), transparent 60%),
+    radial-gradient(700px 420px at 15% 90%, rgba(61,220,151,.07), transparent 60%);pointer-events:none}
+  .hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(38px,6.6vw,80px);line-height:1.02;letter-spacing:-.02em;margin:22px 0 20px;max-width:900px}
+  .hero h1 em{font-style:normal;color:var(--green)}
+  .hero .sub{font-size:clamp(16px,2vw,20px);color:var(--dim);max-width:660px}
+  .hero .sub b{color:var(--ink);font-weight:600}
+
+  .payroll{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px}
+  @media(max-width:560px){.payroll{grid-template-columns:1fr}}
+  .pay-card{border:1px solid var(--line);border-radius:14px;padding:22px 24px;background:linear-gradient(180deg,var(--panel),var(--stage2))}
+  .pay-card .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--faint);text-transform:uppercase}
+  .pay-card .amt{font-family:var(--disp);font-weight:700;font-size:clamp(28px,4.4vw,46px);margin:10px 0 6px;letter-spacing:-.01em}
+  .pay-card .per{font-size:13px;color:var(--dim)}
+  .pay-card.you{border-color:rgba(61,220,151,.45);box-shadow:0 0 60px rgba(61,220,151,.07) inset}
+  .pay-card.you .amt{color:var(--green)}
+  .pay-note{grid-column:1/-1;font-size:12.5px;color:var(--faint)}
+  .scrollcue{margin-top:44px;display:inline-flex;align-items:center;gap:12px;color:var(--dim);font-family:var(--mono);font-size:12px;letter-spacing:.2em}
+  .scrollcue .bar{width:1px;height:44px;background:linear-gradient(var(--dim),transparent);animation:cue 1.6s ease-in-out infinite}
+  @keyframes cue{50%{transform:translateY(8px);opacity:.4}}
+
+  /* ---------- role rail ---------- */
+  .rail{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:10px}
+  .rail a{width:8px;height:8px;border-radius:50%;background:var(--line);display:block;transition:.25s;position:relative}
+  .rail a.live{background:var(--green);transform:scale(1.35)}
+  .rail a span{position:absolute;right:18px;top:50%;transform:translateY(-50%);white-space:nowrap;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim);opacity:0;transition:.2s;pointer-events:none;text-transform:uppercase}
+  .rail a:hover span,.rail a.live span{opacity:1}
+  @media(max-width:1180px){.rail{display:none}}
+
+  /* ---------- scene scaffold ---------- */
+  .scene{padding:110px 0;border-top:1px solid rgba(29,44,73,.6);position:relative}
+  @media(max-width:640px){.scene{padding:78px 0}}
+  .scene-head{margin-bottom:40px;max-width:780px}
+  .scene-head .role-tag{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+  .role-num{font-family:var(--mono);font-size:11px;color:var(--stage);background:var(--green);padding:3px 9px;border-radius:3px;font-weight:700;letter-spacing:.1em}
+  .role-num.def{background:var(--blue)}
+  .role-name{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+  .scene-head h2{font-family:var(--disp);font-weight:700;font-size:clamp(25px,3.6vw,42px);line-height:1.12;letter-spacing:-.015em}
+  .scene-head h2 em{font-style:normal;color:var(--green)}
+  .scene-head h2 em.loss{color:var(--red)}
+  .scene-head .why{margin-top:14px;color:var(--dim);font-size:16px;max-width:640px}
+  .scene-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+  @media(max-width:900px){.scene-body{grid-template-columns:1fr;gap:32px}}
+  .aside .pt{border-left:2px solid var(--line);padding:2px 0 2px 20px;margin-bottom:22px}
+  .aside .pt.hot{border-color:var(--green)}
+  .aside .pt .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--green);text-transform:uppercase;margin-bottom:6px}
+  .aside .pt.mut .k{color:var(--faint)}
+  .aside .pt p{color:var(--dim);font-size:15px}
+  .aside .pt p b{color:var(--ink);font-weight:600}
+
+  /* ---------- WHERE YOU SEE IT label ---------- */
+  .surf{display:flex;width:fit-content;align-items:center;gap:9px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line);border-radius:99px;padding:5px 13px;margin-bottom:14px;max-width:100%}
+  .surf b{color:var(--blue);font-weight:500}
+  .surf .sq{width:6px;height:6px;background:var(--blue);border-radius:1px;flex:none}
+
+  /* ---------- phone chrome ---------- */
+  .phone{width:min(330px,88vw);margin:0 auto;background:#0b0d12;border-radius:42px;padding:10px;box-shadow:0 24px 80px rgba(0,0,0,.55),0 0 0 1px #232a38, 0 0 90px rgba(90,169,255,.06);position:relative}
+  .phone .screen{background:var(--screen);border-radius:34px;overflow:hidden;min-height:560px;display:flex;flex-direction:column;position:relative}
+  .phone .notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:110px;height:26px;background:#0b0d12;border-radius:16px;z-index:5}
+  .statusbar{display:flex;justify-content:space-between;padding:14px 22px 6px;font-size:12px;font-weight:600;color:var(--screen-ink);font-family:var(--body)}
+  .phone.dark .screen{background:#101319}
+  .phone.dark .statusbar{color:#e5e7eb}
+  .phone-cap{margin-top:16px;text-align:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--faint);text-transform:uppercase}
+
+  /* ---------- incoming call UI ---------- */
+  .callui{flex:1;display:flex;flex-direction:column;align-items:center;padding:64px 24px 40px;background:linear-gradient(180deg,#1a2030,#0e1119);color:#fff}
+  .callui .from{font-size:13px;color:#9aa4b5;letter-spacing:.06em}
+  .callui .who{font-family:var(--disp);font-size:24px;font-weight:600;margin-top:8px;text-align:center}
+  .callui .num{font-size:14px;color:#9aa4b5;margin-top:6px}
+  .ringwrap{margin:34px 0 8px;position:relative;width:92px;height:92px}
+  .ringwrap .avatar{position:absolute;inset:0;border-radius:50%;background:#2a3347;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-size:30px;font-weight:600;color:#c8d2e4}
+  .on .ringwrap::before,.on .ringwrap::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(90,169,255,.5);animation:ring 1.4s ease-out infinite}
+  .on .ringwrap::after{animation-delay:.7s}
+  @keyframes ring{from{transform:scale(1);opacity:1}to{transform:scale(1.7);opacity:0}}
+  .ringing-lbl{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:#8fa3c0;margin-top:14px}
+  .on .ringing-lbl{animation:blink 1.1s steps(1) infinite}
+  @keyframes blink{50%{opacity:.35}}
+  .callbtns{margin-top:auto;display:flex;gap:70px}
+  .cbtn{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px}
+  .cbtn.red{background:#ff453a}.cbtn.grn{background:#30d158}
+  .missbanner{position:absolute;left:12px;right:12px;top:52px;background:rgba(24,28,38,.96);border-radius:16px;padding:12px 16px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.4);opacity:0;transform:translateY(-16px);z-index:6}
+  .on .missbanner{animation:drop .5s cubic-bezier(.2,1.4,.4,1) 2.6s forwards}
+  @keyframes drop{to{opacity:1;transform:none}}
+  .missbanner .t{font-size:12px;font-weight:600}.missbanner .s{font-size:11.5px;color:#9aa4b5}
+
+  /* ---------- iMessage thread ---------- */
+  .thread{flex:1;display:flex;flex-direction:column;padding:16px 14px 20px;gap:8px;background:var(--screen)}
+  .thread-head{text-align:center;padding:26px 0 8px}
+  .thread-head .av{width:44px;height:44px;border-radius:50%;background:#d7dbe4;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:600;color:#3c4453}
+  .thread-head .nm{font-size:12.5px;color:var(--screen-ink);font-weight:600}
+  .tstamp{text-align:center;font-size:10.5px;color:var(--screen-dim);margin:4px 0}
+  .msg{max-width:78%;padding:9px 13px;border-radius:18px;font-size:13.5px;line-height:1.45;opacity:0;transform:translateY(10px) scale(.97)}
+  .on .msg{animation:pop .4s cubic-bezier(.2,1.3,.4,1) forwards}
+  .msg.in{align-self:flex-start;background:var(--bubble-in);color:var(--screen-ink);border-bottom-left-radius:6px}
+  .msg.out{align-self:flex-end;background:var(--bubble-out);color:#fff;border-bottom-right-radius:6px}
+  @keyframes pop{to{opacity:1;transform:none}}
+  .delivered{align-self:flex-end;font-size:10px;color:var(--screen-dim);margin-top:-4px;opacity:0}
+  .on .delivered{animation:rise .4s forwards}
+  .thread .stampline{align-self:center;margin-top:10px}
+
+  /* ---------- generic app screen ---------- */
+  .app{flex:1;background:var(--screen);display:flex;flex-direction:column}
+  .app-head{padding:30px 18px 12px;border-bottom:1px solid var(--screen-line);display:flex;align-items:center;gap:10px}
+  .app-logo{width:30px;height:30px;border-radius:8px;background:#12395c;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:700;font-size:13px;flex:none}
+  .app-head .t{font-size:14px;font-weight:700;color:var(--screen-ink);font-family:var(--disp)}
+  .app-head .s{font-size:10.5px;color:var(--screen-dim)}
+  .rowitem{display:flex;gap:12px;padding:13px 16px;border-bottom:1px solid var(--screen-line);opacity:0;transform:translateX(26px);background:#fff;align-items:center}
+  .on .rowitem{animation:slidein .45s cubic-bezier(.2,1,.3,1) forwards}
+  @keyframes slidein{to{opacity:1;transform:none}}
+  .ric{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+  .ric svg{width:17px;height:17px}
+  .ric.call{background:#e8f1ff;color:#1a56c4}.ric.txt{background:#e9fbf2;color:#0a7a4b}
+  .ric.rev{background:#fff6e5;color:#a16207}.ric.q{background:#f3e9ff;color:#6d28d9}
+  .ric.ig{background:#ffe9f3;color:#be2b6b}.ric.wa{background:#e6f8ec;color:#128c4a}
+  .rowitem .rt{font-size:12.5px;font-weight:600;color:var(--screen-ink)}
+  .rowitem .rs{font-size:11.5px;color:var(--screen-dim)}
+  .rowitem .rtime{margin-left:auto;font-size:10px;color:var(--screen-dim);flex:none}
+  .newpill{margin-left:auto;flex:none;font-size:9px;font-weight:700;letter-spacing:.08em;color:#0a7a4b;background:#dcfce7;padding:3px 7px;border-radius:99px;align-self:center}
+
+  /* ---------- big panels ---------- */
+  .panelbox{border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--panel),var(--stage2));padding:26px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  @media(max-width:560px){.panelbox{padding:18px}}
+  .panel-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+  .panel-title .t{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+
+  /* ================= SYSTEM MAP ================= */
+  .mapwrap{position:relative;border:1px solid var(--line);border-radius:18px;background:
+      radial-gradient(700px 300px at 50% 0%,rgba(90,169,255,.07),transparent 70%),
+      linear-gradient(180deg,var(--panel),var(--stage2));padding:26px 22px;box-shadow:0 24px 70px rgba(0,0,0,.4);overflow:hidden}
+  @media(max-width:560px){.mapwrap{padding:18px 14px}}
+  .mapgrid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(150px,auto) minmax(0,1fr);gap:clamp(24px,5vw,70px);align-items:center}
+  .mapcol{display:grid;gap:9px}
+  .mapcol .colhead{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;color:var(--faint);text-transform:uppercase;margin-bottom:2px}
+  .mnode{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:rgba(8,13,26,.72);text-decoration:none;color:var(--dim);font-size:12px;line-height:1.25;transition:border-color .3s,box-shadow .3s,color .3s;min-width:0}
+  .mnode:hover{border-color:rgba(90,169,255,.55);color:var(--ink)}
+  .mnode .ni{width:22px;height:22px;border-radius:6px;background:rgba(90,169,255,.12);color:var(--blue);display:flex;align-items:center;justify-content:center;flex:none}
+  .mnode .ni svg{width:13px;height:13px}
+  .mnode .nl{min-width:0;overflow-wrap:anywhere}
+  .mnode .nr{margin-left:auto;font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:var(--faint);flex:none;padding-left:6px}
+  .mapcol.out .mnode .ni{background:rgba(61,220,151,.12);color:var(--green)}
+  .mnode.hot{border-color:var(--green);color:var(--ink);box-shadow:0 0 0 1px rgba(61,220,151,.35),0 0 26px rgba(61,220,151,.18)}
+  .mcorewrap{display:flex;justify-content:center}
+  .mcore{position:relative;border:1px solid rgba(61,220,151,.45);border-radius:16px;padding:18px 16px;text-align:center;background:linear-gradient(180deg,rgba(61,220,151,.10),rgba(10,16,32,.9));min-width:150px}
+  .mcore .ct{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--green);text-transform:uppercase}
+  .mcore .cn{font-family:var(--disp);font-weight:700;font-size:15px;margin-top:6px;line-height:1.2}
+  .mcore .cs{font-size:11px;color:var(--dim);margin-top:4px}
+  .mcore::after{content:"";position:absolute;inset:-6px;border-radius:20px;border:1px solid rgba(61,220,151,.3);opacity:0}
+  .on .mcore::after{animation:breathe 3s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:.15;transform:scale(1)}50%{opacity:.75;transform:scale(1.03)}}
+  .mapwires{position:absolute;inset:0;z-index:1;pointer-events:none}
+  .wire{fill:none;stroke:#22345a;stroke-width:1.4;transition:stroke .35s,stroke-width .35s}
+  .wire.hot{stroke:var(--green);stroke-width:2}
+  .packets{position:absolute;inset:0;z-index:3;pointer-events:none}
+  .packet{position:absolute;left:0;top:0;width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px 2px rgba(90,169,255,.65);opacity:0;offset-rotate:0deg}
+  .packet.g{background:var(--green);box-shadow:0 0 10px 2px rgba(61,220,151,.65)}
+  .mapwrap.busy .packet.loop{animation:flow var(--dur,3s) linear infinite var(--dly,0s)}
+  .packet.fire{animation:flow var(--dur,1s) linear 1 forwards}
+  @keyframes flow{0%{offset-distance:0%;opacity:0}10%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
+
+  .readout{margin-top:22px;border-top:1px solid var(--line);padding-top:16px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+  .rstep{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--faint);opacity:.35;transition:.35s}
+  .rstep b{color:var(--faint);font-weight:500}
+  .rstep.lit{opacity:1;color:var(--dim)}
+  .rstep.lit b{color:var(--green)}
+  .rstep .arw{color:#22345a}
+  .mapsub{margin-top:16px;font-size:13px;color:var(--faint)}
+  .maplegend{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase;margin-bottom:14px}
+  .maplegend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+  @media(max-width:900px){
+    .mapgrid{grid-template-columns:1fr;gap:26px}
+    .mapcol{grid-template-columns:1fr 1fr;gap:8px}
+    .mapcol .colhead{grid-column:1/-1}
+    .mnode{font-size:11px;padding:7px 8px}
+    .mnode .nr{display:none}
+  }
+
+  /* ================= BROWSER FRAME ================= */
+  .bframe{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+  .bbar{display:flex;align-items:center;gap:8px;background:#0e1524;padding:10px 14px}
+  .bbar i{width:10px;height:10px;border-radius:50%;background:#2a3854;flex:none}
+  .bbar i:nth-child(1){background:#ff5f57}.bbar i:nth-child(2){background:#febc2e}.bbar i:nth-child(3){background:#28c840}
+  .bbar .url{margin-left:8px;font-family:var(--mono);font-size:10.5px;color:var(--dim);background:#0a0f1c;border-radius:6px;padding:4px 12px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .bview{position:relative;color:var(--screen-ink);background:#fff}
+  .site2{padding:18px 20px 24px}
+  .s2top{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--screen-line);padding-bottom:12px;flex-wrap:wrap}
+  .s2logo{width:28px;height:28px;border-radius:7px;background:#12395c;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:700;font-size:12px;flex:none}
+  .s2name{font-family:var(--disp);font-weight:700;font-size:13.5px;letter-spacing:-.01em}
+  .s2nav{display:flex;gap:13px;margin-left:auto;font-size:10.5px;font-weight:600;color:#4b5563;flex-wrap:wrap}
+  .s2cta{background:#12395c;color:#fff;border-radius:6px;padding:5px 11px;font-size:10.5px;font-weight:700}
+  .s2hero{padding:22px 0 16px}
+  .s2hero h4{font-family:var(--disp);font-size:clamp(17px,2.4vw,23px);line-height:1.15;letter-spacing:-.01em;max-width:420px}
+  .s2hero p{font-size:12px;color:var(--screen-dim);margin-top:8px;max-width:400px}
+  .s2btn{display:inline-block;margin-top:14px;background:#12395c;color:#fff;font-size:12px;font-weight:700;border-radius:7px;padding:9px 18px}
+  .s2cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+  @media(max-width:560px){.s2cards{grid-template-columns:1fr}.s2nav{display:none}}
+  .s2card{border:1px solid var(--screen-line);border-radius:9px;padding:11px 12px}
+  .s2card .ct{font-size:11.5px;font-weight:700}
+  .s2card .cd{font-size:10.5px;color:var(--screen-dim);margin-top:3px}
+
+  /* ================= CHAT WIDGET (in-frame) ================= */
+  .chatzone{position:absolute;right:16px;bottom:16px;z-index:6;display:flex;flex-direction:column;align-items:flex-end;gap:10px;max-width:calc(100% - 32px)}
+  .clauncher{position:relative;width:52px;height:52px;border-radius:50%;background:#12395c;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.28);flex:none;opacity:0;transform:scale(.5)}
+  .clauncher svg{width:24px;height:24px}
+  .on .clauncher{animation:pop .5s cubic-bezier(.2,1.5,.4,1) 1s forwards}
+  .clauncher::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(18,57,92,.5)}
+  .on .clauncher::before{animation:pulsering 2s ease-out 1.4s infinite}
+  @keyframes pulsering{from{transform:scale(1);opacity:.9}to{transform:scale(1.9);opacity:0}}
+  .cbadge{position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;border-radius:99px;background:#ff3b30;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 5px;border:2px solid #fff}
+  .cpanel{width:min(292px,100%);background:#fff;border-radius:14px;box-shadow:0 22px 60px rgba(0,0,0,.32);overflow:hidden;opacity:0;transform:translateY(14px) scale(.94);transform-origin:bottom right;display:flex;flex-direction:column}
+  .on .cpanel{animation:panelIn .45s cubic-bezier(.2,1.2,.35,1) 2s forwards}
+  @keyframes panelIn{to{opacity:1;transform:none}}
+  .chead{background:#12395c;color:#fff;padding:11px 13px;display:flex;align-items:center;gap:9px}
+  .chead .cav{width:28px;height:28px;border-radius:50%;background:#dfe8f5;color:#12395c;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:700;font-size:11px;flex:none}
+  .chead .cnm{font-size:11.5px;font-weight:700;line-height:1.2}
+  .chead .cst{font-size:9.5px;color:#b9cbe2;display:flex;align-items:center;gap:5px}
+  .chead .cst i{width:6px;height:6px;border-radius:50%;background:#3ddc97;display:inline-block}
+  .sitepane{min-height:424px}
+  .cbody{padding:12px;display:flex;flex-direction:column;justify-content:flex-end;gap:7px;background:#f4f6fa;height:292px;overflow:hidden}
+  @media(max-width:560px){.sitepane{min-height:436px}}
+  .cmsg{max-width:84%;font-size:11.5px;line-height:1.4;padding:8px 11px;border-radius:14px;opacity:0;transform:translateY(8px)}
+  .cmsg.in{align-self:flex-start;background:#fff;color:#111827;border-bottom-left-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+  .cmsg.out{align-self:flex-end;background:#12395c;color:#fff;border-bottom-right-radius:5px}
+  .ctype{align-self:flex-start;background:#fff;border-radius:14px;border-bottom-left-radius:5px;padding:9px 12px;display:flex;gap:4px;opacity:0;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+  .ctype i{width:6px;height:6px;border-radius:50%;background:#9aa2b1;animation:tdot 1s ease-in-out infinite}
+  .ctype i:nth-child(2){animation-delay:.15s}.ctype i:nth-child(3){animation-delay:.3s}
+  @keyframes tdot{40%{transform:translateY(-4px)}}
+  .play .cmsg{animation:pop .35s cubic-bezier(.2,1.3,.4,1) forwards}
+  .play .ctype{animation:blip .01s linear forwards,blipout .01s linear forwards}
+  @keyframes blip{to{opacity:1}}@keyframes blipout{to{opacity:0}}
+  .cfoot{border-top:1px solid var(--screen-line);padding:8px 12px;font-size:10.5px;color:#9aa2b1;display:flex;align-items:center;gap:8px;background:#fff}
+  .cfoot .fake{flex:1;border:1px solid var(--screen-line);border-radius:99px;padding:5px 10px}
+  .cfoot .snd{width:24px;height:24px;border-radius:50%;background:#12395c;color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+  .cfoot .snd svg{width:12px;height:12px}
+  /* inline booking card inside chat */
+  .bookcard{align-self:flex-start;background:#fff;border:1px solid var(--screen-line);border-radius:12px;padding:10px;width:88%;opacity:0;transform:translateY(8px);box-shadow:0 2px 8px rgba(0,0,0,.07)}
+  .play .bookcard{animation:pop .4s cubic-bezier(.2,1.3,.4,1) forwards}
+  .bookcard .bt{font-size:10px;font-weight:700;letter-spacing:.1em;color:#6b7280;text-transform:uppercase;font-family:var(--mono)}
+  .bookcard .bslots{display:flex;gap:6px;margin-top:8px}
+  .bslot{flex:1;border:1px solid var(--screen-line);border-radius:8px;padding:7px 4px;text-align:center;font-size:10.5px;font-weight:600;color:#374151;transition:.3s}
+  .bookcard .bconf{margin-top:8px;font-size:10.5px;color:#0a7a4b;font-weight:700;opacity:0}
+  .play .bslot.pick{animation:pickslot .4s ease 5.4s forwards}
+  @keyframes pickslot{to{background:#0a7a4b;border-color:#0a7a4b;color:#fff}}
+  .play .bookcard .bconf{animation:rise .4s ease 6s forwards}
+  /* receipts flying out */
+  .receipts{display:flex;flex-direction:column;gap:9px}
+  .receipt{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:rgba(8,13,26,.7);opacity:0;transform:translateX(-18px)}
+  .on .receipt{animation:recIn .5s cubic-bezier(.2,1,.3,1) forwards}
+  @keyframes recIn{to{opacity:1;transform:none}}
+  .receipt .rk{width:22px;height:22px;border-radius:6px;background:rgba(61,220,151,.12);color:var(--green);display:flex;align-items:center;justify-content:center;flex:none}
+  .receipt .rk svg{width:12px;height:12px}
+  .receipt .rtt{font-size:12.5px;color:var(--ink);font-weight:600;line-height:1.3}
+  .receipt .rss{font-size:11.5px;color:var(--dim)}
+
+  /* channel switcher + skins */
+  .chanbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+  .chanbtn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:99px;padding:7px 13px;font-size:12px;color:var(--dim);background:rgba(8,13,26,.5);cursor:pointer;font-family:var(--body);transition:.25s}
+  .chanbtn svg{width:13px;height:13px}
+  .chanbtn:hover{border-color:rgba(90,169,255,.5);color:var(--ink)}
+  .chanbtn.sel{border-color:var(--green);color:var(--ink);background:rgba(61,220,151,.08)}
+  .chanbtn .cdot{width:7px;height:7px;border-radius:50%;background:var(--faint)}
+  .chanbtn.sel .cdot{background:var(--green)}
+  .chanhint{margin-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase}
+
+  .surface[data-skin="sms"] .bbar,.surface[data-skin="messenger"] .bbar,
+  .surface[data-skin="instagram"] .bbar,.surface[data-skin="whatsapp"] .bbar{display:none}
+  .surface .skinhead{display:none;align-items:center;gap:10px;padding:11px 14px;color:#fff}
+  .surface[data-skin="sms"] .skinhead,.surface[data-skin="messenger"] .skinhead,
+  .surface[data-skin="instagram"] .skinhead,.surface[data-skin="whatsapp"] .skinhead{display:flex}
+  .surface[data-skin="sms"] .skinhead{background:#1f2937}
+  .surface[data-skin="messenger"] .skinhead{background:#0084ff}
+  .surface[data-skin="instagram"] .skinhead{background:linear-gradient(90deg,#833ab4,#e1306c,#f77737)}
+  .surface[data-skin="whatsapp"] .skinhead{background:#075e54}
+  .skinhead .sk-av{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:700;font-size:10.5px;flex:none}
+  .skinhead .sk-nm{font-size:12px;font-weight:700;line-height:1.2}
+  .skinhead .sk-sb{font-size:10px;opacity:.85}
+  .skinhead .sk-ch{margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;opacity:.9;text-align:right}
+  .surface[data-skin] .sitepane{display:block}
+  .surface:not([data-skin="web"]) .sitepane{display:none}
+  .surface:not([data-skin="web"]) .chatzone{position:static;padding:12px;max-width:none;align-items:stretch}
+  .surface:not([data-skin="web"]) .clauncher{display:none}
+  .surface:not([data-skin="web"]) .cpanel{width:100%;box-shadow:none;border-radius:0;opacity:1;transform:none;animation:none}
+  .surface:not([data-skin="web"]) .chead{display:none}
+  .surface[data-skin="sms"] .cmsg.out{background:#1273ea}
+  .surface[data-skin="messenger"] .cmsg.out{background:#0084ff}
+  .surface[data-skin="instagram"] .cmsg.out{background:#c1298a}
+  .surface[data-skin="whatsapp"] .cmsg.out{background:#128c4a}
+  .surface[data-skin="whatsapp"] .cbody{background:#ece5dd}
+  .surface[data-skin="instagram"] .cbody{background:#fff}
+  .surface{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+  .surface .bframe{border:0;border-radius:0;box-shadow:none}
+
+  /* ================= PERSISTENT DOCK PHONE ================= */
+  .dock{position:fixed;left:20px;bottom:20px;z-index:60;width:236px;background:#0b0d12;border-radius:26px;padding:7px;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 1px #232a38}
+  .dock .dscreen{background:#0f1319;border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+  .dock .dhead2{padding:12px 12px 10px;border-bottom:1px solid #1e2532}
+  .dock .dtitle{display:flex;align-items:center;gap:8px}
+  .dock .dtitle .dlogo{width:20px;height:20px;border-radius:6px;background:#12395c;color:#fff;font-family:var(--disp);font-weight:700;font-size:9px;display:flex;align-items:center;justify-content:center;flex:none}
+  .dock .dtitle .dn{font-size:10.5px;font-weight:700;color:#e5e7eb}
+  .dock .dtitle .dl{margin-left:auto;font-family:var(--mono);font-size:8px;letter-spacing:.16em;color:#3ddc97}
+  .dcount{margin-top:9px;display:flex;gap:6px}
+  .dcount div{flex:1;border:1px solid #1e2532;border-radius:7px;padding:5px 4px;text-align:center}
+  .dcount b{display:block;font-family:var(--disp);font-weight:700;font-size:15px;color:#e5e7eb;line-height:1.1}
+  .dcount span{font-family:var(--mono);font-size:7px;letter-spacing:.1em;color:#63708a;text-transform:uppercase}
+  .dcount .bk b{color:#3ddc97}
+  .dstack{padding:8px;display:flex;flex-direction:column;gap:6px;height:214px;overflow:hidden;justify-content:flex-end}
+  .noti{background:rgba(255,255,255,.06);border-radius:11px;padding:7px 9px;color:#e5e7eb;animation:notiIn .5s cubic-bezier(.2,1.2,.35,1)}
+  @keyframes notiIn{from{opacity:0;transform:translateY(12px) scale(.96)}}
+  .noti .nh{display:flex;gap:6px;align-items:center;font-size:8.5px;color:#8b93a5;margin-bottom:2px}
+  .noti .nh b{color:#fff;font-weight:700}
+  .noti .nh span{margin-left:auto}
+  .noti .nb{font-size:10.5px;font-weight:600;line-height:1.3}
+  .noti .ns{font-size:9.5px;color:#9aa4b5;line-height:1.3}
+  .dockcap{text-align:center;font-family:var(--mono);font-size:8px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase;padding:6px 0 2px}
+  @media(max-width:1180px){.dock{display:none}}
+  .inlinedock{display:none;margin-top:26px}
+  @media(max-width:1180px){.inlinedock{display:block}}
+
+  /* ================= PAGE CHAT WIDGET ================= */
+  .pagechat{position:fixed;right:20px;bottom:20px;z-index:70;display:flex;flex-direction:column;align-items:flex-end;gap:12px;max-width:calc(100vw - 40px)}
+  .pclaunch{position:relative;width:56px;height:56px;border-radius:50%;background:var(--green);color:#07271a;border:0;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px rgba(0,0,0,.45);cursor:pointer;flex:none}
+  .pclaunch svg{width:25px;height:25px}
+  .pclaunch::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(61,220,151,.55);animation:pulsering 2.4s ease-out infinite}
+  .pcbadge{position:absolute;top:-2px;right:-2px;min-width:18px;height:18px;border-radius:99px;background:var(--red);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid var(--stage)}
+  .pcpanel{width:min(316px,calc(100vw - 40px));border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--panel),var(--stage2));box-shadow:0 26px 70px rgba(0,0,0,.6);overflow:hidden;display:none;flex-direction:column}
+  .pcpanel.open{display:flex}
+  .pchead{padding:12px 14px;background:rgba(61,220,151,.09);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+  .pchead .pcav{width:30px;height:30px;border-radius:50%;background:var(--green);color:#07271a;font-family:var(--disp);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex:none}
+  .pchead .pcn{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.2}
+  .pchead .pcs{font-size:10px;color:var(--dim);display:flex;align-items:center;gap:5px}
+  .pchead .pcs i{width:6px;height:6px;border-radius:50%;background:var(--green)}
+  .pcclose{margin-left:auto;background:0;border:0;color:var(--faint);font-size:18px;line-height:1;cursor:pointer;padding:2px 4px}
+  .pcbody{padding:12px;display:flex;flex-direction:column;gap:8px;max-height:min(46vh,320px);overflow-y:auto}
+  .pcmsg{max-width:88%;font-size:12.5px;line-height:1.45;padding:9px 12px;border-radius:14px}
+  .pcmsg.in{align-self:flex-start;background:rgba(255,255,255,.06);color:var(--ink);border-bottom-left-radius:5px}
+  .pcmsg.out{align-self:flex-end;background:var(--green);color:#07271a;border-bottom-right-radius:5px;font-weight:500}
+  .pctype{align-self:flex-start;background:rgba(255,255,255,.06);border-radius:14px;border-bottom-left-radius:5px;padding:10px 13px;display:flex;gap:4px}
+  .pctype i{width:6px;height:6px;border-radius:50%;background:var(--faint);animation:tdot 1s ease-in-out infinite}
+  .pctype i:nth-child(2){animation-delay:.15s}.pctype i:nth-child(3){animation-delay:.3s}
+  .pcchips{padding:10px 12px 12px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+  .pcchip{text-align:left;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--dim);border-radius:9px;padding:8px 11px;font-size:11.5px;cursor:pointer;font-family:var(--body);transition:.2s}
+  .pcchip:hover{border-color:rgba(61,220,151,.5);color:var(--ink)}
+  .pcnote{padding:8px 12px 11px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--faint);text-transform:uppercase;border-top:1px solid var(--line)}
+  @media(max-width:1180px){.pagechat{right:14px;bottom:14px}}
+
+  /* ================= ROLE 01 TRACE ================= */
+  .r1grid{display:grid;grid-template-columns:minmax(0,1fr) 132px minmax(0,1fr);gap:16px;align-items:center}
+  @media(max-width:900px){.r1grid{grid-template-columns:1fr;gap:26px}}
+  .tracebar{position:relative;text-align:center}
+  .tracebar .tline{position:relative;height:2px;background:#1d2c49;border-radius:2px;overflow:hidden}
+  .tracebar .tline::after{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--blue),var(--green))}
+  .on .tracebar .tline::after{animation:fillline 2.2s ease-in-out .8s forwards}
+  @keyframes fillline{to{width:100%}}
+  .tracebar .tdot{position:absolute;top:-4px;left:0;width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 14px 3px rgba(61,220,151,.55);opacity:0}
+  .on .tracebar .tdot{animation:rundot 2.2s ease-in-out .8s forwards}
+  @keyframes rundot{0%{left:0;opacity:1}100%{left:calc(100% - 10px);opacity:1}}
+  .countdown{font-family:var(--mono);font-size:26px;font-weight:700;color:var(--green);letter-spacing:-.02em;margin-bottom:10px;line-height:1}
+  .countlbl{font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--faint);text-transform:uppercase;margin-top:10px;line-height:1.5}
+  @media(max-width:900px){
+    .tracebar .tline{width:2px;height:70px;margin:0 auto}
+    .tracebar .tline::after{width:100%;height:0;background:linear-gradient(180deg,var(--blue),var(--green))}
+    .on .tracebar .tline::after{animation:fillcol 2.2s ease-in-out .8s forwards}
+    @keyframes fillcol{to{height:100%}}
+    .tracebar .tdot{display:none}
+  }
+
+  /* ================= QUOTE FORM ================= */
+  .qform{padding:16px 20px 22px}
+  .qform .qh{font-family:var(--disp);font-weight:700;font-size:15px;margin-bottom:2px}
+  .qform .qsub{font-size:11px;color:var(--screen-dim);margin-bottom:14px}
+  .qfield{border:1px solid var(--screen-line);border-radius:8px;padding:8px 11px;margin-bottom:8px;background:#fff}
+  .qfield .ql{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#9aa2b1;font-family:var(--mono)}
+  .qfield .qv{font-size:12.5px;color:var(--screen-ink);font-weight:600;min-height:19px;white-space:nowrap;overflow:hidden;clip-path:inset(0 100% 0 0)}
+  .on .qfield .qv{animation:typein .8s steps(24,end) forwards}
+  @keyframes typein{to{clip-path:inset(0 0 0 0)}}
+  .qsubmit{margin-top:6px;background:#12395c;color:#fff;border-radius:8px;padding:10px 16px;font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;gap:9px}
+  .on .qsubmit{animation:press .5s ease 3.9s}
+  @keyframes press{40%{transform:scale(.94);background:#0b2740}}
+  .qsent{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:#0a7a4b;text-transform:uppercase;margin-top:10px;opacity:0}
+  .on .qsent{animation:rise .4s ease 4.4s forwards}
+
+  /* ================= BOOKING WIDGET ================= */
+  .bookui{background:#fff;border-radius:12px;padding:16px;color:var(--screen-ink)}
+  .bkhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .bkhead .bm{font-family:var(--disp);font-weight:700;font-size:13.5px}
+  .bkhead .bn{font-size:11px;color:var(--screen-dim)}
+  .bkgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .bkgrid .dw{font-family:var(--mono);font-size:8.5px;color:#9aa2b1;text-align:center;padding-bottom:3px}
+  .bkd{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:11px;border-radius:7px;color:#374151}
+  .bkd.off{color:#c9ced8}
+  .bkd.free{background:#eef4ff;color:#1a56c4;font-weight:600}
+  .bkd.pick{background:#12395c;color:#fff;font-weight:700;transform:scale(.7);opacity:.4}
+  .on .bkd.pick{animation:pop .45s cubic-bezier(.2,1.5,.4,1) .9s forwards}
+  .bkslots{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+  .bks{border:1px solid var(--screen-line);border-radius:8px;padding:7px 12px;font-size:11.5px;font-weight:600;color:#374151}
+  .bks.sel{opacity:0}
+  .on .bks.sel{animation:selslot .4s ease 1.7s forwards}
+  @keyframes selslot{to{opacity:1;background:#0a7a4b;border-color:#0a7a4b;color:#fff}}
+  .bkconf{margin-top:12px;border-top:1px solid var(--screen-line);padding-top:12px;opacity:0}
+  .on .bkconf{animation:rise .45s ease 2.3s forwards}
+  .bkconf .bc1{font-size:12.5px;font-weight:700;color:#0a7a4b;display:flex;align-items:center;gap:8px}
+  .bkconf .bc1 svg{width:15px;height:15px}
+  .bkconf .bc2{font-size:11px;color:var(--screen-dim);margin-top:3px}
+  .bkadd{display:inline-flex;align-items:center;gap:7px;margin-top:9px;border:1px solid var(--screen-line);border-radius:7px;padding:6px 11px;font-size:10.5px;font-weight:600;color:#374151}
+
+  /* calendar (week view) */
+  .cal{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .cal .dhead{font-family:var(--mono);font-size:10px;color:var(--faint);text-align:center;letter-spacing:.14em;padding-bottom:4px}
+  .slot{height:40px;border:1px dashed var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--faint)}
+  .slot.taken{border-style:solid;background:rgba(90,169,255,.08);color:var(--dim)}
+  .slot.fill{border:1px solid var(--green);position:relative;overflow:hidden}
+  .slot.fill .inner{position:absolute;inset:0;background:rgba(61,220,151,.15);display:flex;align-items:center;justify-content:center;color:var(--green);font-weight:700;opacity:0;transform:scale(.7);font-size:9px;text-align:center}
+  .on .slot.fill .inner{animation:pop .5s cubic-bezier(.2,1.5,.4,1) 2.9s forwards}
+  .on .slot.fill{animation:pulse 1.2s ease-in-out 2.6s 2}
+  @keyframes pulse{50%{box-shadow:0 0 0 6px rgba(61,220,151,.12)}}
+  .remrow{display:flex;gap:10px;align-items:center;margin-top:14px;font-size:13px;color:var(--dim)}
+  .remrow .tick{color:var(--green);font-weight:700}
+
+  /* ================= APP TABS (role 05) ================= */
+  .apptabs{display:flex;border-bottom:1px solid var(--screen-line);background:#fff}
+  .apptab{flex:1;padding:9px 2px 8px;text-align:center;font-size:8.5px;letter-spacing:.06em;color:#9aa2b1;font-weight:600;text-transform:uppercase;border-bottom:2px solid transparent}
+  .apptab svg{width:15px;height:15px;display:block;margin:0 auto 3px}
+  .apptab.sel{color:#12395c;border-bottom-color:#12395c}
+  .srcpill{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#6b7280;background:#f1f3f7;border-radius:4px;padding:2px 5px;margin-left:6px;white-space:nowrap}
+  .fivelogins{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:6px}
+  @media(max-width:560px){.fivelogins{grid-template-columns:repeat(3,1fr)}}
+  .ltile{position:relative;border:1px solid var(--line);border-radius:12px;padding:14px 6px;text-align:center;background:rgba(255,255,255,.02);opacity:.45}
+  .ltile .lname{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;margin-top:8px;line-height:1.4}
+  .ltile .lic{width:26px;height:26px;margin:0 auto;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:var(--faint)}
+  .ltile .lic svg{width:14px;height:14px}
+  .ltile::after{content:"";position:absolute;inset:0;border-radius:12px;background:
+    linear-gradient(45deg,transparent 47.5%,rgba(255,107,107,.75) 47.5%,rgba(255,107,107,.75) 52.5%,transparent 52.5%),
+    linear-gradient(-45deg,transparent 47.5%,rgba(255,107,107,.75) 47.5%,rgba(255,107,107,.75) 52.5%,transparent 52.5%);
+    opacity:0}
+  .on .ltile::after{animation:xin .4s ease forwards}
+  @keyframes xin{to{opacity:1}}
+  .on .ltile:nth-child(1)::after{animation-delay:1.4s}.on .ltile:nth-child(2)::after{animation-delay:1.6s}
+  .on .ltile:nth-child(3)::after{animation-delay:1.8s}.on .ltile:nth-child(4)::after{animation-delay:2s}
+  .on .ltile:nth-child(5)::after{animation-delay:2.2s}
+
+  /* ================= DATABASE GRID (role 06) ================= */
+  .dbwrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px;align-items:start}
+  @media(max-width:900px){.dbwrap{grid-template-columns:1fr}}
+  .dbgrid{display:grid;grid-template-columns:repeat(25,1fr);gap:3px}
+  @media(max-width:560px){.dbgrid{grid-template-columns:repeat(20,1fr);gap:2px}}
+  .dbt{aspect-ratio:1;border-radius:2px;background:#17223a;transition:background .45s,box-shadow .45s}
+  .dbt.s1{background:var(--blue);box-shadow:0 0 6px rgba(90,169,255,.6)}
+  .dbt.s2{background:var(--amber);box-shadow:0 0 6px rgba(255,194,75,.6)}
+  .dbt.s3{background:var(--green);box-shadow:0 0 6px rgba(61,220,151,.6)}
+  .segline{display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .segline .sdot{width:9px;height:9px;border-radius:2px;flex:none}
+  .segline .sn{font-family:var(--disp);font-weight:700;font-size:24px;min-width:52px;line-height:1}
+  .segline .sl{font-size:12.5px;color:var(--dim);line-height:1.35}
+  .recovered{margin-top:16px;border:1px solid rgba(61,220,151,.4);border-radius:12px;padding:16px;background:rgba(61,220,151,.05)}
+  .recovered .rv{font-family:var(--disp);font-weight:700;font-size:34px;color:var(--green);line-height:1}
+  .recovered .rl{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;margin-top:6px}
+  .recovered .rn{font-size:11px;color:var(--faint);margin-top:8px}
+  .dbthread{margin-top:20px;background:var(--screen);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:7px}
+  .quote-rows{border-top:1px solid var(--line);margin-top:20px}
+  .qrow{display:flex;align-items:center;gap:12px;padding:11px 4px;border-bottom:1px solid var(--line);font-size:13px;color:var(--dim);opacity:0;transform:translateY(8px);flex-wrap:wrap}
+  .on .qrow{animation:rise .45s forwards}
+  .qrow .st-dead{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--red);flex:none}
+  .qrow .st-live{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--green);flex:none;margin-left:auto}
+  .qrow b{color:var(--ink);font-weight:600}
+
+  /* ================= GOOGLE BUSINESS PROFILE ================= */
+  .gbp{background:#fff;border-radius:14px;overflow:hidden;color:#202124;box-shadow:0 20px 56px rgba(0,0,0,.42)}
+  .gbpbar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid #e8eaed}
+  .glogo{font-family:var(--disp);font-weight:700;font-size:15px;letter-spacing:-.02em;flex:none}
+  .glogo .b1{color:#4285f4}.glogo .b2{color:#ea4335}.glogo .b3{color:#fbbc04}.glogo .b4{color:#4285f4}.glogo .b5{color:#34a853}.glogo .b6{color:#ea4335}
+  .gsearch{flex:1;border:1px solid #dfe1e5;border-radius:99px;padding:5px 13px;font-size:11.5px;color:#5f6368;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .gbpmain{padding:16px}
+  .gbpname{font-size:19px;font-weight:400;font-family:var(--disp);letter-spacing:-.01em}
+  .gbprate{display:flex;align-items:center;gap:7px;margin-top:5px;flex-wrap:wrap}
+  .gbprate .rnum{font-size:13px;color:#70757a}
+  .gbprate .rcount{font-size:13px;color:#1a73e8}
+  .gbpcat{font-size:12.5px;color:#70757a;margin-top:4px}
+  .gstars{display:flex;gap:1px;color:#fbbc04}
+  .gstars svg{width:14px;height:14px}
+  .gstars svg.half{color:#dadce0}
+  .photorow{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:12px}
+  .photorow div{aspect-ratio:4/3;border-radius:7px;background:linear-gradient(135deg,#dbe4f0,#c3d2e6)}
+  .photorow div:nth-child(2){background:linear-gradient(135deg,#e4e9f0,#cdd6e2)}
+  .photorow div:nth-child(3){background:linear-gradient(135deg,#dde7dd,#c6d8c8)}
+  .photorow div:nth-child(4){background:linear-gradient(135deg,#efe6d8,#dfd0b8)}
+  .gbpacts{display:flex;gap:7px;margin-top:13px;flex-wrap:wrap}
+  .gact{display:inline-flex;align-items:center;gap:6px;border:1px solid #dadce0;border-radius:99px;padding:6px 13px;font-size:11.5px;color:#1a73e8;font-weight:500}
+  .gact svg{width:13px;height:13px}
+  .gbprow{display:flex;gap:9px;font-size:12px;color:#3c4043;padding:8px 0;border-top:1px solid #f1f3f4;align-items:flex-start}
+  .gbprow svg{width:14px;height:14px;color:#70757a;flex:none;margin-top:2px}
+  .greviews{border-top:1px solid #e8eaed;margin-top:12px;padding-top:12px}
+  .grev{padding:11px 0;border-bottom:1px solid #f1f3f4;opacity:0;transform:translateY(10px)}
+  .on .grev{animation:rise .5s forwards}
+  .grev .gtop{display:flex;align-items:center;gap:9px}
+  .gav{width:32px;height:32px;border-radius:50%;background:#7c5cff;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:var(--disp);font-size:13px;flex:none}
+  .grev .gname{font-size:12.5px;font-weight:500}
+  .grev .gmeta{font-size:11px;color:#70757a}
+  .grev .gtext{font-size:12.5px;line-height:1.5;margin-top:7px;color:#3c4043}
+  .greply{margin-top:10px;background:#f6f8fc;border-left:3px solid #4285f4;border-radius:0 9px 9px 0;padding:10px 12px;opacity:0;transform:translateY(8px)}
+  .greply.show{animation:rise .5s forwards}
+  .greply .rh{font-size:10.5px;font-weight:700;color:#1a56c4;margin-bottom:4px;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+  .greply .rh .ai{font-family:var(--mono);font-size:8px;letter-spacing:.1em;background:#e3ecff;padding:2px 6px;border-radius:3px}
+  .greply .rh .ai.hold{background:#fff1d6;color:#8a5b00}
+  .greply p{font-size:12px;color:#3c4043;line-height:1.5}
+  .composing{display:flex;gap:5px;align-items:center;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:#70757a;text-transform:uppercase;padding:8px 0}
+  .composing i{width:5px;height:5px;border-radius:50%;background:#9aa2b1;animation:tdot 1s ease-in-out infinite}
+  .composing i:nth-child(2){animation-delay:.15s}.composing i:nth-child(3){animation-delay:.3s}
+  .approvebar{display:flex;align-items:center;gap:9px;margin-top:9px;border:1px solid #f0d9a8;background:#fffaef;border-radius:9px;padding:8px 11px;font-size:11px;color:#8a5b00;flex-wrap:wrap}
+  .approvebar .ab{margin-left:auto;background:#0a7a4b;color:#fff;border-radius:6px;padding:5px 11px;font-size:10.5px;font-weight:700;opacity:.45}
+  .on .approvebar .ab{animation:tapok .4s ease 4.6s forwards}
+  @keyframes tapok{50%{transform:scale(.93)}100%{opacity:1;transform:none}}
+  .starTapper{display:flex;gap:5px;justify-content:center;padding:10px 0;color:#dadce0}
+  .starTapper svg{width:26px;height:26px;transform:scale(.7);opacity:.5}
+  .on .starTapper{color:#fbbc04}
+  .on .starTapper svg{animation:starIn .35s cubic-bezier(.2,1.6,.4,1) forwards}
+  .on .starTapper svg:nth-child(1){animation-delay:2.2s}.on .starTapper svg:nth-child(2){animation-delay:2.35s}
+  .on .starTapper svg:nth-child(3){animation-delay:2.5s}.on .starTapper svg:nth-child(4){animation-delay:2.65s}
+  .on .starTapper svg:nth-child(5){animation-delay:2.8s}
+  @keyframes starIn{to{transform:scale(1);opacity:1}}
+  .rating-line{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+  .rating-big{font-family:var(--disp);font-weight:700;font-size:44px}
+  .rating-line .rc{color:var(--dim);font-size:13px}
+  .heldchip{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--amber);border:1px solid rgba(255,194,75,.4);padding:6px 12px;border-radius:6px;opacity:0;line-height:1.5}
+  .on .heldchip{animation:rise .5s 3.4s forwards}
+
+  /* ================= SITEMAP + SERP (role 09) ================= */
+  .sitemap{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:16px}
+  @media(max-width:640px){.sitemap{grid-template-columns:repeat(2,1fr)}}
+  .pg{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;border:1px solid var(--line);border-radius:6px;padding:7px 8px;color:var(--dim);opacity:0;transform:scale(.85);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:rgba(255,255,255,.02)}
+  .on .pg{animation:pop .3s forwards}
+  .serp{background:#fff;border-radius:12px;padding:15px;color:#202124;box-shadow:0 18px 50px rgba(0,0,0,.4)}
+  .serpq{border:1px solid #dfe1e5;border-radius:99px;padding:7px 14px;font-size:12px;color:#3c4043;display:flex;align-items:center;gap:9px}
+  .serpq svg{width:13px;height:13px;color:#9aa0a6;flex:none}
+  .serpstat{font-size:10.5px;color:#70757a;margin:9px 0 4px}
+  .sres{padding:9px 0;opacity:0;transform:translateY(8px)}
+  .on .sres{animation:rise .45s forwards}
+  .sres .surl{font-size:11px;color:#202124}
+  .sres .stt{font-size:14.5px;color:#1a0dab;line-height:1.3;margin-top:2px}
+  .sres .sdd{font-size:11.5px;color:#4d5156;line-height:1.45;margin-top:3px}
+  .sres.you{background:#f0f7ff;border-radius:8px;padding:9px 11px;margin:6px -6px;box-shadow:0 0 0 1px #cfe2ff}
+  .sres.you .stt{color:#12395c;font-weight:600}
+  .loopdia{margin-top:20px;border:1px dashed var(--line);border-radius:12px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .loopnode{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;border:1px solid var(--line);border-radius:8px;padding:8px 10px;text-align:center;flex:1;min-width:96px}
+  .loopnode.hi{border-color:var(--green);color:var(--green)}
+  .looparw{color:var(--faint);font-size:14px;flex:none}
+
+  /* ================= VOICE (role 10) ================= */
+  .wave2{display:flex;gap:3px;align-items:center;justify-content:center;height:52px;margin-bottom:16px}
+  .wave2 i{width:3px;border-radius:2px;height:6px;background:#22345a;transition:background .3s}
+  .wave2.ai i{background:var(--green)}
+  .wave2.hum i{background:var(--blue)}
+  .wave2.live i{animation:wv2 .9s ease-in-out infinite}
+  @keyframes wv2{50%{height:36px}}
+  .wave2 i:nth-child(3n){animation-delay:.1s}.wave2 i:nth-child(4n){animation-delay:.22s}
+  .wave2 i:nth-child(5n){animation-delay:.34s}.wave2 i:nth-child(7n){animation-delay:.46s}
+  .speaking{text-align:center;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:16px;min-height:14px}
+  .voxrow{display:flex;gap:12px;margin-bottom:14px;opacity:0;transform:translateY(10px)}
+  .on .voxrow{animation:rise .5s forwards}
+  .voxrow .who{flex:none;width:64px;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;padding-top:4px}
+  .voxrow.ai .who{color:var(--green)}.voxrow.hum .who{color:var(--blue)}
+  .voxrow p{font-size:14px;color:var(--dim)}
+  .voxrow.ai p{color:var(--ink)}
+  .freechip{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--stage);background:var(--amber);padding:6px 13px;border-radius:4px;font-weight:700;margin-bottom:16px}
+  .honest{margin-top:16px;font-size:12.5px;color:var(--faint);border-top:1px solid var(--line);padding-top:12px}
+
+  /* ================= value stack / stats / close ================= */
+  .stackbox{border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--panel),var(--stage2));padding:10px 26px 26px;max-width:760px;margin:0 auto}
+  @media(max-width:560px){.stackbox{padding:8px 16px 18px}}
+  .stackrow{display:flex;align-items:baseline;gap:14px;padding:13px 2px;border-bottom:1px solid var(--line);opacity:0;transform:translateY(10px)}
+  .on .stackrow{animation:rise .45s forwards}
+  .stackrow .nm{font-size:14.5px;color:var(--dim)}
+  .stackrow .nm b{color:var(--ink);font-weight:600}
+  .stackrow .dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px)}
+  .stackrow .pr{font-family:var(--mono);font-size:13px;color:var(--ink);white-space:nowrap}
+  .stackrow.total{border-bottom:none;padding-top:20px}
+  .stackrow.total .nm{font-family:var(--disp);font-weight:700;font-size:18px;color:var(--ink)}
+  .stackrow.total .pr{color:var(--red);font-size:17px;font-weight:700}
+  .stackpunch{margin:26px auto 0;max-width:760px;text-align:center;border:1px solid rgba(61,220,151,.45);border-radius:14px;padding:22px;background:rgba(61,220,151,.05)}
+  .stackpunch .b1{font-family:var(--disp);font-weight:700;font-size:clamp(19px,3vw,28px)}
+  .stackpunch .b1 em{font-style:normal;color:var(--green)}
+  .stackpunch .b2{margin-top:6px;color:var(--dim);font-size:14px}
+  .band{padding:90px 0;border-top:1px solid rgba(29,44,73,.6);background:linear-gradient(180deg,rgba(16,26,48,.5),transparent)}
+  .band h3{font-family:var(--disp);font-size:clamp(21px,3vw,32px);font-weight:700;max-width:700px;margin-bottom:36px}
+  .statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:760px){.statgrid{grid-template-columns:1fr}}
+  .stat{border:1px solid var(--line);border-radius:14px;padding:26px}
+  .stat .big{font-family:var(--disp);font-weight:700;font-size:40px;color:var(--green)}
+  .stat .big.red{color:var(--red)}
+  .stat p{color:var(--dim);font-size:14px;margin-top:8px}
+  .srcnote{margin-top:18px;font-size:11.5px;color:var(--faint)}
+  .close{padding:120px 0 90px;border-top:1px solid rgba(29,44,73,.6);text-align:center;position:relative}
+  .close::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 50% 30%,rgba(61,220,151,.08),transparent 65%);pointer-events:none}
+  .close h2{font-family:var(--disp);font-weight:700;font-size:clamp(28px,5vw,58px);letter-spacing:-.02em;max-width:820px;margin:0 auto 18px}
+  .close .cs{color:var(--dim);font-size:17px;max-width:560px;margin:0 auto}
+  .plate{margin:44px auto 0;max-width:460px;border:1px solid rgba(61,220,151,.45);border-radius:18px;padding:38px 30px;background:linear-gradient(180deg,var(--panel),var(--stage2));box-shadow:0 0 90px rgba(61,220,151,.08)}
+  @media(max-width:560px){.plate{padding:26px 20px}}
+  .plate .p-amt{font-family:var(--disp);font-weight:700;font-size:clamp(48px,12vw,64px);color:var(--green);line-height:1}
+  .plate .p-per{font-family:var(--mono);font-size:11px;letter-spacing:.26em;color:var(--dim);margin-top:8px;text-transform:uppercase}
+  .plate ul{list-style:none;margin-top:26px;text-align:left}
+  .plate li{display:flex;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:14.5px;color:var(--dim)}
+  .plate li b{color:var(--ink);font-weight:600}
+  .plate li .tk{color:var(--green);font-weight:700;flex:none}
+  .totalsrow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:640px;margin:26px auto 0}
+  @media(max-width:560px){.totalsrow{grid-template-columns:1fr}}
+  .tot{border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;background:rgba(255,255,255,.02)}
+  .tot b{display:block;font-family:var(--disp);font-weight:700;font-size:40px;line-height:1;color:var(--ink)}
+  .tot.g b{color:var(--green)}
+  .tot span{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase;display:block;margin-top:8px}
+  footer{padding:40px 0 90px;border-top:1px solid rgba(29,44,73,.6)}
+  footer p{font-size:11.5px;color:var(--faint);max-width:760px}
+  footer .brand{font-family:var(--disp);font-weight:700;color:var(--dim);margin-bottom:10px;font-size:14px}
+
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,.on .r,.on .msg,.on .stamp{animation:none!important;opacity:1!important;transform:none!important}
+    .packet{display:none}
+    .qfield .qv{clip-path:none!important}
+    .rstep{opacity:1!important}
+    .greply,.bookcard .bconf{opacity:1!important}
+  }
+</style>
+</head>
+<body>
+
+<nav class="vswitch" aria-label="demo version">
+  <a href="../">V1</a><a href="./" class="cur">V2</a>
+</nav>
+
+<!-- ===== icon symbols ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.58 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.6a1 1 0 01-.25 1z"/></symbol>
+  <symbol id="i-form" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 11h9v1.6H8zm0 3.4h9V16H8zm0 3.4h6v1.6H8z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="currentColor" d="M4 3h16a2 2 0 012 2v10a2 2 0 01-2 2H9l-5 4V5a2 2 0 012-2z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm5 3.2A4.8 4.8 0 117.2 12 4.8 4.8 0 0112 7.2zm0 2A2.8 2.8 0 1014.8 12 2.8 2.8 0 0012 9.2zM17.6 6a1.2 1.2 0 11-1.2 1.2A1.2 1.2 0 0117.6 6z"/></symbol>
+  <symbol id="i-msgr" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.3 2 2 6.2 2 11.7a9.4 9.4 0 003.9 7.6V23l3.6-2a11 11 0 002.5.3c5.7 0 10-4.2 10-9.6S17.7 2 12 2zm1 12.2l-2.5-2.7-4.9 2.7 5.4-5.7 2.6 2.7 4.8-2.7z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 2a8 8 0 016.9 12l.6 2.3-2.4-.6A8 8 0 1112 4zm-3.4 4c-.2 0-.5.1-.7.4s-.9.9-.9 2.1.9 2.5 1 2.7a7.7 7.7 0 003.1 2.7c1.5.6 1.8.5 2.2.5s1.2-.5 1.4-1a2.4 2.4 0 00.2-1c0-.2-.2-.2-.4-.3l-1.5-.7c-.2-.1-.4-.1-.5.1l-.6.8c-.1.2-.3.2-.5.1a6.2 6.2 0 01-1.8-1.1 6.9 6.9 0 01-1.3-1.6c-.1-.2 0-.4.1-.5l.4-.5a1.7 1.7 0 00.2-.4.4.4 0 000-.4l-.7-1.6c-.2-.4-.4-.3-.5-.3z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c4.4 0 8 1.3 8 3v14c0 1.7-3.6 3-8 3s-8-1.3-8-3V5c0-1.7 3.6-3 8-3zm0 2c-3.6 0-6 1-6 1.4S8.4 7 12 7s6-1.1 6-1.6S15.6 4 12 4zM6 8.6V12c0 .5 2.4 1.6 6 1.6s6-1.1 6-1.6V8.6A17 17 0 0112 10a17 17 0 01-6-1.4zm0 6V19c0 .5 2.4 1.6 6 1.6s6-1.1 6-1.6v-4.4a17 17 0 01-6 1.4 17 17 0 01-6-1.4z"/></symbol>
+  <symbol id="i-sms" viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2zM7 11a1.3 1.3 0 111.3-1.3A1.3 1.3 0 017 11zm5 0a1.3 1.3 0 111.3-1.3A1.3 1.3 0 0112 11zm5 0a1.3 1.3 0 111.3-1.3A1.3 1.3 0 0117 11z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2v2h10V2h2v2h1a2 2 0 012 2v14a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2h1V2zM4 9v11h16V9zm3 2h4v4H7z"/></symbol>
+  <symbol id="i-crm" viewBox="0 0 24 24"><path fill="currentColor" d="M4 3h12l4 4v14H4zm2 2v14h12V8h-3V5zm2 6h8v1.6H8zm0 3.2h8v1.6H8z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path fill="currentColor" d="M12 22a2.5 2.5 0 002.5-2.5h-5A2.5 2.5 0 0012 22zm7-6v-5a7 7 0 00-5.5-6.8V3a1.5 1.5 0 00-3 0v1.2A7 7 0 005 11v5l-2 2v1h18v-1z"/></symbol>
+  <symbol id="i-reply" viewBox="0 0 24 24"><path fill="currentColor" d="M10 9V5l-8 7 8 7v-4.1c5.2 0 8.5 1.6 11 5.1-1-5.4-4-10.8-11-11z"/></symbol>
+  <symbol id="i-mega" viewBox="0 0 24 24"><path fill="currentColor" d="M3 10v4a1 1 0 001 1h2l4 4h2V5h-2L6 9H4a1 1 0 00-1 1zm14.5 2a4.5 4.5 0 01-2 3.7l1 1.7A6.5 6.5 0 0019.5 12a6.5 6.5 0 00-3-5.4l-1 1.7a4.5 4.5 0 012 3.7z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="currentColor" d="M9.6 17.4L4.2 12l1.7-1.7 3.7 3.7 8.5-8.5L19.8 7z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 10-.7.7l.3.3v.8l5 5 1.5-1.5zm-6 0a4.5 4.5 0 114.5-4.5A4.5 4.5 0 019.5 14z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm6.9 6h-2.5a15.6 15.6 0 00-1.4-3.6A8 8 0 0118.9 8zM12 4.1A14 14 0 0113.8 8h-3.6A14 14 0 0112 4.1zM4.3 14A8.2 8.2 0 014 12a8.2 8.2 0 01.3-2h2.9a16.5 16.5 0 000 4zm.8 2h2.5a15.6 15.6 0 001.4 3.6A8 8 0 015.1 16zm2.5-8H5.1a8 8 0 013.9-3.6A15.6 15.6 0 007.6 8zM12 19.9A14 14 0 0110.2 16h3.6A14 14 0 0112 19.9zm2.2-5.9H9.8a14.7 14.7 0 010-4h4.4a14.7 14.7 0 010 4zm.8 5.6a15.6 15.6 0 001.4-3.6h2.5a8 8 0 01-3.9 3.6zm1.8-5.6a16.5 16.5 0 000-4h2.9a8.2 8.2 0 010 4z"/></symbol>
+  <symbol id="i-inbox" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 10h-4a4 4 0 01-8 0H4V6h16z"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><path fill="currentColor" d="M16 11a3 3 0 10-3-3 3 3 0 003 3zm-8 0a3 3 0 10-3-3 3 3 0 003 3zm0 2c-2.3 0-7 1.2-7 3.5V19h14v-2.5C15 14.2 10.3 13 8 13zm8 0a8.9 8.9 0 00-1.6.15A4.6 4.6 0 0117 16.5V19h6v-2.5c0-2.3-4.7-3.5-7-3.5z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path fill="currentColor" d="M2 21l20-9L2 3v7l14 2-14 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 00-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1114.5 9 2.5 2.5 0 0112 11.5z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 10.6l4 2.3-.9 1.6-5.1-3V6h2z"/></symbol>
+  <symbol id="i-dir" viewBox="0 0 24 24"><path fill="currentColor" d="M21.7 11.3l-9-9a1 1 0 00-1.4 0l-9 9a1 1 0 000 1.4l9 9a1 1 0 001.4 0l9-9a1 1 0 000-1.4zM13 15v-3h-3v3H8v-4a1 1 0 011-1h4V7l4 4z"/></symbol>
+</defs></svg>
+
+<!-- ============ ROLE RAIL ============ -->
+<nav class="rail" id="rail">
+  <a href="#map"><span>The System</span></a>
+  <a href="#r1"><span>01 · Text-Back</span></a>
+  <a href="#r2"><span>02 · Follow-Up</span></a>
+  <a href="#r3"><span>03 · Booking</span></a>
+  <a href="#r4"><span>04 · AI Chat</span></a>
+  <a href="#r5"><span>05 · Agency App</span></a>
+  <a href="#r6"><span>06 · Reactivation</span></a>
+  <a href="#r7"><span>07 · Reviews</span></a>
+  <a href="#r8"><span>08 · Responses</span></a>
+  <a href="#r9"><span>09 · Website</span></a>
+  <a href="#r10"><span>10 · Voice AI</span></a>
+</nav>
+
+<!-- ============ PERSISTENT AGENCY APP DOCK ============ -->
+<aside class="dock" id="dock" aria-label="Agency App, live notifications">
+  <div class="dscreen">
+    <div class="dhead2">
+      <div class="dtitle"><span class="dlogo">HW</span><span class="dn">Hartwell Insurance</span><span class="dl">LIVE</span></div>
+      <div class="dcount">
+        <div><b id="cHandled">0</b><span>Handled</span></div>
+        <div class="bk"><b id="cBooked">0</b><span>Booked</span></div>
+        <div><b id="cMissed">0</b><span>Missed</span></div>
+      </div>
+    </div>
+    <div class="dstack" id="dockStack"></div>
+    <div class="dockcap">The Agency App · today</div>
+  </div>
+</aside>
+
+<!-- ============ LIVE PAGE CHAT WIDGET ============ -->
+<div class="pagechat" id="pagechat">
+  <div class="pcpanel" id="pcPanel">
+    <div class="pchead">
+      <span class="pcav">R</span>
+      <div>
+        <div class="pcn">Regesta</div>
+        <div class="pcs"><i></i>Demo assistant, scripted answers</div>
+      </div>
+      <button class="pcclose" id="pcClose" aria-label="close chat">&times;</button>
+    </div>
+    <div class="pcbody" id="pcBody">
+      <div class="pcmsg in">Hi. This is the same kind of chat widget the agency gets on their own site. Ask me one of these.</div>
+    </div>
+    <div class="pcchips" id="pcChips"></div>
+    <div class="pcnote">Demo only. Nothing here is connected to a live system.</div>
+  </div>
+  <button class="pclaunch" id="pcLaunch" aria-label="open the demo chat">
+    <svg><use href="#i-chat"/></svg>
+    <span class="pcbadge">1</span>
+  </button>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero scene on" id="top">
+  <div class="wrap">
+    <span class="chip r"><span class="dot"></span>REGESTA · FOR INDEPENDENT INSURANCE AGENCIES</span>
+    <h1 class="r d1">Add an agentic team member for <em>$497 a month.</em></h1>
+    <p class="sub r d2">It never complains, never asks for a vacation, and never gives you a payroll issue. It's on duty 24/7, at your beck and call. And it's agentic: it doesn't wait to be asked, it acts. Ten roles, zero window dressing: mission-critical, revenue-producing work you can count. Missed inquiries saved, renewals kept, dead quotes revived, all of it in numbers you see. <b>Completely hands-off: we install it, we run it, you just answer the phone when it buzzes with a live one.</b></p>
+    <div class="payroll r d3">
+      <div class="pay-card">
+        <div class="lbl">A licensed CSR</div>
+        <div class="amt">$5,163<span style="font-size:.4em;color:var(--dim)">/mo</span></div>
+        <div class="per">Office hours. Some of these roles.</div>
+      </div>
+      <div class="pay-card you">
+        <div class="lbl">This team member</div>
+        <div class="amt">$497<span style="font-size:.4em;color:var(--dim)">/mo</span></div>
+        <div class="per">24/7. All ten roles. Never calls in sick.</div>
+      </div>
+      <div class="pay-note">CSR figure: Glassdoor 2026 U.S. average for a licensed insurance CSR, $61,961/yr. Not a replacement for your people, it works the hours and the follow-ups they can't.</div>
+    </div>
+    <div class="scrollcue r d4"><span class="bar"></span>WATCH IT WORK A DAY, ON THE ACTUAL SCREENS</div>
+  </div>
+</section>
+
+<!-- ============ THE SYSTEM MAP ============ -->
+<section class="scene" id="map">
+  <div class="wrap">
+    <div class="scene-head" style="max-width:820px">
+      <span class="role-tag"><span class="role-num">THE SYSTEM</span><span class="role-name">All ten roles, one machine</span></span>
+      <span class="surf"><span class="sq"></span>WHERE YOU SEE IT: <b>everywhere a customer can reach you</b></span>
+      <h2>Ten roles is the wrong way to picture it. <em>It's one employee with ten jobs.</em></h2>
+      <p class="why">Everything on the left is a way a customer can reach your agency. Everything on the right is something that gets done about it. In the middle is the team member. Watch a real Tuesday afternoon run through it.</p>
+    </div>
+
+    <div class="mapwrap" id="map1" data-map>
+      <div class="maplegend">
+        <span><i style="background:var(--blue)"></i>Inbound, a customer reaches you</span>
+        <span><i style="background:var(--green)"></i>Outbound, something gets done</span>
+      </div>
+      <div class="mapgrid">
+        <div class="mapcol in" data-col="in"><div class="colhead">How they reach you</div></div>
+        <div class="mcorewrap">
+          <div class="mcore" data-core>
+            <div class="ct">Always on</div>
+            <div class="cn">Hartwell Insurance</div>
+            <div class="cs">agentic team member</div>
+          </div>
+        </div>
+        <div class="mapcol out" data-col="out"><div class="colhead">What it does about it</div></div>
+      </div>
+      <svg class="mapwires" data-wires aria-hidden="true"></svg>
+      <div class="packets" data-packets></div>
+      <div class="readout" data-readout>
+        <span class="rstep"><b>2:14:00</b> call missed</span><span class="rstep arw">&rsaquo;</span>
+        <span class="rstep"><b>2:14:09</b> text sent</span><span class="rstep arw">&rsaquo;</span>
+        <span class="rstep"><b>2:14:41</b> reply received</span><span class="rstep arw">&rsaquo;</span>
+        <span class="rstep"><b>2:15:20</b> booked</span><span class="rstep arw">&rsaquo;</span>
+        <span class="rstep"><b>2:15:21</b> you are notified</span>
+      </div>
+    </div>
+    <p class="mapsub r d4">Nothing in this diagram requires anyone at the agency to do anything.</p>
+  </div>
+</section>
+
+<!-- ============ ROLE 01 · MISSED-CALL TEXT-BACK ============ -->
+<section class="scene" id="r1">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num">ROLE 01</span><span class="role-name">Missed-Call Text-Back</span></span>
+      <span class="surf"><span class="sq"></span>WHERE YOU SEE IT: <b>your office line, and the caller's phone</b></span>
+      <h2>A missed call isn't a missed call. <em class="loss">It's a missed policy.</em></h2>
+      <p class="why">Tuesday, 2:14 PM. Your team's on other lines. The caller could be a $600 auto policy, or a commercial account with a fleet. You don't know, because it went to voicemail.</p>
+    </div>
+    <div class="r1grid">
+      <div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="missbanner">
+            <div class="t">Missed Call</div>
+            <div class="s">(830) 555-0163 · 2:14 PM</div>
+          </div>
+          <div class="screen">
+            <div class="callui">
+              <div class="from">incoming call</div>
+              <div class="who">Unknown Caller</div>
+              <div class="num">(830) 555-0163</div>
+              <div class="ringwrap"><div class="avatar">?</div></div>
+              <div class="ringing-lbl">RINGING…</div>
+              <div class="callbtns"><div class="cbtn red">✕</div><div class="cbtn grn">✓</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">Your office line, everyone's tied up</div>
+      </div>
+
+      <div class="tracebar">
+        <div class="countdown" id="r1count">09</div>
+        <div class="tline"><span class="tdot"></span></div>
+        <div class="countlbl" id="r1lbl">Seconds until<br>the text lands</div>
+      </div>
+
+      <div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="screen">
+            <div class="thread">
+              <div class="thread-head">
+                <div class="av">HW</div>
+                <div class="nm">Hartwell Insurance</div>
+              </div>
+              <div class="tstamp">Today 2:14 PM</div>
+              <div class="msg out d5">Sorry we missed you, this is Hartwell Insurance. Want us to call you right back, or grab a time here: hartwell.ins/book</div>
+              <div class="delivered d6">Delivered · 9 seconds after the missed call</div>
+              <div class="msg in d7">Oh great. Calling about insurance for our work trucks, we just added 12 vehicles</div>
+              <div class="msg out d8">We can absolutely help with that. Ray handles our commercial fleet accounts, tomorrow 9:30 or 11:00?</div>
+              <div class="msg in d9">9:30 works</div>
+              <div class="stampline"><span class="stamp">COMMERCIAL INQUIRY · SAVED</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">The caller's phone, nine seconds later</div>
+      </div>
+    </div>
+    <div class="aside" style="margin-top:36px;max-width:640px">
+      <div class="pt hot r d10">
+        <div class="k">What just happened</div>
+        <p>A fleet account that was one voicemail away from dialing the next agency on Google is <b>booked for tomorrow at 9:30</b>. After hours, weekends, all lines busy, same nine seconds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 02 · INSTANT LEAD FOLLOW-UP ============ -->
+<section class="scene" id="r2">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num">ROLE 02</span><span class="role-name">Instant Lead Follow-Up</span></span>
+      <span class="surf"><span class="sq"></span>WHERE YOU SEE IT: <b>your quote form, their phone, your phone</b></span>
+      <h2>A quote form at 11:02 PM. <em>Answered by 11:02 PM.</em></h2>
+      <p class="why">People shop for insurance after the kids are down. The first agency to respond is usually the one that writes the policy, and at 11 PM, that's nobody. Now it's you.</p>
+    </div>
+
+    <div class="bframe" style="max-width:560px;margin:0 0 34px">
+      <div class="bbar"><i></i><i></i><i></i><span class="url">hartwellinsurance.com/get-a-quote</span></div>
+      <div class="bview">
+        <div class="qform">
+          <div class="qh">Get a quote</div>
+          <div class="qsub">Tell us the basics and we'll come back with numbers.</div>
+          <div class="qfield"><div class="ql">Name</div><div class="qv" style="animation-delay:.5s">Maria G.</div></div>
+          <div class="qfield"><div class="ql">Mobile</div><div class="qv" style="animation-delay:1.3s">(830) 555-0119</div></div>
+          <div class="qfield"><div class="ql">What do you need quoted</div><div class="qv" style="animation-delay:2.1s">Home and auto</div></div>
+          <div class="qfield"><div class="ql">City</div><div class="qv" style="animation-delay:2.9s">New Braunfels</div></div>
+          <div class="qsubmit"><svg style="width:14px;height:14px"><use href="#i-send"/></svg>Send my request</div>
+          <div class="qsent">Submitted 11:02 PM · nobody at the agency is awake</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-body">
+      <div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="screen">
+            <div class="thread">
+              <div class="thread-head">
+                <div class="av">HW</div>
+                <div class="nm">Hartwell Insurance</div>
+              </div>
+              <div class="tstamp">Today 11:02 PM</div>
+              <div class="msg out d7" style="animation-delay:4.8s">Hi Maria, got your request for a home + auto quote just now. We'll have numbers for you first thing. Anything special about the house we should know?</div>
+              <div class="delivered d8" style="animation-delay:5.4s">Delivered · 11:02 PM</div>
+              <div class="msg in d9" style="animation-delay:6s">wow that was fast, it has a new roof as of March if that helps</div>
+              <div class="msg out d10" style="animation-delay:6.7s">It does, that usually helps the rate. Talk tomorrow!</div>
+              <div class="stampline"><span class="stamp" style="animation-delay:7.4s">FIRST TO RESPOND</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">The lead's phone, seconds after the form</div>
+      </div>
+      <div>
+        <div class="phone dark">
+          <div class="notch"></div>
+          <div class="screen">
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:24px;gap:12px">
+              <div style="text-align:center;color:#8b93a5;font-family:var(--mono);font-size:10px;letter-spacing:.3em;animation-delay:4.8s" class="r d7">11:02 PM</div>
+              <div class="r d8" style="animation-delay:5.2s;background:rgba(255,255,255,.08);border-radius:16px;padding:14px 16px;color:#fff">
+                <div style="display:flex;justify-content:space-between;font-size:11px;color:#9aa4b5;margin-bottom:4px"><span><b style="color:#fff">Agency App</b></span><span>now</span></div>
+                <div style="font-size:13px;font-weight:600">New quote request · Maria G.</div>
+                <div style="font-size:12px;color:#c3cad8">Home + auto · New Braunfels · already replied, wants a call tomorrow</div>
+              </div>
+              <div class="r d10" style="animation-delay:6.2s;text-align:center;color:#5b6d8f;font-size:12px">Your phone. It tells you <b style="color:#e5e7eb">who to call and why</b>, you don't dig for it.</div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">Your phone, same moment</div>
+      </div>
+    </div>
+    <div class="aside" style="margin-top:36px;max-width:660px">
+      <div class="pt hot r d11">
+        <div class="k">Three surfaces, one trigger</div>
+        <p>One form fill at 11:02 PM. A text on her phone, a notification on yours, and a record in the CRM, <b>before anyone at the agency wakes up</b>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 03 · ONLINE BOOKING ============ -->
+<section class="scene" id="r3">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num">ROLE 03</span><span class="role-name">Online Booking</span></span>
+      <span class="surf"><span class="sq"></span>WHERE YOU SEE IT: <b>your booking page, then Ray's calendar</b></span>
+      <h2>A no-show is a policy that <em class="loss">never happened.</em></h2>
+      <p class="why">Leads book themselves straight off the site or the text thread. Reminders go out automatically, so the appointment actually occurs, and the premium actually gets written.</p>
+    </div>
+    <div class="scene-body">
+      <div>
+        <div class="bframe">
+          <div class="bbar"><i></i><i></i><i></i><span class="url">hartwellinsurance.com/book</span></div>
+          <div class="bview">
+            <div style="padding:14px">
+              <div class="bookui">
+                <div class="bkhead"><div><div class="bm">Book with Ray</div><div class="bn">Commercial and personal lines · 30 min</div></div></div>
+                <div class="bkgrid">
+                  <span class="dw">M</span><span class="dw">T</span><span class="dw">W</span><span class="dw">T</span><span class="dw">F</span><span class="dw">S</span><span class="dw">S</span>
+                  <span class="bkd off">29</span><span class="bkd off">30</span><span class="bkd">1</span><span class="bkd">2</span><span class="bkd free">3</span><span class="bkd off">4</span><span class="bkd off">5</span>
+                  <span class="bkd">6</span><span class="bkd free">7</span><span class="bkd">8</span><span class="bkd free">9</span><span class="bkd">10</span><span class="bkd off">11</span><span class="bkd off">12</span>
+                  <span class="bkd">13</span><span class="bkd">14</span><span class="bkd free">15</span><span class="bkd pick">16</span><span class="bkd free">17</span><span class="bkd off">18</span><span class="bkd off">19</span>
+                  <span class="bkd free">20</span><span class="bkd">21</span><span class="bkd free">22</span><span class="bkd">23</span><span class="bkd free">24</span><span class="bkd off">25</span><span class="bkd off">26</span>
+                </div>
+                <div class="bkslots">
+                  <span class="bks">9:00</span><span class="bks sel">9:30</span><span class="bks">11:00</span><span class="bks">2:00</span>
+                </div>
+                <div class="bkconf">
+                  <div class="bc1"><svg><use href="#i-check"/></svg>Confirmed, Thursday 9:30 AM</div>
+                  <div class="bc2">Commercial fleet quote · 12 vehicles · with Ray</div>
+                  <div class="bkadd"><svg style="width:12px;height:12px"><use href="#i-cal"/></svg>Added to your calendar</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">The lead books themselves, no phone tag</div>
+      </div>
+      <div>
+        <div class="panelbox">
+          <div class="panel-title"><span class="t">Ray's calendar · this week</span><span class="chip"><span class="dot"></span>LIVE</span></div>
+          <div class="cal">
+            <div class="dhead">MON</div><div class="dhead">TUE</div><div class="dhead">WED</div><div class="dhead">THU</div><div class="dhead">FRI</div>
+            <div class="slot taken">9:00</div><div class="slot">9:00</div><div class="slot taken">9:00</div><div class="slot">9:00</div><div class="slot taken">9:00</div>
+            <div class="slot">9:30</div><div class="slot taken">9:30</div><div class="slot">9:30</div><div class="slot fill">9:30<div class="inner">FLEET QUOTE ✓</div></div><div class="slot">9:30</div>
+            <div class="slot taken">11:00</div><div class="slot">11:00</div><div class="slot">11:00</div><div class="slot taken">11:00</div><div class="slot">11:00</div>
+            <div class="slot">2:00</div><div class="slot">2:00</div><div class="slot taken">2:00</div><div class="slot">2:00</div><div class="slot taken">2:00</div>
+          </div>
+        </div>
+        <div style="background:var(--screen);border-radius:14px;padding:14px;margin-top:18px;display:flex;flex-direction:column;gap:7px">
+          <div class="tstamp">Wednesday 9:30 AM</div>
+          <div class="msg out d8">Reminder: your fleet quote with Ray at Hartwell is tomorrow, Thursday 9:30 AM. Reply C to confirm or R to reschedule.</div>
+          <div class="msg in d9">C</div>
+          <div class="tstamp">Thursday 8:30 AM</div>
+          <div class="msg out d10">See you in an hour. 214 Seguin Ave, parking is out back.</div>
+        </div>
+        <div class="remrow r d11"><span class="tick">✓</span> Reminder sent · 24 hours before</div>
+        <div class="remrow r d12"><span class="tick">✓</span> Reminder sent · 1 hour before</div>
+        <div class="remrow r d13" style="color:var(--green);font-weight:600"><span class="tick">✓</span> Showed up. Quote in progress.</div>
+      </div>
+    </div>
+    <div class="aside" style="margin-top:36px;max-width:660px">
+      <div class="pt hot r d12">
+        <div class="k">Why it matters</div>
+        <p>The fleet lead from Role 01 didn't just say "call me sometime." They picked a slot, got two reminders, and <b>showed up</b>. No phone tag, no "let me check and get back to you."</p>
+      </div>
+      <div class="pt mut r d13">
+        <div class="k">Zero staff effort</div>
+        <p>Nobody at the agency scheduled this. It booked itself into a real open slot on Ray's actual calendar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 04 · CONVERSATIONAL AI ============ -->
+<section class="scene" id="r4">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num def">ROLE 04</span><span class="role-name">Conversational AI</span></span>
+      <span class="surf"><span class="sq"></span>WHERE YOU SEE IT: <b>the chat bubble on your own website, and every DM app</b></span>
+      <h2>One AI, trained on your agency, <em>on every channel at once.</em></h2>
+      <p class="why">Website chat, text, Facebook Messenger, Instagram, WhatsApp. Wherever the lead shows up, it answers, qualifies, and books, and logs everything in the CRM.</p>
+    </div>
+
+    <div class="scene-body" style="align-items:start">
+      <div>
+        <div class="surface" id="r4surface" data-skin="web">
+          <div class="skinhead">
+            <span class="sk-av">HW</span>
+            <div><div class="sk-nm">Hartwell Insurance</div><div class="sk-sb" id="skSub">Active now</div></div>
+            <div class="sk-ch" id="skCh">SMS</div>
+          </div>
+          <div class="bframe">
+            <div class="bbar"><i></i><i></i><i></i><span class="url">hartwellinsurance.com</span></div>
+            <div class="bview">
+              <div class="sitepane">
+                <div class="site2">
+                  <div class="s2top">
+                    <span class="s2logo">HW</span>
+                    <span class="s2name">Hartwell Insurance</span>
+                    <span class="s2nav"><span>Auto</span><span>Home</span><span>Commercial</span><span>Life</span><span>About</span><span class="s2cta">Get a quote</span></span>
+                  </div>
+                  <div class="s2hero">
+                    <h4>Independent insurance for New Braunfels since 1998.</h4>
+                    <p>Twenty-four carriers quoted side by side, by people who live here.</p>
+                    <span class="s2btn">Get a quote</span>
+                  </div>
+                  <div class="s2cards">
+                    <div class="s2card"><div class="ct">Auto</div><div class="cd">Personal and commercial vehicles</div></div>
+                    <div class="s2card"><div class="ct">Home</div><div class="cd">Homeowners, renters, flood</div></div>
+                    <div class="s2card"><div class="ct">Business</div><div class="cd">General liability, fleet, property</div></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="chatzone">
+                <div class="cpanel" id="r4panel">
+                  <div class="chead">
+                    <span class="cav">HW</span>
+                    <div><div class="cnm">Hartwell Insurance</div><div class="cst"><i></i>We reply in seconds</div></div>
+                  </div>
+                  <div class="cbody">
+                    <div class="cmsg out" style="animation-delay:.2s">Hi, this is Hartwell Insurance. What can we help you with?</div>
+                    <div class="cmsg in" style="animation-delay:1s">Do you guys do renters insurance? My landlord needs proof by Friday</div>
+                    <div class="ctype" style="animation-delay:1.3s,2.1s"><i></i><i></i><i></i></div>
+                    <div class="cmsg out" style="animation-delay:2.1s">We do, usually one call and it's done, and proof goes to your landlord same day. Are you bundling with an auto policy? That often offsets most of the cost.</div>
+                    <div class="cmsg in" style="animation-delay:2.9s">oh really. yeah I have a car</div>
+                    <div class="ctype" style="animation-delay:3.2s,3.8s"><i></i><i></i><i></i></div>
+                    <div class="cmsg out" style="animation-delay:3.8s">Then let's quote both together. Ray has two times open Tuesday. Pick one and it's booked.</div>
+                    <div class="bookcard" style="animation-delay:4.4s">
+                      <div class="bt">Book with Ray · 30 min</div>
+                      <div class="bslots"><span class="bslot">Tue 11:00 AM</span><span class="bslot pick">Tue 2:00 PM</span></div>
+                      <div class="bconf">Booked. Tuesday 2:00 PM, renters and auto.</div>
+                    </div>
+                    <div class="cmsg in" style="animation-delay:4.9s">yes please, 2pm</div>
+                  </div>
+                  <div class="cfoot">
+                    <span class="fake">Write a message</span>
+                    <span class="snd"><svg><use href="#i-send"/></svg></span>
+                  </div>
+                </div>
+                <div class="clauncher">
+                  <svg><use href="#i-chat"/></svg>
+                  <span class="cbadge">1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chanbar" id="chanbar">
+          <button class="chanbtn sel" data-skin="web"><span class="cdot"></span><svg><use href="#i-globe"/></svg>Website</button>
+          <button class="chanbtn" data-skin="sms"><span class="cdot"></span><svg><use href="#i-sms"/></svg>SMS</button>
+          <button class="chanbtn" data-skin="messenger"><span class="cdot"></span><svg><use href="#i-msgr"/></svg>Messenger</button>
+          <button class="chanbtn" data-skin="instagram"><span class="cdot"></span><svg><use href="#i-ig"/></svg>Instagram</button>
+          <button class="chanbtn" data-skin="whatsapp"><span class="cdot"></span><svg><use href="#i-wa"/></svg>WhatsApp</button>
+        </div>
+        <div class="chanhint">Same conversation, same booking, every channel · cycling automatically</div>
+      </div>
+
+      <div class="aside">
+        <div class="receipts" style="margin-bottom:26px">
+          <div class="receipt" style="animation-delay:9s">
+            <span class="rk"><svg><use href="#i-cal"/></svg></span>
+            <div><div class="rtt">Appointment created</div><div class="rss">Ray's calendar · Tue 2:00 PM</div></div>
+          </div>
+          <div class="receipt" style="animation-delay:9.4s">
+            <span class="rk"><svg><use href="#i-crm"/></svg></span>
+            <div><div class="rtt">CRM record created</div><div class="rss">Maria G. · renters + auto</div></div>
+          </div>
+          <div class="receipt" style="animation-delay:9.8s">
+            <span class="rk"><svg><use href="#i-bell"/></svg></span>
+            <div><div class="rtt">Push sent to the Agency App</div><div class="rss">Your phone, the moment it booked</div></div>
+          </div>
+        </div>
+        <div class="pt hot r d3">
+          <div class="k">One chat, three systems updated</div>
+          <p>Nobody typed any of that, and nobody entered it anywhere afterwards. <b>Zero staff effort</b>, from first message to a slot on Ray's calendar.</p>
+        </div>
+        <div class="pt hot r d5">
+          <div class="k">It sells the bundle</div>
+          <p>A renters-proof errand became a <b>renters + auto bundle appointment</b>, because the AI is trained on how your agency actually quotes, not generic chatbot scripts.</p>
+        </div>
+        <div class="pt mut r d7">
+          <div class="k">Every channel, one brain</div>
+          <p>The same conversation could have started on Instagram at midnight. Same answers, same booking, same CRM entry. Use the buttons to switch channels.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 05 · THE AGENCY APP ============ -->
+<section class="scene" id="r5">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num def">ROLE 05</span><span class="role-name">The Agency App</span></span>
+      <span class="surf"><span class="sq"></span>WHERE YOU SEE IT: <b>one app on your phone, with your agency's name on it</b></span>
+      <h2>Everything it touches lands in <em>one inbox with your name on it.</em></h2>
+      <p class="why">Calls, texts, reviews, quote requests, one branded app on your phone. Not five logins, not "check the portal," not wondering what happened overnight.</p>
+    </div>
+    <div class="scene-body">
+      <div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="screen">
+            <div class="app">
+              <div class="app-head">
+                <div class="app-logo">HW</div>
+                <div><div class="t">Hartwell Insurance</div><div class="s">Unified inbox · Tuesday</div></div>
+              </div>
+              <div class="rowitem d3"><div class="ric call"><svg><use href="#i-phone"/></svg></div><div><div class="rt">Missed call, texted back</div><div class="rs">(830) 555-0163 · fleet inquiry<span class="srcpill">Phone</span></div></div><span class="newpill">BOOKED</span></div>
+              <div class="rowitem d4"><div class="ric ig"><svg><use href="#i-ig"/></svg></div><div><div class="rt">Instagram DM, Carla P.</div><div class="rs">asked about renters proof<span class="srcpill">Instagram</span></div></div><span class="rtime">9:12 PM</span></div>
+              <div class="rowitem d5"><div class="ric q"><svg><use href="#i-form"/></svg></div><div><div class="rt">Quote request, Maria G.</div><div class="rs">Home + auto, replied 11:02 PM<span class="srcpill">Web form</span></div></div><span class="rtime">11:02 PM</span></div>
+              <div class="rowitem d6"><div class="ric rev"><svg><use href="#i-star"/></svg></div><div><div class="rt">New 5 star Google review</div><div class="rs">Dana R., "one phone call, both policies moved"<span class="srcpill">Google</span></div></div><span class="newpill">REPLIED</span></div>
+              <div class="rowitem d7"><div class="ric txt"><svg><use href="#i-chat"/></svg></div><div><div class="rt">Renters + auto, booked Tue 2:00</div><div class="rs">website chat<span class="srcpill">Web chat</span></div></div><span class="rtime">4:40 PM</span></div>
+              <div class="rowitem d8"><div class="ric wa"><svg><use href="#i-wa"/></svg></div><div><div class="rt">Cold quote revived, J. Alvarez</div><div class="rs">wants the auto quote redone<span class="srcpill">WhatsApp</span></div></div><span class="newpill">NEW</span></div>
+              <div class="apptabs" style="margin-top:auto">
+                <div class="apptab sel"><svg><use href="#i-inbox"/></svg>Inbox</div>
+                <div class="apptab"><svg><use href="#i-chat"/></svg>Chats</div>
+                <div class="apptab"><svg><use href="#i-cal"/></svg>Calendar</div>
+                <div class="apptab"><svg><use href="#i-star"/></svg>Reviews</div>
+                <div class="apptab"><svg><use href="#i-people"/></svg>Contacts</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">White-labeled under your agency's brand</div>
+      </div>
+      <div class="aside">
+        <div class="pt hot r d3">
+          <div class="k">Six channels, one list</div>
+          <p>A phone call, an Instagram DM, a web form, a Google review, a website chat and a WhatsApp thread, <b>in one inbox, in order</b>. Nobody had to go looking in six places.</p>
+        </div>
+        <div class="pt hot r d5">
+          <div class="k">The whole day, visible</div>
+          <p>This is what your team member did today, <b>while your team did their actual jobs</b>. Every item is a conversation that would otherwise have died quietly.</p>
+        </div>
+        <div class="pt mut r d7">
+          <div class="k">And all of it is counted</div>
+          <p>Calls caught, texts sent, quotes revived, reviews landed. <b>Every one of these is a number you see</b>, not a feeling you're sold. When this team member makes you money, you'll know exactly where.</p>
+        </div>
+        <div style="margin-top:26px">
+          <div class="chip r d8" style="margin-bottom:14px"><span class="dot" style="background:var(--red)"></span>WHAT IT REPLACES</div>
+          <div class="fivelogins">
+            <div class="ltile"><div class="lic"><svg><use href="#i-phone"/></svg></div><div class="lname">Phone<br>system</div></div>
+            <div class="ltile"><div class="lic"><svg><use href="#i-sms"/></svg></div><div class="lname">Texting<br>tool</div></div>
+            <div class="ltile"><div class="lic"><svg><use href="#i-cal"/></svg></div><div class="lname">Booking<br>app</div></div>
+            <div class="ltile"><div class="lic"><svg><use href="#i-star"/></svg></div><div class="lname">Review<br>portal</div></div>
+            <div class="ltile"><div class="lic"><svg><use href="#i-crm"/></svg></div><div class="lname">Separate<br>CRM</div></div>
+          </div>
+          <p class="r d9" style="font-size:12.5px;color:var(--faint);margin-top:12px">Five logins, five bills, five places to look. One app instead.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="inlinedock">
+      <div class="panelbox">
+        <div class="panel-title"><span class="t">Today, so far · the running stack</span><span class="chip"><span class="dot"></span>LIVE</span></div>
+        <div class="dcount" style="margin-bottom:12px">
+          <div><b id="cHandled2">0</b><span>Handled</span></div>
+          <div class="bk"><b id="cBooked2">0</b><span>Booked</span></div>
+          <div><b id="cMissed2">0</b><span>Missed</span></div>
+        </div>
+        <div id="inlineStack" style="display:flex;flex-direction:column;gap:7px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 06 · DATABASE REACTIVATION ============ -->
+<section class="scene" id="r6">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num">ROLE 06</span><span class="role-name">Database Reactivation · The Offense Role</span></span>
+      <span class="surf"><span class="sq"></span>WHERE YOU SEE IT: <b>your own book of business, worked once a month</b></span>
+      <h2>The other nine roles stop losses. <em>This one goes and makes money.</em></h2>
+      <p class="why">Your book of business is already full of revenue: renewals coming due, single-policy households that should be bundles, and every quote you ever gave that never closed. Once a month, your team member works all three.</p>
+    </div>
+    <div class="panelbox">
+      <div class="panel-title"><span class="t">Hartwell Insurance · reactivation sweep · illustrative data</span><span class="chip"><span class="dot"></span>MONTHLY</span></div>
+      <div class="dbwrap">
+        <div>
+          <div class="dbgrid" id="dbgrid"></div>
+          <p style="font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--faint);text-transform:uppercase;margin-top:12px">Every square is a household in the book</p>
+        </div>
+        <div>
+          <div class="segline">
+            <span class="sdot" style="background:var(--blue)"></span>
+            <span class="sn" data-count="34">0</span>
+            <span class="sl">Renewals due in the next 30 days</span>
+          </div>
+          <div class="segline">
+            <span class="sdot" style="background:var(--amber)"></span>
+            <span class="sn" data-count="61">0</span>
+            <span class="sl">Single-policy households, retaining at 67% and not 91%</span>
+          </div>
+          <div class="segline">
+            <span class="sdot" style="background:var(--green)"></span>
+            <span class="sn" data-count="217">0</span>
+            <span class="sl">Quotes given in the last 12 months that never closed</span>
+          </div>
+          <div class="recovered">
+            <div class="rv">$<span data-count="14200">0</span></div>
+            <div class="rl">Annualized premium back in play, this sweep</div>
+            <div class="rn">Illustrative Hartwell example, not a performance claim. Your own numbers are reported to you monthly.</div>
+            <!-- STAT NEEDED: replace the illustrative recovered-premium figure with a real average once live client sweeps produce one -->
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-rows">
+        <div class="qrow d6"><span class="st-dead">COLD 8 MO</span><span><b>J. Alvarez</b>, auto quote, never bound</span><span class="st-live">REPLIED, "redo my quote"</span></div>
+        <div class="qrow d7"><span class="st-dead">COLD 3 MO</span><span><b>T. Nguyen</b>, home quote, went quiet</span><span class="st-live">BOOKED · Thu 11:00</span></div>
+        <div class="qrow d8"><span class="st-dead">RENEWAL 12 DAYS</span><span><b>Baker Wholesale LLC</b>, commercial package</span><span class="st-live">REMINDED · renewal call set</span></div>
+        <div class="qrow d9"><span class="st-dead">AUTO ONLY</span><span><b>The Herrera family</b>, no home policy with you</span><span class="st-live">BUNDLE QUOTE REQUESTED</span></div>
+      </div>
+
+      <div class="dbthread" style="max-width:420px">
+        <div class="tstamp">Sent to 217 cold quotes · 9:00 AM</div>
+        <div class="msg out d9">Hi Jesse, Hartwell Insurance. We quoted your truck back in November and never heard back. Rates moved since then. Want me to run it again, no pressure?</div>
+        <div class="msg in d10">honestly yeah, mine went up again in March</div>
+        <div class="msg out d11">Then it's worth a look. Ray has Thursday 11:00 open, want it?</div>
+        <div class="msg in d12">book it</div>
+      </div>
+      <div class="stampline" style="text-align:center;margin-top:22px"><span class="stamp">REVENUE FOUND IN YOUR OWN BOOK</span></div>
+    </div>
+    <div class="aside" style="margin-top:36px;max-width:680px">
+      <div class="pt hot r d9">
+        <div class="k">The single-policy leak</div>
+        <p>A household with two policies with you retains at about <b>91%</b>. A household with one retains at about <b>67%</b>. Every single-policy customer in the book is roughly <b>three times likelier to leave</b>, and most have never been asked about the second policy. This role asks, every month.</p>
+      </div>
+      <div class="pt hot r d10">
+        <div class="k">Why the cold quotes matter most</div>
+        <p>Independent P&C agencies close roughly <b>22 to 30% of the quotes they give</b>, the rest go cold. And industry data attributes <b>25-40% of that loss to follow-up failure</b>, not lack of interest. Those people wanted a quote from you. Nobody ever called them back. This role does, every month, forever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 07 · THE REVIEW ENGINE ============ -->
+<section class="scene" id="r7">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num def">ROLE 07</span><span class="role-name">The Review Engine</span></span>
+      <span class="surf"><span class="sq"></span>WHERE YOU SEE IT: <b>your Google Business Profile, the one shoppers read</b></span>
+      <h2>Reviews are rankings. <em>Rankings are calls.</em></h2>
+      <p class="why">Every customer you help gets a one-tap review request. No response? It politely follows up for a month. You never chase a review again, they just accumulate.</p>
+    </div>
+    <div class="scene-body" style="align-items:start">
+      <div>
+        <div class="gbp">
+          <div class="gbpbar">
+            <span class="glogo"><span class="b1">G</span><span class="b2">o</span><span class="b3">o</span><span class="b4">g</span><span class="b5">l</span><span class="b6">e</span></span>
+            <span class="gsearch">hartwell insurance new braunfels</span>
+          </div>
+          <div class="gbpmain">
+            <div class="gbpname">Hartwell Insurance</div>
+            <div class="gbprate">
+              <b style="font-size:14px" id="gRating">4.9</b>
+              <span class="gstars">
+                <svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg>
+              </span>
+              <span class="rcount"><b id="revcount">87</b> Google reviews</span>
+            </div>
+            <div class="gbpcat">Insurance agency · Independent</div>
+            <div class="photorow"><div></div><div></div><div></div><div></div></div>
+            <div class="gbpacts">
+              <span class="gact"><svg><use href="#i-dir"/></svg>Directions</span>
+              <span class="gact"><svg><use href="#i-phone"/></svg>Call</span>
+              <span class="gact"><svg><use href="#i-globe"/></svg>Website</span>
+            </div>
+            <div class="gbprow"><svg><use href="#i-pin"/></svg><span>214 Seguin Ave, New Braunfels, TX 78130</span></div>
+            <div class="gbprow"><svg><use href="#i-clock"/></svg><span><b style="color:#0a7a4b">Open</b> · Closes 5:30 PM</span></div>
+            <div class="gbprow"><svg><use href="#i-phone"/></svg><span>(830) 555-0100</span></div>
+          </div>
+        </div>
+        <div class="phone-cap">The listing every shopper checks before calling</div>
+      </div>
+
+      <div>
+        <div class="panelbox">
+          <div class="panel-title"><span class="t">The ask, the tap, the post</span><span class="chip"><span class="dot"></span>AUTOMATIC</span></div>
+          <div style="background:var(--screen);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:7px">
+            <div class="tstamp">Right after Dana's policies moved</div>
+            <div class="msg out d3">Dana, glad we got both sorted today. If you have ten seconds, it genuinely helps us: hartwell.ins/review</div>
+            <div class="starTapper">
+              <svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg>
+            </div>
+            <div class="tstamp">She tapped five, wrote one line, posted</div>
+          </div>
+          <div class="grev" style="animation-delay:3.2s;background:#fff;border-radius:12px;padding:14px;margin-top:14px;border:0">
+            <div class="gtop">
+              <span class="gav">D</span>
+              <div><div class="gname">Dana R.</div><div class="gmeta">just now · posted to Google</div></div>
+            </div>
+            <p class="gtext">Called about my auto going up ninety dollars. They requoted everything, moved me, and my home went down too. One phone call.</p>
+          </div>
+          <div class="remrow r d10"><span class="tick">✓</span> Review count moved 87 to 88, no one chased it</div>
+        </div>
+        <div class="aside" style="margin-top:26px">
+          <div class="pt hot r d11">
+            <div class="k">The ask, chase, post loop</div>
+            <p>Customer helped → one-tap request sent → gentle reminders for a month if needed → review lands on <b>your actual Google Business Profile</b>, where the next shopper is looking.</p>
+          </div>
+          <div class="pt mut r d12">
+            <div class="k">Set once, runs forever</div>
+            <p>Your team tags the customer. Everything after that is your team member's job.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 08 · REVIEW RESPONSE AI ============ -->
+<section class="scene" id="r8">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num def">ROLE 08</span><span class="role-name">Review Response AI</span></span>
+      <span class="surf"><span class="sq"></span>WHERE YOU SEE IT: <b>underneath every review on your Google listing</b></span>
+      <h2>Every review answered. <em>In your voice. Every time.</em></h2>
+      <p class="why">Google notices whether you respond to reviews, and so does every prospect reading them. Answered reviews are a ranking signal and a trust signal, and most agencies fail both.</p>
+    </div>
+    <div class="scene-body" style="align-items:start">
+      <div>
+        <div class="gbp">
+          <div class="gbpbar">
+            <span class="glogo"><span class="b1">G</span><span class="b2">o</span><span class="b3">o</span><span class="b4">g</span><span class="b5">l</span><span class="b6">e</span></span>
+            <span class="gsearch">hartwell insurance reviews</span>
+          </div>
+          <div class="gbpmain" style="padding-bottom:8px">
+            <div class="gbpname">Hartwell Insurance</div>
+            <div class="gbprate">
+              <b style="font-size:14px">4.9</b>
+              <span class="gstars">
+                <svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg>
+              </span>
+              <span class="rcount">88 Google reviews</span>
+            </div>
+
+            <div class="greviews">
+              <div class="grev" style="animation-delay:.4s">
+                <div class="gtop">
+                  <span class="gav" style="background:#0ea5e9">M</span>
+                  <div><div class="gname">Marcus T.</div>
+                    <div class="gmeta"><span class="gstars" style="display:inline-flex;vertical-align:-2px"><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg></span> 2 minutes ago</div>
+                  </div>
+                </div>
+                <p class="gtext">They actually came out and looked at the shop before quoting. Found two things my old policy didn't cover.</p>
+                <div class="composing" id="comp1"><i></i><i></i><i></i> Drafting a reply in your voice</div>
+                <div class="greply" id="rep1">
+                  <div class="rh">Response from Hartwell Insurance <span class="ai">POSTED IN 2 MIN</span></div>
+                  <p>Thank you, Marcus. Walking the operation first is the only way to write commercial coverage properly, glad it showed.</p>
+                </div>
+              </div>
+
+              <div class="grev" style="animation-delay:2.2s">
+                <div class="gtop">
+                  <span class="gav" style="background:#b45309">K</span>
+                  <div><div class="gname">Kelly W.</div>
+                    <div class="gmeta"><span class="gstars" style="display:inline-flex;vertical-align:-2px"><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" class="half"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" class="half"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" class="half"><use href="#i-star"/></svg></span> 11 minutes ago</div>
+                  </div>
+                </div>
+                <p class="gtext">Renewal came in higher than I expected and nobody warned me. Took three calls to get an explanation.</p>
+                <div class="approvebar">
+                  <span>Two stars. Drafted, held for a human. Nothing posts until you tap approve.</span>
+                  <span class="ab">Approve</span>
+                </div>
+                <div class="greply" id="rep2">
+                  <div class="rh">Response from Hartwell Insurance <span class="ai hold">APPROVED BY RAY, THEN POSTED</span></div>
+                  <p>Kelly, you're right that you should have heard from us before that renewal, not after. That's on us. Ray is calling you today to walk through the increase and see what we can move.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="aside">
+        <div class="pt hot r d3">
+          <div class="k">Roles 07 + 08 together</div>
+          <p>One gets the reviews. The other answers them. Rating, freshness, and response rate, <b>the three signals</b>, all handled, on autopilot.</p>
+        </div>
+        <div class="pt hot r d5">
+          <div class="k">Tone matching, not templates</div>
+          <p>A five star gets warmth and a specific detail back. A two star gets an apology, ownership, and a next step with a name on it. <b>Same voice, different register</b>, because a copy-paste reply reads worse than no reply.</p>
+        </div>
+        <div class="pt mut r d7">
+          <div class="k">The honest limit</div>
+          <p>Anything under four stars is never auto-answered. It's flagged to you, because an upset customer deserves a person.</p>
+        </div>
+        <span class="heldchip">⚠ NEGATIVE REVIEWS HELD FOR A HUMAN. ALWAYS.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 09 · THE WEBSITE ============ -->
+<section class="scene" id="r9">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num def">ROLE 09</span><span class="role-name">The Website · Optional</span></span>
+      <span class="surf"><span class="sq"></span>WHERE YOU SEE IT: <b>your own domain, and page one of Google</b></span>
+      <h2>A storefront Google can <em>actually find.</em></h2>
+      <p class="why">If you want it, we rebuild your site conversion-first: a page for every line you write and every city you serve, locally SEO-optimized so Google surfaces you, not the agency across town.</p>
+    </div>
+    <div class="scene-body" style="align-items:start">
+      <div>
+        <div class="bframe">
+          <div class="bbar"><i></i><i></i><i></i><span class="url">hartwellinsurance.com</span></div>
+          <div class="bview">
+            <div class="site2">
+              <div class="s2top">
+                <span class="s2logo">HW</span>
+                <span class="s2name">Hartwell Insurance</span>
+                <span class="s2nav"><span>Auto</span><span>Home</span><span>Commercial</span><span>Life</span><span class="s2cta">Get a quote</span></span>
+              </div>
+              <div class="s2hero" style="padding:16px 0 10px">
+                <h4>Independent insurance for New Braunfels</h4>
+                <p>Twenty-four carriers quoted side by side · 4.9 stars, 88 Google reviews</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-title" style="margin:26px 0 0"><span class="t">Every line, every city, its own page</span><span class="chip"><span class="dot"></span>24 PAGES</span></div>
+        <div class="sitemap">
+          <span class="pg d2">/auto-insurance</span><span class="pg d2">/home-insurance</span><span class="pg d2">/commercial-insurance</span><span class="pg d2">/life-insurance</span>
+          <span class="pg d3">/umbrella-insurance</span><span class="pg d3">/flood-insurance</span><span class="pg d3">/renters-insurance</span><span class="pg d3">/motorcycle-insurance</span>
+          <span class="pg d4">/boat-insurance</span><span class="pg d4">/rv-insurance</span><span class="pg d4">/commercial-auto</span><span class="pg d4">/general-liability</span>
+          <span class="pg d5">/workers-comp</span><span class="pg d5">/business-property</span><span class="pg d5">/new-braunfels</span><span class="pg d5">/san-marcos</span>
+          <span class="pg d6">/seguin</span><span class="pg d6">/canyon-lake</span><span class="pg d6">/boerne</span><span class="pg d6">/gruene</span>
+          <span class="pg d7">/commercial-auto-new-braunfels</span><span class="pg d7">/home-insurance-seguin</span><span class="pg d7">/auto-insurance-san-marcos</span><span class="pg d7">+ every line, every city</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="serp">
+          <div class="serpq"><svg><use href="#i-search"/></svg>commercial auto insurance new braunfels</div>
+          <div class="serpstat">About 214,000 results</div>
+          <div class="sres d8"><div class="surl">bigcarrier.com › commercial</div><div class="stt">Commercial Auto Insurance Quotes</div><div class="sdd">National carrier. Get a quote online in minutes.</div></div>
+          <div class="sres you d9"><div class="surl">hartwellinsurance.com › commercial-auto-new-braunfels</div><div class="stt">Commercial Auto Insurance in New Braunfels, TX</div><div class="sdd">Local independent agency. Fleet, contractor and work truck coverage from 24 carriers. 4.9 stars, 88 reviews.</div></div>
+          <div class="sres d10"><div class="surl">competitoragency.com › about</div><div class="stt">Insurance Agency, Central Texas</div><div class="sdd">Serving Texas families since 1994.</div></div>
+        </div>
+        <div class="loopdia">
+          <span class="loopnode hi">Pages exist</span><span class="looparw">&rsaquo;</span>
+          <span class="loopnode">Search finds you</span><span class="looparw">&rsaquo;</span>
+          <span class="loopnode">The phone rings</span><span class="looparw">&rsaquo;</span>
+          <a class="loopnode hi" href="#r1" style="text-decoration:none;display:block">Role 01 catches it</a>
+        </div>
+        <div class="aside" style="margin-top:26px">
+          <div class="pt hot r d10">
+            <div class="k">The loop closes</div>
+            <p>The site is not a brochure, it's the <b>top of the same machine</b>. Pages get found, found pages ring the phone, and the phone is already covered by Role 01. Nothing arrives anywhere that isn't already handled.</p>
+          </div>
+          <div class="optbox r d11" style="border:1px dashed var(--line);border-radius:12px;padding:18px 20px;color:var(--dim);font-size:14px">
+            <span style="font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--amber);display:block;margin-bottom:8px">YOUR CALL, ENTIRELY OPTIONAL</span>
+            <b style="color:var(--ink)">Want to keep your current website?</b> Keep it. Every other role plugs into the site you already have. The rebuild is here if you want Google finding you easier, not a condition of working together.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE 10 · VOICE AI ============ -->
+<section class="scene" id="r10">
+  <div class="wrap">
+    <div class="scene-head">
+      <span class="role-tag"><span class="role-num">ROLE 10</span><span class="role-name">Voice AI · The Callback</span></span>
+      <span class="surf"><span class="sq"></span>WHERE YOU SEE IT: <b>a live phone call, then a slot on the calendar</b></span>
+      <h2>If a call ever does slip through, <em>it calls them back itself.</em></h2>
+      <p class="why">The text-back catches most missed calls. This catches the rest: it phones the lead back, picks up where the text left off, and books them straight into the calendar.</p>
+    </div>
+    <div class="scene-body" style="align-items:start">
+      <div class="panelbox">
+        <div class="panel-title"><span class="t">Outbound callback · live</span><span class="chip"><span class="dot"></span><span id="calltimer">00:00</span></span></div>
+        <div class="wave2" id="wave2"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="speaking" id="speaking">CONNECTING…</div>
+        <div class="voxrow ai d3"><span class="who">AGENT</span><p>Hi, this is the assistant at Hartwell Insurance. You called us a little earlier and we couldn't get to the phone. Sorry about that. What were you calling about?</p></div>
+        <div class="voxrow hum d5"><span class="who">CALLER</span><p>Yeah, I wanted to get a quote on my truck and maybe the house too.</p></div>
+        <div class="voxrow ai d7"><span class="who">AGENT</span><p>Perfect. Ray handles those together, which usually gets a better rate. He's open tomorrow at 9:30 or Thursday at 2. Which works better?</p></div>
+        <div class="voxrow hum d9"><span class="who">CALLER</span><p>Thursday at 2.</p></div>
+        <div class="voxrow ai d10"><span class="who">AGENT</span><p>You're booked. You'll get a text confirming it right now. Thanks for calling us back-… for letting us call you back!</p></div>
+        <div class="stampline" style="text-align:center;margin-top:16px"><span class="stamp">CAUGHT · BOOKED · THURS 2:00</span></div>
+        <div class="honest">Scope, honestly: this role calls missed leads back and books them. It never sells, never discusses coverage or policy detail, anything substantive goes straight to your people.</div>
+      </div>
+      <div>
+        <div class="panelbox">
+          <div class="panel-title"><span class="t">Ray's calendar · the slot fills as they speak</span><span class="chip"><span class="dot"></span>LIVE</span></div>
+          <div class="cal">
+            <div class="dhead">MON</div><div class="dhead">TUE</div><div class="dhead">WED</div><div class="dhead">THU</div><div class="dhead">FRI</div>
+            <div class="slot taken">9:00</div><div class="slot">9:00</div><div class="slot taken">9:00</div><div class="slot taken">9:00</div><div class="slot taken">9:00</div>
+            <div class="slot">9:30</div><div class="slot taken">9:30</div><div class="slot">9:30</div><div class="slot taken">9:30</div><div class="slot">9:30</div>
+            <div class="slot taken">11:00</div><div class="slot">11:00</div><div class="slot">11:00</div><div class="slot taken">11:00</div><div class="slot">11:00</div>
+            <div class="slot">2:00</div><div class="slot">2:00</div><div class="slot taken">2:00</div><div class="slot fill">2:00<div class="inner">TRUCK + HOME ✓</div></div><div class="slot taken">2:00</div>
+          </div>
+        </div>
+        <div class="aside" style="margin-top:26px">
+          <div class="freechip r d2">JOIN AT $497 · RATE LOCKED</div>
+          <div class="pt hot r d3">
+            <div class="k">Locked at today's rate</div>
+            <p>All ten roles are $497 a month today, and joining locks that rate <b>for as long as you're with us</b>. The price is going to $997. Anyone already in never feels it. The roles don't change. Your rate doesn't either.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING SYSTEM MAP ============ -->
+<section class="scene" id="fullday">
+  <div class="wrap">
+    <div class="scene-head" style="max-width:820px">
+      <span class="role-tag"><span class="role-num">THE DAY</span><span class="role-name">All ten roles, running at once</span></span>
+      <h2>That was one Tuesday. <em>This is every day, without you.</em></h2>
+      <p class="why">Same diagram, full traffic. Every line is a customer reaching your agency and something getting done about it, while your team writes policies.</p>
+    </div>
+    <div class="mapwrap" id="map2" data-map>
+      <div class="maplegend">
+        <span><i style="background:var(--blue)"></i>Inbound, a customer reaches you</span>
+        <span><i style="background:var(--green)"></i>Outbound, something gets done</span>
+      </div>
+      <div class="mapgrid">
+        <div class="mapcol in" data-col="in"><div class="colhead">How they reach you</div></div>
+        <div class="mcorewrap">
+          <div class="mcore" data-core>
+            <div class="ct">Always on</div>
+            <div class="cn">Hartwell Insurance</div>
+            <div class="cs">agentic team member</div>
+          </div>
+        </div>
+        <div class="mapcol out" data-col="out"><div class="colhead">What it does about it</div></div>
+      </div>
+      <svg class="mapwires" data-wires aria-hidden="true"></svg>
+      <div class="packets" data-packets></div>
+    </div>
+    <div class="totalsrow">
+      <div class="tot"><b data-count="14">0</b><span>Inquiries handled</span></div>
+      <div class="tot g"><b data-count="6">0</b><span>Booked</span></div>
+      <div class="tot"><b data-count="0">0</b><span>Missed</span></div>
+    </div>
+    <p class="mapsub r d6" style="text-align:center;max-width:620px;margin:16px auto 0">Illustrative Hartwell day, matching the notifications in the app on this page. Your own totals are reported to you every month.</p>
+  </div>
+</section>
+
+<!-- ============ VALUE STACK ============ -->
+<section class="scene" id="stack">
+  <div class="wrap">
+    <div class="scene-head" style="max-width:760px;margin-left:auto;margin-right:auto;text-align:center">
+      <span class="role-tag"><span class="role-num">THE MATH</span><span class="role-name">Bought separately, at market rates</span></span>
+      <h2>Everyone else sells these <em class="loss">one at a time.</em></h2>
+      <p class="why" style="margin-left:auto;margin-right:auto">These are published 2026 market rates for each role hired as its own service. Add them up.</p>
+    </div>
+    <div class="stackbox">
+      <div class="stackrow d1"><span class="nm"><b>Missed-call text-back</b> service</span><span class="dots"></span><span class="pr">$40 to $120 /mo</span></div>
+      <div class="stackrow d2"><span class="nm"><b>Lead follow-up texting</b> platform</span><span class="dots"></span><span class="pr">$25 to $99 /mo</span></div>
+      <div class="stackrow d3"><span class="nm"><b>Online booking</b> with reminders</span><span class="dots"></span><span class="pr">$16 to $61 /mo</span></div>
+      <div class="stackrow d4"><span class="nm"><b>AI chat</b> for website and socials</span><span class="dots"></span><span class="pr">$29 to $99 /mo</span></div>
+      <div class="stackrow d5"><span class="nm"><b>Branded mobile app</b> (unified inbox)</span><span class="dots"></span><span class="pr">$49 /mo</span></div>
+      <div class="stackrow d6"><span class="nm"><b>Database reactivation</b> as a service</span><span class="dots"></span><span class="pr">$400 to $720 /mo</span></div>
+      <div class="stackrow d7"><span class="nm"><b>Review management</b> (getting + answering)</span><span class="dots"></span><span class="pr">$200 to $599 /mo</span></div>
+      <div class="stackrow d8"><span class="nm"><b>Website</b> built and maintained</span><span class="dots"></span><span class="pr">$149 to $500 /mo</span></div>
+      <div class="stackrow d9"><span class="nm"><b>AI receptionist / voice callback</b></span><span class="dots"></span><span class="pr">$200 to $400 /mo</span></div>
+      <div class="stackrow total d10"><span class="nm">Hired one at a time</span><span class="dots"></span><span class="pr">$1,100 to $2,600 /mo</span></div>
+    </div>
+    <div class="stackpunch r d11">
+      <div class="b1">Bundled, it's one team member: <em>$497 a month.</em></div>
+      <div class="b2">Even at $997 it would still be under the bottom of that stack. At $497, it's not a decision.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS BAND ============ -->
+<section class="band scene" id="numbers">
+  <div class="wrap">
+    <h3 class="r">The money this team member works with is money you've already earned once.</h3>
+    <div class="statgrid">
+      <div class="stat r d2"><div class="big red">70-78%</div><p>of quotes independent P&C agencies give never turn into a policy.</p></div>
+      <div class="stat r d3"><div class="big red">25-40%</div><p>of that quote-to-bind loss is attributed to inconsistent follow-up, not lack of interest.</p></div>
+      <div class="stat r d4"><div class="big">$400-800</div><p>real cost per acquired customer on shared marketplace leads. Your own book costs nothing to re-work.</p></div>
+      <div class="stat r d5"><div class="big red">67% vs 91%</div><p>retention on single-policy households versus bundled ones. The bundle conversation is a retention play, not an upsell.</p></div>
+    </div>
+    <p class="srcnote r d5">Sources: industry P&C close-rate and follow-up data; bundled vs monoline retention data (incl. JD Power home insurance study); insurance lead-marketplace CPA reporting; published 2026 vendor pricing for the separately-bought comparison; Glassdoor 2026 salary data. Screens above are a conceptual demonstration with illustrative agency data.</p>
+  </div>
+</section>
+
+<!-- ============ CLOSE ============ -->
+<section class="close scene" id="hire">
+  <div class="wrap">
+    <span class="chip r"><span class="dot"></span>THE HIRE</span>
+    <h2 class="r d1">Ten roles. Zero payroll. <br>Nothing for you to run.</h2>
+    <p class="cs r d2">We install everything, we manage everything, and your team keeps doing exactly what they do now, except the phone buzzes with live ones.</p>
+    <div class="plate r d3">
+      <div class="p-amt">$497</div>
+      <div class="p-per">per month · never more</div>
+      <ul>
+        <li><span class="tk">✓</span><span><b>One-time $497 setup.</b> That's real work: carrier-registering your texting (A2P), connecting your Google profile, training the AI on your agency.</span></li>
+        <li><span class="tk">✓</span><span><b>No contract.</b> Month to month, cancel anytime.</span></li>
+        <li><span class="tk">✓</span><span><b>30-day money-back guarantee.</b> Live with it for 30 days from the day it's fully running. Don't want it? Every cent back, on us.</span></li>
+        <li><span class="tk">✓</span><span><b>Go 12 months, month twelve is free.</b> Upgrade anytime you're with us and you still get a free month.</span></li>
+        <li><span class="tk">✓</span><span><b>Completely hands-off.</b> Managed for you, every day.</span></li>
+        <li><span class="tk">✓</span><span><b>Locked at $497.</b> Join now and $497 is your rate for as long as you stay, even after the price goes to $997.</span></li>
+      </ul>
+    </div>
+    <p class="cs r d4" style="margin-top:36px">One conversation gets it hired. <b style="color:var(--ink)">Andrew Cherry · Regesta</b></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="brand">REGESTA</p>
+    <p>This page is a conceptual demonstration of the Regesta AI team member for independent insurance agencies. "Hartwell Insurance" and all customer names, conversations, reviews, websites, listings and figures shown in the product screens are illustrative examples, not records of real customers. The chat widget on this page is a scripted demonstration and is not connected to a live system. Offer terms shown ($497/month, rate-locked for active clients, with a future increase to $997 applying to new clients only; one-time $497 setup fee; month-to-month by default; optional 12-month term includes one free month; 30-day money-back guarantee from go-live) are the current live offer. Statistics and separately-bought market rates cited from published 2026 industry pricing sources; details on request. Built and managed by Regesta, a RequityAI company.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ============================================================
+   1. SYSTEM MAP
+   ============================================================ */
+var SOURCES = [
+  {ic:"i-phone", lb:"Phone call",          rf:"#r1",  tg:"01"},
+  {ic:"i-form",  lb:"Quote form",          rf:"#r2",  tg:"02"},
+  {ic:"i-chat",  lb:"Website chat",        rf:"#r4",  tg:"04"},
+  {ic:"i-ig",    lb:"Instagram DM",        rf:"#r4",  tg:"04"},
+  {ic:"i-msgr",  lb:"Facebook Messenger",  rf:"#r4",  tg:"04"},
+  {ic:"i-wa",    lb:"WhatsApp",            rf:"#r4",  tg:"04"},
+  {ic:"i-star",  lb:"New Google review",   rf:"#r8",  tg:"08"},
+  {ic:"i-db",    lb:"Customer database",   rf:"#r6",  tg:"06"}
+];
+var ACTIONS = [
+  {ic:"i-sms",   lb:"Text sent",              rf:"#r1",  tg:"01"},
+  {ic:"i-phone", lb:"Call placed back",       rf:"#r10", tg:"10"},
+  {ic:"i-cal",   lb:"Appointment booked",     rf:"#r3",  tg:"03"},
+  {ic:"i-crm",   lb:"CRM record created",     rf:"#r4",  tg:"04"},
+  {ic:"i-bell",  lb:"Agency App notified",    rf:"#r5",  tg:"05"},
+  {ic:"i-star",  lb:"Review requested",       rf:"#r7",  tg:"07"},
+  {ic:"i-reply", lb:"Review answered",        rf:"#r8",  tg:"08"},
+  {ic:"i-mega",  lb:"Renewal campaign fired", rf:"#r6",  tg:"06"}
+];
+
+function nodeEl(d){
+  var a = document.createElement("a");
+  a.className = "mnode";
+  a.href = d.rf;
+  a.innerHTML = '<span class="ni"><svg><use href="#' + d.ic + '"/></svg></span>' +
+                '<span class="nl">' + d.lb + '</span>' +
+                '<span class="nr">' + d.tg + '</span>';
+  return a;
+}
+
+var maps = [].slice.call(document.querySelectorAll("[data-map]"));
+maps.forEach(function(root){
+  var ci = root.querySelector('[data-col="in"]');
+  var co = root.querySelector('[data-col="out"]');
+  SOURCES.forEach(function(d){ ci.appendChild(nodeEl(d)); });
+  ACTIONS.forEach(function(d){ co.appendChild(nodeEl(d)); });
+});
+
+function layoutMap(root){
+  var svg = root.querySelector("[data-wires]");
+  var pk  = root.querySelector("[data-packets]");
+  var coreEl = root.querySelector("[data-core]");
+  if(!svg || !coreEl) return;
+  var wr = root.getBoundingClientRect();
+  if(wr.width < 40) return;
+  svg.setAttribute("viewBox", "0 0 " + wr.width + " " + wr.height);
+  svg.setAttribute("width", wr.width);
+  svg.setAttribute("height", wr.height);
+  var core = coreEl.getBoundingClientRect();
+  var vert = window.matchMedia("(max-width:900px)").matches;
+  svg.innerHTML = "";
+  pk.innerHTML = "";
+  var store = {in:[], out:[]};
+
+  function run(dir){
+    var col = root.querySelector('[data-col="' + dir + '"]');
+    var nodes = [].slice.call(col.querySelectorAll(".mnode"));
+    nodes.forEach(function(n, i){
+      var b = n.getBoundingClientRect(), x1, y1, x2, y2, d;
+      if(vert){
+        if(dir === "in"){
+          x1 = b.left + b.width/2 - wr.left; y1 = b.bottom - wr.top;
+          x2 = core.left + core.width/2 - wr.left; y2 = core.top - wr.top;
+        }else{
+          x1 = core.left + core.width/2 - wr.left; y1 = core.bottom - wr.top;
+          x2 = b.left + b.width/2 - wr.left; y2 = b.top - wr.top;
+        }
+        var cy = (y2 - y1) * 0.55;
+        d = "M " + x1 + " " + y1 + " C " + x1 + " " + (y1+cy) + ", " + x2 + " " + (y2-cy) + ", " + x2 + " " + y2;
+      }else{
+        if(dir === "in"){
+          x1 = b.right - wr.left; y1 = b.top + b.height/2 - wr.top;
+          x2 = core.left - wr.left; y2 = core.top + core.height/2 - wr.top;
+        }else{
+          x1 = core.right - wr.left; y1 = core.top + core.height/2 - wr.top;
+          x2 = b.left - wr.left; y2 = b.top + b.height/2 - wr.top;
+        }
+        var cx = (x2 - x1) * 0.5;
+        d = "M " + x1 + " " + y1 + " C " + (x1+cx) + " " + y1 + ", " + (x2-cx) + " " + y2 + ", " + x2 + " " + y2;
+      }
+      var p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      p.setAttribute("class", "wire");
+      p.setAttribute("d", d);
+      svg.appendChild(p);
+
+      var loop = document.createElement("span");
+      loop.className = "packet loop" + (dir === "out" ? " g" : "");
+      loop.style.offsetPath = 'path("' + d + '")';
+      loop.style.setProperty("--dur", (2.4 + (i % 4) * 0.35) + "s");
+      loop.style.setProperty("--dly", ((dir === "in" ? 0 : 0.55) + i * 0.31) + "s");
+      pk.appendChild(loop);
+
+      var fire = document.createElement("span");
+      fire.className = "packet" + (dir === "out" ? " g" : "");
+      fire.style.offsetPath = 'path("' + d + '")';
+      pk.appendChild(fire);
+
+      store[dir].push({wire:p, fire:fire, node:n});
+    });
+  }
+  run("in"); run("out");
+  root._m = store;
+}
+
+function relayoutAll(){ maps.forEach(layoutMap); }
+window.addEventListener("resize", (function(){
+  var t; return function(){ clearTimeout(t); t = setTimeout(relayoutAll, 180); };
+})());
+if(document.fonts && document.fonts.ready){ document.fonts.ready.then(relayoutAll); }
+window.addEventListener("load", relayoutAll);
+relayoutAll();
+
+function firePath(root, dir, idx, dur){
+  var m = root._m; if(!m || !m[dir][idx]) return;
+  var e = m[dir][idx];
+  e.fire.classList.remove("fire");
+  void e.fire.offsetWidth;
+  e.fire.style.setProperty("--dur", (dur || 1) + "s");
+  e.fire.classList.add("fire");
+  e.wire.classList.add("hot");
+  e.node.classList.add("hot");
+  setTimeout(function(){ e.wire.classList.remove("hot"); e.node.classList.remove("hot"); }, (dur || 1) * 1000 + 500);
+}
+
+/* ============================================================
+   2. THE AGENCY APP DOCK
+   ============================================================ */
+var NOTI = {
+  r1:  {t:"Missed call saved",        s:"Fleet inquiry, (830) 555-0163, booked 9:30", tm:"2:15 PM",  h:1, b:1},
+  r2:  {t:"Quote request answered",   s:"Maria G., home and auto, replied in seconds", tm:"11:02 PM", h:1, b:0},
+  r3:  {t:"Appointment confirmed",    s:"Fleet quote with Ray, Thursday 9:30 AM",     tm:"9:31 AM",  h:1, b:1},
+  r4:  {t:"Website chat booked",      s:"Renters and auto, Tuesday 2:00 PM",          tm:"4:40 PM",  h:1, b:1},
+  r5:  {t:"Instagram DM handled",     s:"Carla P., renters proof, quote sent",        tm:"9:12 PM",  h:1, b:0},
+  r6:  {t:"Reactivation sweep ran",   s:"312 contacts worked, 2 booked",              tm:"9:00 AM",  h:6, b:2},
+  r7:  {t:"New 5 star review",        s:"Dana R., posted to Google",                  tm:"5:04 PM",  h:1, b:0},
+  r8:  {t:"2 star review handled",    s:"Kelly W., drafted and held for Ray",         tm:"5:11 PM",  h:1, b:0},
+  r9:  {t:"New page indexed",         s:"/commercial-auto-new-braunfels is live",     tm:"6:20 AM",  h:0, b:0},
+  r10: {t:"Voice callback booked",    s:"Truck and home, Thursday 2:00 PM",           tm:"3:02 PM",  h:1, b:1}
+};
+var dockStack = document.getElementById("dockStack");
+var inlineStack = document.getElementById("inlineStack");
+var seen = {}, tot = {h:0, b:0};
+
+function setCount(id, v){
+  var a = document.getElementById(id), b2 = document.getElementById(id + "2");
+  if(a) a.textContent = v;
+  if(b2) b2.textContent = v;
+}
+function pushNoti(key){
+  if(seen[key] || !NOTI[key]) return;
+  seen[key] = 1;
+  var n = NOTI[key];
+  [dockStack, inlineStack].forEach(function(host){
+    if(!host) return;
+    var el = document.createElement("div");
+    el.className = "noti";
+    el.innerHTML = '<div class="nh"><b>Hartwell Insurance</b><span>' + n.tm + '</span></div>' +
+                   '<div class="nb">' + n.t + '</div><div class="ns">' + n.s + '</div>';
+    host.appendChild(el);
+    while(host.children.length > 6) host.removeChild(host.firstChild);
+  });
+  tot.h += n.h; tot.b += n.b;
+  setCount("cHandled", tot.h);
+  setCount("cBooked", tot.b);
+  setCount("cMissed", 0);
+}
+
+/* ============================================================
+   3. ROLE 06 DATABASE GRID
+   ============================================================ */
+var dbg = document.getElementById("dbgrid");
+var dbTiles = [];
+if(dbg){
+  var TOTAL = 400, seedv = 7;
+  function rnd(){ seedv = (seedv * 1103515245 + 12345) % 2147483648; return seedv / 2147483648; }
+  var order = [];
+  for(var i = 0; i < TOTAL; i++){
+    var t = document.createElement("span");
+    t.className = "dbt";
+    dbg.appendChild(t);
+    dbTiles.push(t);
+    order.push(i);
+  }
+  for(var j = order.length - 1; j > 0; j--){
+    var k = Math.floor(rnd() * (j + 1)), tmp = order[j];
+    order[j] = order[k]; order[k] = tmp;
+  }
+  var segs = [{n:34, c:"s1"}, {n:61, c:"s2"}, {n:217, c:"s3"}], cur = 0;
+  segs.forEach(function(sg){
+    sg.idx = order.slice(cur, cur + sg.n);
+    cur += sg.n;
+  });
+  dbg._segs = segs;
+}
+function runDbGrid(){
+  if(!dbg) return;
+  dbg._segs.forEach(function(sg, si){
+    sg.idx.forEach(function(ix, n){
+      var t = dbTiles[ix];
+      t.style.transitionDelay = RM ? "0ms" : (si * 700 + n * 4) + "ms";
+      t.classList.add(sg.c);
+    });
+  });
+}
+function resetDbGrid(){
+  dbTiles.forEach(function(t){ t.className = "dbt"; t.style.transitionDelay = "0ms"; });
+}
+
+/* ============================================================
+   4. ROLE 04 CHANNEL SWITCHER
+   ============================================================ */
+var surface = document.getElementById("r4surface");
+var panel04 = document.getElementById("r4panel");
+var chanbar = document.getElementById("chanbar");
+var SKINS = ["web", "sms", "messenger", "instagram", "whatsapp"];
+var SKINMETA = {
+  web:       {ch:"Website chat", sub:"hartwellinsurance.com"},
+  sms:       {ch:"SMS",          sub:"(830) 555-0100"},
+  messenger: {ch:"Messenger",    sub:"Facebook · Active now"},
+  instagram: {ch:"Instagram DM", sub:"@hartwellinsurance"},
+  whatsapp:  {ch:"WhatsApp",     sub:"online"}
+};
+var chanIdx = 0, chanTimer = null, chanAuto = true;
+
+function playChat(){
+  if(!panel04) return;
+  panel04.classList.remove("play");
+  void panel04.offsetWidth;
+  panel04.classList.add("play");
+}
+function setSkin(name){
+  if(!surface) return;
+  surface.setAttribute("data-skin", name);
+  var m = SKINMETA[name];
+  var a = document.getElementById("skCh"), b = document.getElementById("skSub");
+  if(a) a.textContent = m.ch;
+  if(b) b.textContent = m.sub;
+  [].slice.call(chanbar.querySelectorAll(".chanbtn")).forEach(function(btn){
+    btn.classList.toggle("sel", btn.getAttribute("data-skin") === name);
+  });
+  playChat();
+}
+if(chanbar){
+  chanbar.addEventListener("click", function(e){
+    var btn = e.target.closest(".chanbtn");
+    if(!btn) return;
+    chanAuto = false;
+    clearInterval(chanTimer);
+    chanIdx = SKINS.indexOf(btn.getAttribute("data-skin"));
+    setSkin(SKINS[chanIdx]);
+    var hint = document.querySelector(".chanhint");
+    if(hint) hint.textContent = "Same conversation, same booking, every channel";
+  });
+}
+function startChan(){
+  if(!surface || RM) { if(panel04) panel04.classList.add("play"); return; }
+  setTimeout(function(){ if(document.getElementById("r4").classList.contains("on")) playChat(); }, 2400);
+  if(!chanAuto) return;
+  clearInterval(chanTimer);
+  chanTimer = setInterval(function(){
+    if(!document.getElementById("r4").classList.contains("on")) return;
+    chanIdx = (chanIdx + 1) % SKINS.length;
+    setSkin(SKINS[chanIdx]);
+  }, 9600);
+}
+function stopChan(){ clearInterval(chanTimer); if(panel04) panel04.classList.remove("play"); }
+
+/* ============================================================
+   5. PER-SCENE TIMELINES
+   ============================================================ */
+var timers = {};
+function T(id, fn, ms){
+  if(!timers[id]) timers[id] = [];
+  timers[id].push(setTimeout(fn, ms));
+}
+function clearT(id){
+  (timers[id] || []).forEach(clearTimeout);
+  timers[id] = [];
+}
+
+function sceneIn(id, el){
+  pushNoti(id);
+  if(id === "map"){
+    var m1 = document.getElementById("map1");
+    layoutMap(m1);
+    var steps = [].slice.call(m1.querySelectorAll(".rstep"));
+    if(RM){ steps.forEach(function(s){ s.classList.add("lit"); }); return; }
+    var seq = [
+      {at:300,  st:0, dir:"in",  ix:0},
+      {at:1500, st:2, dir:"out", ix:0},
+      {at:2800, st:4, dir:"in",  ix:0},
+      {at:4100, st:6, dir:"out", ix:2},
+      {at:5200, st:8, dir:"out", ix:4}
+    ];
+    seq.forEach(function(s){
+      T(id, function(){
+        if(steps[s.st]) steps[s.st].classList.add("lit");
+        firePath(m1, s.dir, s.ix, 1);
+      }, s.at);
+    });
+    T(id, function(){ m1.classList.add("busy"); }, 6600);
+  }
+  if(id === "fullday"){
+    var m2 = document.getElementById("map2");
+    layoutMap(m2);
+    if(!RM) T(id, function(){ m2.classList.add("busy"); }, 300);
+  }
+  if(id === "r1"){
+    var cd = document.getElementById("r1count"), lb = document.getElementById("r1lbl");
+    if(RM){ cd.textContent = "00"; lb.innerHTML = "Text delivered"; return; }
+    var n = 9;
+    cd.textContent = "09";
+    for(var s2 = 1; s2 <= 9; s2++){
+      (function(v){ T(id, function(){ cd.textContent = "0" + (9 - v); }, 800 + v * 240); })(s2);
+    }
+    T(id, function(){ lb.innerHTML = "Text delivered.<br>Nobody lifted a finger."; }, 3100);
+  }
+  if(id === "r4"){ startChan(); }
+  if(id === "r6"){ T(id, runDbGrid, RM ? 0 : 400); }
+  if(id === "r8"){
+    var c1 = document.getElementById("comp1"), p1 = document.getElementById("rep1"), p2 = document.getElementById("rep2");
+    if(RM){ if(c1) c1.style.display = "none"; p1.classList.add("show"); p2.classList.add("show"); return; }
+    T(id, function(){ if(c1) c1.style.display = "none"; p1.classList.add("show"); }, 1700);
+    T(id, function(){ p2.classList.add("show"); }, 5200);
+  }
+  if(id === "r10"){
+    var w = document.getElementById("wave2"), sp = document.getElementById("speaking"), tm = document.getElementById("calltimer");
+    if(RM){ sp.textContent = "CALL ENDED · 00:41"; tm.textContent = "00:41"; return; }
+    var marks = [
+      {at:200,  cls:"ai",  txt:"ASSISTANT SPEAKING"},
+      {at:3200, cls:"hum", txt:"CALLER SPEAKING"},
+      {at:4600, cls:"ai",  txt:"ASSISTANT SPEAKING"},
+      {at:6900, cls:"hum", txt:"CALLER SPEAKING"},
+      {at:7700, cls:"ai",  txt:"ASSISTANT SPEAKING"}
+    ];
+    marks.forEach(function(m){
+      T(id, function(){ w.className = "wave2 live " + m.cls; sp.textContent = m.txt; }, m.at);
+    });
+    T(id, function(){ w.className = "wave2"; sp.textContent = "CALL ENDED · BOOKED"; }, 9400);
+    for(var q = 0; q <= 41; q++){
+      (function(v){
+        T(id, function(){ tm.textContent = "00:" + (v < 10 ? "0" + v : v); }, 200 + v * 225);
+      })(q);
+    }
+  }
+}
+
+function sceneOut(id, el){
+  clearT(id);
+  if(id === "map"){
+    var m1 = document.getElementById("map1");
+    m1.classList.remove("busy");
+    [].slice.call(m1.querySelectorAll(".rstep")).forEach(function(s){ s.classList.remove("lit"); });
+    [].slice.call(m1.querySelectorAll(".hot")).forEach(function(s){ s.classList.remove("hot"); });
+  }
+  if(id === "fullday"){ document.getElementById("map2").classList.remove("busy"); }
+  if(id === "r1"){
+    document.getElementById("r1count").textContent = "09";
+    document.getElementById("r1lbl").innerHTML = "Seconds until<br>the text lands";
+  }
+  if(id === "r4"){ stopChan(); }
+  if(id === "r6"){ resetDbGrid(); }
+  if(id === "r8"){
+    var c1 = document.getElementById("comp1");
+    if(c1) c1.style.display = "";
+    document.getElementById("rep1").classList.remove("show");
+    document.getElementById("rep2").classList.remove("show");
+  }
+  if(id === "r10"){
+    document.getElementById("wave2").className = "wave2";
+    document.getElementById("speaking").textContent = "CONNECTING…";
+    document.getElementById("calltimer").textContent = "00:00";
+  }
+}
+
+/* ============================================================
+   6. SCENE OBSERVER
+   ============================================================ */
+var railLinks = [].slice.call(document.querySelectorAll("#rail a"));
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    var id = e.target.id;
+    if(e.isIntersecting){
+      var wasOn = e.target.classList.contains("on");
+      e.target.classList.add("on");
+      railLinks.forEach(function(a){ a.classList.toggle("live", a.getAttribute("href") === "#" + id); });
+      [].slice.call(e.target.querySelectorAll("[data-count]")).forEach(function(el){
+        if(el.dataset.done) return;
+        el.dataset.done = "1";
+        var target = +el.dataset.count, t0 = performance.now(), dur = 1400;
+        if(RM){ el.textContent = target.toLocaleString(); return; }
+        var step = function(t){
+          var p = Math.min((t - t0) / dur, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString();
+          if(p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+      if(!wasOn) sceneIn(id, e.target);
+    }else if(e.intersectionRatio === 0 && id !== "top"){
+      e.target.classList.remove("on");
+      [].slice.call(e.target.querySelectorAll("[data-count]")).forEach(function(el){
+        delete el.dataset.done; el.textContent = "0";
+      });
+      sceneOut(id, e.target);
+    }
+  });
+}, {threshold:[0, 0.3]});
+[].slice.call(document.querySelectorAll(".scene")).forEach(function(s){ io.observe(s); });
+
+/* review counter: 87 -> 88 when the review engine plays */
+var revScene = document.getElementById("r7");
+if(revScene){
+  new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      var el = document.getElementById("revcount");
+      if(e.isIntersecting){
+        setTimeout(function(){ if(revScene.classList.contains("on")) el.textContent = "88"; }, 3400);
+      }else if(e.intersectionRatio === 0){ el.textContent = "87"; }
+    });
+  }, {threshold:[0, 0.3]}).observe(revScene);
+}
+
+/* ============================================================
+   7. LIVE PAGE CHAT WIDGET (scripted demo)
+   ============================================================ */
+var QA = [
+  {q:"What does the $497 actually cover?",
+   a:["All ten roles, installed and managed for you. Missed-call text-back, instant lead follow-up, online booking, the AI chat on every channel, the branded agency app, monthly database reactivation, review getting and answering, the website if you want it, and voice callback.",
+      "$497 a month, month to month. There is a one-time $497 setup, which is the A2P texting registration, connecting your Google profile, and training the AI on your agency."]},
+  {q:"Do I have to change how my agency works?",
+   a:["No. It plugs into the phone number, website and Google profile you already have. Your team keeps working exactly the way they do now.",
+      "There is nothing new for them to learn. The only difference is the phone buzzes with people who are already qualified and already booked."]},
+  {q:"What if it doesn't work for us?",
+   a:["Thirty day money-back guarantee from the day it is fully running. Every cent back, no contract, cancel anytime.",
+      "And the rate you join at is locked for as long as you stay, even when the price goes to $997."]}
+];
+var pcLaunch = document.getElementById("pcLaunch");
+var pcPanel  = document.getElementById("pcPanel");
+var pcClose  = document.getElementById("pcClose");
+var pcBody   = document.getElementById("pcBody");
+var pcChips  = document.getElementById("pcChips");
+var asked = {}, busy = false;
+
+function renderChips(){
+  pcChips.innerHTML = "";
+  var left = 0;
+  QA.forEach(function(item, i){
+    if(asked[i]) return;
+    left++;
+    var b = document.createElement("button");
+    b.className = "pcchip";
+    b.textContent = item.q;
+    b.addEventListener("click", function(){ ask(i); });
+    pcChips.appendChild(b);
+  });
+  if(!left){
+    var n = document.createElement("div");
+    n.className = "pcchip";
+    n.style.cursor = "default";
+    n.textContent = "That is the whole demo script. The real one is trained on your agency and answers anything a shopper asks.";
+    pcChips.appendChild(n);
+  }
+}
+function bubble(cls, txt){
+  var d = document.createElement("div");
+  d.className = "pcmsg " + cls;
+  d.textContent = txt;
+  pcBody.appendChild(d);
+  pcBody.scrollTop = pcBody.scrollHeight;
+  return d;
+}
+function ask(i){
+  if(busy) return;
+  busy = true;
+  asked[i] = 1;
+  pcChips.innerHTML = "";
+  bubble("out", QA[i].q);
+  var typing = document.createElement("div");
+  typing.className = "pctype";
+  typing.innerHTML = "<i></i><i></i><i></i>";
+  pcBody.appendChild(typing);
+  pcBody.scrollTop = pcBody.scrollHeight;
+  var lines = QA[i].a.slice(), step = 0;
+  var next = function(){
+    if(step === 0 && typing.parentNode) typing.parentNode.removeChild(typing);
+    if(step < lines.length){
+      bubble("in", lines[step]);
+      step++;
+      setTimeout(next, RM ? 0 : 900);
+    }else{
+      bubble("in", "If you want to watch this run on your own agency, that is a fifteen minute call with Andrew. This demo widget does not book, it only talks.");
+      busy = false;
+      renderChips();
+    }
+  };
+  setTimeout(next, RM ? 0 : 1100);
+}
+function openChat(){
+  pcPanel.classList.add("open");
+  pcLaunch.style.display = "none";
+}
+function closeChat(){
+  pcPanel.classList.remove("open");
+  pcLaunch.style.display = "";
+}
+if(pcLaunch){
+  renderChips();
+  pcLaunch.addEventListener("click", openChat);
+  pcClose.addEventListener("click", closeChat);
+}
+})();
+</script>
+
+
+
+</body>
+</html>
