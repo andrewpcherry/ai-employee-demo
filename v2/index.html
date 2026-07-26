@@ -478,6 +478,14 @@
   .qsent{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:#0a7a4b;text-transform:uppercase;margin-top:10px;opacity:0}
   .on .qsent{animation:rise .4s ease 4.4s forwards}
 
+  .everyone{border:1px solid rgba(90,169,255,.4);background:rgba(90,169,255,.06);border-radius:14px;padding:18px 20px;margin-bottom:24px}
+  .ev-lead{font-size:16px;color:var(--ink);font-weight:600;line-height:1.5;margin-bottom:14px}
+  .ev-lead b{color:var(--blue)}
+  .ev-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .ev-chips span{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:99px;padding:7px 13px;font-size:13px;color:var(--dim);background:rgba(8,13,26,.5)}
+  .ev-chips svg{width:13px;height:13px;color:var(--blue)}
+  .ev-note{margin-top:14px;font-size:14px;color:var(--dim);line-height:1.5}
+  .ev-note b{color:var(--ink)}
   /* ================= FOLLOW-UP LADDER ================= */
   .ladder{border-left:2px solid var(--line);margin-left:8px;padding-left:0}
   .lrow{position:relative;padding:0 0 18px 26px;opacity:0;transform:translateY(10px)}
@@ -934,7 +942,7 @@
       <ul class="revlist">
         <li><b>No more missed calls.</b><span>Every one gets a text back in nine seconds, at any hour, on any day.</span></li>
         <li><b>No more voicemails nobody returns.</b><span>It phones them back, asks what they need, and books them or puts them straight through to your team.</span></li>
-        <li><b>No more leads going cold.</b><span>Answered in seconds, followed up hard for thirty days, then once a quarter for as long as they are on the book.</span></li>
+        <li><b>No more leads going cold.</b><span>Every caller, form, chat and DM answered in seconds, followed up hard for thirty days, then once a quarter for as long as they are on the book.</span></li>
         <li><b>No more phone tag.</b><span>They pick a slot themselves, get reminded twice, and turn up.</span></li>
         <li><b>No more one-policy customers walking.</b><span>The bundle conversation nobody has time to have, had every single month.</span></li>
         <li><b>No more chasing people for reviews.</b><span>Asked automatically, chased politely for a month, landed on your Google Business Profile.</span></li>
@@ -1165,6 +1173,10 @@
         <div class="k">What just happened</div>
         <p>A fleet account that was one voicemail away from dialing the next agency on Google is <b>booked for tomorrow at 9:30</b>. After hours, weekends, all lines busy, same nine seconds.</p>
       </div>
+      <div class="pt hot r d11">
+        <div class="k">And when they don't write back</div>
+        <p>Most won't, first time. That caller isn't finished with, they go straight onto the same follow-up every other lead gets: <b>thirty days of texts and emails, then once a quarter for as long as they are on the book.</b> A missed call is never just a text and a shrug.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1236,7 +1248,19 @@
     </div>
     <div class="scene-body" style="margin-top:48px;align-items:start">
       <div>
-        <div class="panel-title" style="margin-bottom:20px"><span class="t">Thirty days hard, then once a quarter, forever · Maria has not booked yet</span><span class="chip"><span class="dot"></span>AUTOMATIC</span></div>
+        <div class="everyone r d2">
+          <div class="ev-lead">This is not just the form. <b>Everyone who contacts your agency and does not book enters the same follow-up.</b></div>
+          <div class="ev-chips">
+            <span><svg><use href="#i-phone"/></svg>Missed call</span>
+            <span><svg><use href="#i-form"/></svg>Quote form</span>
+            <span><svg><use href="#i-chat"/></svg>Website chat</span>
+            <span><svg><use href="#i-ig"/></svg>Instagram DM</span>
+            <span><svg><use href="#i-msgr"/></svg>Messenger</span>
+            <span><svg><use href="#i-wa"/></svg>WhatsApp</span>
+          </div>
+          <div class="ev-note">The caller from Role 01 who got the nine-second text and never wrote back is on this ladder too. <b>So is everybody else.</b> The channel only decides how they arrived.</div>
+        </div>
+        <div class="panel-title" style="margin-bottom:20px"><span class="t">Thirty days hard, then once a quarter, forever</span><span class="chip"><span class="dot"></span>EVERY CHANNEL</span></div>
         <div class="ladder">
           <div class="lrow sent" style="animation-delay:.2s">
             <div class="lwhen">Day 0 · 11:02 PM</div>
