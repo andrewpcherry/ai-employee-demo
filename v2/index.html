@@ -774,6 +774,25 @@
   .freechip{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--stage);background:var(--amber);padding:6px 13px;border-radius:4px;font-weight:700;margin-bottom:16px}
   .honest{margin-top:18px;font-size:14px;color:var(--dim);line-height:1.6;border-top:1px solid var(--line);padding-top:14px}
 
+  /* ================= BREAK-EVEN ================= */
+  .beven{max-width:820px;margin:0 auto;border:1px solid rgba(61,220,151,.45);border-radius:18px;background:linear-gradient(180deg,var(--panel),var(--stage2));padding:30px 32px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  @media(max-width:560px){.beven{padding:22px 18px}}
+  .be-row{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:end;margin:22px 0}
+  @media(max-width:640px){.be-row{grid-template-columns:1fr;gap:14px}}
+  .be-cell .bl{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:9px;line-height:1.5}
+  .be-cell .bv{font-family:var(--disp);font-weight:700;font-size:clamp(26px,4vw,36px);color:var(--ink);line-height:1}
+  .be-op{font-family:var(--disp);font-weight:700;font-size:26px;color:var(--faint);padding-bottom:4px}
+  @media(max-width:640px){.be-op{display:none}}
+  .be-input{display:flex;align-items:baseline;gap:2px;border-bottom:2px solid var(--green);padding-bottom:5px;max-width:210px}
+  .be-input span{font-family:var(--disp);font-weight:700;font-size:clamp(26px,4vw,36px);color:var(--green)}
+  .be-input input{background:0;border:0;outline:0;color:var(--green);font-family:var(--disp);font-weight:700;font-size:clamp(26px,4vw,36px);width:100%;min-width:0;padding:0;-moz-appearance:textfield}
+  .be-input input::-webkit-outer-spin-button,.be-input input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .be-hint{font-size:12.5px;color:var(--faint);margin-top:8px;line-height:1.5}
+  .be-out{border-top:1px solid var(--line);margin-top:24px;padding-top:22px}
+  .be-out .bo1{font-family:var(--disp);font-weight:700;font-size:clamp(21px,3.2vw,30px);line-height:1.25;letter-spacing:-.01em}
+  .be-out .bo1 em{font-style:normal;color:var(--green)}
+  .be-out .bo2{font-size:15px;color:var(--dim);margin-top:12px;line-height:1.6}
+  .be-out .bo2 b{color:var(--ink)}
   /* ================= value stack / stats / close ================= */
   .stackbox{border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--panel),var(--stage2));padding:10px 26px 26px;max-width:760px;margin:0 auto}
   @media(max-width:560px){.stackbox{padding:8px 16px 18px}}
@@ -888,6 +907,7 @@
   <a href="#r9"><span>09 · Website</span></a>
   <a href="#r10"><span>10 · Voice AI</span></a>
   <a href="#calls"><span>The Switchboard</span></a>
+  <a href="#worth"><span>What It Saves</span></a>
 </nav>
 
 <!-- ============ PERSISTENT AGENCY APP DOCK ============ -->
@@ -2104,6 +2124,38 @@
   </div>
 </section>
 
+<!-- ============ BREAK-EVEN ============ -->
+<section class="scene" id="worth">
+  <div class="wrap">
+    <div class="scene-head" style="max-width:820px;margin-left:auto;margin-right:auto;text-align:center">
+      <span class="role-tag" style="justify-content:center"><span class="role-num">THE ONLY QUESTION</span><span class="role-name">What it has to save before it pays for itself</span></span>
+      <h2>The value isn't the software. <em>It's the revenue it brings in, and the revenue it stops walking out.</em></h2>
+      <p class="why" style="margin-left:auto;margin-right:auto">So the honest question isn't whether ten roles are worth $497. It's how many policies this has to save, in a whole year, before it has paid for itself. You already know the number that answers it. We don't, so put yours in.</p>
+    </div>
+
+    <div class="beven r d2">
+      <div class="be-row">
+        <div class="be-cell">
+          <div class="bl">What it costs you a year</div>
+          <div class="bv">$5,964</div>
+          <div class="be-hint">$497 a month. The one-time $497 setup sits on top in year one.</div>
+        </div>
+        <div class="be-op">&divide;</div>
+        <div class="be-cell">
+          <div class="bl">What one policy earns your agency in its first year</div>
+          <div class="be-input"><span>$</span><input id="beCommission" type="number" min="1" step="10" value="250" aria-label="commission per policy"></div>
+          <div class="be-hint">Your number, not ours. Industry commission runs roughly <b style="color:var(--dim)">10 to 15% of premium</b> on new personal lines business, so this is your average premium times your rate. Change it to yours.</div>
+        </div>
+      </div>
+      <div class="be-out">
+        <div class="bo1">It has to save <em id="beCount">24</em> policies in a year to have cost you nothing. <em id="bePerMonth">Two</em> a month.</div>
+        <div class="bo2">Not write. <b>Save.</b> Out of the calls nobody answered, the quotes nobody chased, and the renewals nobody rang about, in a year. And every one after that is profit you would not have had.</div>
+      </div>
+    </div>
+    <p class="srcnote" style="max-width:820px;margin-left:auto;margin-right:auto;text-align:center">Commission range from published 2026 agent compensation reporting; ranges vary by carrier, line and state, and renewal commission typically runs lower than new business. The figure you enter is your own, and nothing here is a projection of results.</p>
+  </div>
+</section>
+
 <!-- ============ VALUE STACK ============ -->
 <section class="scene" id="stack">
   <div class="wrap">
@@ -2653,6 +2705,29 @@ if(revScene){
   }, {threshold:[0, 0.3]}).observe(revScene);
 }
 
+
+/* ============================================================
+   7b. BREAK-EVEN CALCULATOR
+   ============================================================ */
+var beIn = document.getElementById("beCommission");
+if(beIn){
+  var WORDS = ["Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve"];
+  var beCount = document.getElementById("beCount"), bePer = document.getElementById("bePerMonth");
+  var recalc = function(){
+    var v = parseFloat(beIn.value);
+    if(!isFinite(v) || v <= 0){ beCount.textContent = "\u2014"; bePer.textContent = "Barely any"; return; }
+    var policies = Math.ceil(5964 / v);
+    beCount.textContent = policies.toLocaleString();
+    var perMonth = policies / 12;
+    if(perMonth <= 1) bePer.textContent = "Less than one";
+    else {
+      var rounded = Math.round(perMonth);
+      bePer.textContent = (rounded < WORDS.length ? WORDS[rounded] : rounded.toLocaleString());
+    }
+  };
+  beIn.addEventListener("input", recalc);
+  recalc();
+}
 /* ============================================================
    7. LIVE PAGE CHAT WIDGET (scripted demo)
    ============================================================ */
