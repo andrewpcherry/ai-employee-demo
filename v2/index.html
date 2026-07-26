@@ -76,6 +76,13 @@
   .pricestrip{margin-top:20px;padding-top:18px;border-top:1px solid rgba(61,220,151,.3);display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
   .pricestrip .pnum{font-family:var(--disp);font-weight:700;font-size:clamp(30px,5vw,42px);color:var(--green);line-height:1}
   .pricestrip .pcopy{font-size:15.5px;color:var(--dim);max-width:460px;line-height:1.55}
+  .hirestrip{margin-top:20px;padding-top:20px;border-top:1px solid rgba(61,220,151,.3)}
+  .hs-lead{display:block;font-size:16.5px;color:var(--ink);font-weight:600;line-height:1.5;margin-bottom:14px}
+  .hs-nos{display:flex;flex-wrap:wrap;gap:8px}
+  .hs-nos span{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:99px;padding:8px 15px;font-size:13.5px;color:var(--dim);background:rgba(255,255,255,.025)}
+  .hs-nos span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);opacity:.75;flex:none}
+  .hs-close{display:block;margin-top:18px;font-size:16px;color:var(--ink);font-weight:600;line-height:1.5}
+  .hs-close em{font-style:normal;color:var(--green)}
   .pricestrip .pcopy b{color:var(--ink);font-weight:600}
   .hero .sub{font-size:clamp(16px,2vw,20px);color:var(--dim);max-width:660px}
   .hero .sub b{color:var(--ink);font-weight:600}
@@ -915,7 +922,20 @@
       </ul>
       <div class="pricestrip">
         <span class="pnum">$497<span style="font-size:.42em;color:var(--dim)">/mo</span></span>
-        <span class="pcopy">Ten roles, on duty 24/7, <b>completely hands-off</b>. We train it on your agency, we install it, we run it, and you answer the phone when it buzzes with a live one. <b>You don't need it to save many. You need it to save one.</b></span>
+        <span class="pcopy">Ten roles, on duty 24 hours a day, seven days a week, <b>completely hands-off</b>. We train it on your agency, we install it, we run it, and you answer the phone when it buzzes with a live one.</span>
+      </div>
+      <div class="hirestrip">
+        <span class="hs-lead">It is like adding a team member to the agency, without a single thing a team member costs you.</span>
+        <div class="hs-nos">
+          <span>No payroll</span>
+          <span>No health insurance</span>
+          <span>No benefits</span>
+          <span>No vacation</span>
+          <span>No sick days</span>
+          <span>No onboarding for your staff to do</span>
+          <span>No second person to manage</span>
+        </div>
+        <span class="hs-close">It clocks on at midnight and it clocks on at Christmas. <em>You don't need it to save many. You need it to save one.</em></span>
       </div>
     </div>
     <div class="scrollcue r d7"><span class="bar"></span>WATCH IT WORK A DAY, ON THE ACTUAL SCREENS</div>
