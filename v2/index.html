@@ -484,6 +484,10 @@
   .on .lrow{animation:rise .5s cubic-bezier(.2,.9,.25,1) forwards}
   .lrow::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--stage);border:2px solid var(--blue)}
   .lrow.sent::before{border-color:var(--green);background:var(--green)}
+  .lrow.q::before{border-color:var(--amber);background:var(--amber)}
+  .lrow.q .lwhen{color:var(--amber)}
+  .ldiv{position:relative;margin:6px 0 18px;padding-left:26px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+  .ldiv::before{content:"";position:absolute;left:-2px;top:-4px;bottom:-4px;width:2px;background:repeating-linear-gradient(180deg,var(--amber) 0 4px,transparent 4px 9px)}
   .lrow .lwhen{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
   .lrow .lwhat{font-size:14.5px;color:var(--ink);margin-top:4px;line-height:1.45}
   .lrow .lwhat i{font-style:normal;color:var(--dim)}
@@ -930,7 +934,7 @@
       <ul class="revlist">
         <li><b>No more missed calls.</b><span>Every one gets a text back in nine seconds, at any hour, on any day.</span></li>
         <li><b>No more voicemails nobody returns.</b><span>It phones them back, asks what they need, and books them or puts them straight through to your team.</span></li>
-        <li><b>No more leads going cold.</b><span>Answered in seconds, then followed up for thirty days by text and email until they book or tell you to stop.</span></li>
+        <li><b>No more leads going cold.</b><span>Answered in seconds, followed up hard for thirty days, then once a quarter for as long as they are on the book.</span></li>
         <li><b>No more phone tag.</b><span>They pick a slot themselves, get reminded twice, and turn up.</span></li>
         <li><b>No more one-policy customers walking.</b><span>The bundle conversation nobody has time to have, had every single month.</span></li>
         <li><b>No more chasing people for reviews.</b><span>Asked automatically, chased politely for a month, landed on your Google listing.</span></li>
@@ -1171,7 +1175,7 @@
     <div class="scene-head">
       <span class="role-tag"><span class="role-num">ROLE 02</span><span class="role-name">Instant Lead Follow-Up</span></span>
       <span class="surf"><span class="sq"></span>WHERE YOU SEE IT: <b>your quote form, their phone, your phone</b></span>
-      <h2>Answered in seconds. <em>Then followed up for thirty days.</em></h2>
+      <h2>Answered in seconds. <em>Then followed up until they buy or tell you to stop.</em></h2>
       <p class="why">People shop for insurance after the kids are down. The first agency to respond is usually the one that writes the policy, and at 11 PM that is nobody. But answering first only gets you into the running. What actually wins the policy is the follow-up nobody has time to do, and that is the half of this role that never gets talked about.</p>
     </div>
 
@@ -1232,7 +1236,7 @@
     </div>
     <div class="scene-body" style="margin-top:48px;align-items:start">
       <div>
-        <div class="panel-title" style="margin-bottom:20px"><span class="t">Thirty days of follow-up · Maria has not booked yet</span><span class="chip"><span class="dot"></span>AUTOMATIC</span></div>
+        <div class="panel-title" style="margin-bottom:20px"><span class="t">Thirty days hard, then once a quarter, forever · Maria has not booked yet</span><span class="chip"><span class="dot"></span>AUTOMATIC</span></div>
         <div class="ladder">
           <div class="lrow sent" style="animation-delay:.2s">
             <div class="lwhen">Day 0 · 11:02 PM</div>
@@ -1270,9 +1274,26 @@
             <div class="lwhen">Day 30</div>
             <div class="lwhat"><span class="lch">Text</span>Last one from me. Want me to keep the quote on file?</div>
           </div>
+          <div class="ldiv r d7">Then she moves onto the long cadence, and stays there</div>
+          <div class="lrow q" style="animation-delay:2.1s">
+            <div class="lwhen">Month 4</div>
+            <div class="lwhat"><span class="lch">Text</span>Hi Maria, it's been a few months and rates have moved. Want me to re-run your numbers?</div>
+          </div>
+          <div class="lrow q" style="animation-delay:2.3s">
+            <div class="lwhen">Month 7</div>
+            <div class="lwhat"><span class="lch">Email</span>Is your renewal coming up? Here's what to check before you auto-renew.</div>
+          </div>
+          <div class="lrow q" style="animation-delay:2.5s">
+            <div class="lwhen">Month 10</div>
+            <div class="lwhat"><span class="lch">Text</span>Quick one, are you still with the same carrier on the house?</div>
+          </div>
+          <div class="lrow q" style="animation-delay:2.7s">
+            <div class="lwhen">Month 13, and every quarter after</div>
+            <div class="lwhat"><span class="lch">Text</span>Your policy is probably up around now. Worth a look?</div>
+          </div>
         </div>
         <div class="lstop r d8">It starts close together while she is still deciding, then <b>spaces itself out</b>. Nine touches across thirty days, not nine texts in a week. And every one of them <b>stops the moment she replies or books</b>, so it follows up without ever pestering.</div>
-        <div class="lhand r d9">And if she never answers at all, <b>she is not dropped</b>. She rolls into the monthly database sweep in Role 06 and gets asked again, for as long as she is on the book.</div>
+        <div class="lhand r d9">Thirty days hard, then <b>once a quarter for as long as she is on the book</b>. Insurance renews every year, so somebody who was not buying in March is often buying by October. Four touches a year means you are never more than ninety days from being in front of her when that happens.<br><br><b style="color:var(--green)">Nobody who ever contacts your agency is dropped. Not after a month, not after a year, not ever.</b></div>
       </div>
       <div class="aside">
         <div class="pt hot r d3">
