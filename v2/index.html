@@ -838,6 +838,7 @@
   .statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
   @media(max-width:760px){.statgrid{grid-template-columns:1fr}}
   .stat{border:1px solid var(--line);border-radius:14px;padding:26px}
+  .stat.wide{grid-column:1/-1;border-color:rgba(61,220,151,.45);background:rgba(61,220,151,.05)}
   .stat .big{font-family:var(--disp);font-weight:700;font-size:40px;color:var(--green)}
   .stat .big.red{color:var(--red)}
   .stat p{color:var(--dim);font-size:15.5px;margin-top:10px;line-height:1.55}
@@ -1055,7 +1056,7 @@
         <div class="en-st">
           <div class="est">Step one · in seconds</div>
           <h4>Answered before they reach the next agency</h4>
-          <p>A text back in nine seconds on a missed call, a reply in seconds on a form or a message, at any hour and on any day. <b style="color:var(--ink)">And if they are ready, it books them straight onto the calendar while you are asleep.</b></p>
+          <p>A text back in nine seconds on a missed call, a reply in seconds on a form or a message, at any hour and on any day. Answering inside a minute rather than after two is worth a <b style="color:var(--ink)">391% lift in conversion</b> on insurance-heavy lead data. <b style="color:var(--ink)">And if they are ready, it books them straight onto the calendar while you are asleep.</b></p>
         </div>
         <div class="en-st">
           <div class="est">Step two · thirty days</div>
@@ -2265,8 +2266,9 @@
       <div class="stat r d3"><div class="big red">25-40%</div><p>of that quote-to-bind loss is attributed to inconsistent follow-up, not lack of interest.</p></div>
       <div class="stat r d4"><div class="big">$400-800</div><p>real cost per acquired customer on shared marketplace leads. Your own book costs nothing to re-work.</p></div>
       <div class="stat r d5"><div class="big red">67% vs 91%</div><p>retention on single-policy households versus bundled ones. The bundle conversation is a retention play, not an upsell.</p></div>
+      <div class="stat wide r d6"><div class="big">391%</div><p>higher conversion when an inbound lead is called within <b style="color:var(--ink)">one minute</b> rather than after two. The decay is exponential, not gradual: by an hour it has collapsed to a fraction. The dataset behind it skews to mortgage, <b style="color:var(--ink)">insurance</b> and education, which is to say it is your buyers, not a generic sales average.</p></div>
     </div>
-    <p class="srcnote r d5">Sources: industry P&C close-rate and follow-up data; bundled vs monoline retention data (incl. JD Power home insurance study); insurance lead-marketplace CPA reporting; published 2026 vendor pricing for the separately-bought comparison. Screens above are a conceptual demonstration with illustrative agency data.</p>
+    <p class="srcnote r d5">Sources: industry P&C close-rate and follow-up data; bundled vs monoline retention data (incl. JD Power home insurance study); insurance lead-marketplace CPA reporting; lead-response conversion data from the Velocify study of roughly 3.5 million leads (one minute versus two minutes; dataset weighted to mortgage, insurance and education; study circa 2013 and widely republished since); published 2026 vendor pricing for the separately-bought comparison. Screens above are a conceptual demonstration with illustrative agency data.</p>
   </div>
 </section>
 
