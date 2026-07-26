@@ -60,6 +60,9 @@
   .hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(38px,6.6vw,80px);line-height:1.02;letter-spacing:-.02em;margin:22px 0 20px;max-width:900px}
   .hero h1 em{font-style:normal;color:var(--green)}
   .hero h1 em.loss{color:var(--red)}
+  .promise{display:flex;flex-wrap:wrap;gap:12px 30px;margin:26px 0 6px}
+  .promise span{display:flex;align-items:center;gap:13px;font-family:var(--disp);font-weight:700;font-size:clamp(19px,2.9vw,28px);letter-spacing:-.015em;color:var(--green);line-height:1.2}
+  .promise span::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--green);flex:none;box-shadow:0 0 14px rgba(61,220,151,.75)}
   .revband{margin-top:40px;border:1px solid rgba(61,220,151,.4);border-radius:16px;background:linear-gradient(180deg,rgba(61,220,151,.07),rgba(13,21,38,.6));padding:26px 28px;max-width:880px}
   @media(max-width:560px){.revband{padding:20px 18px}}
   .revtop{font-family:var(--disp);font-weight:700;font-size:clamp(19px,2.6vw,26px);line-height:1.2;letter-spacing:-.01em}
@@ -878,11 +881,17 @@
 <section class="hero scene on" id="top">
   <div class="wrap">
     <span class="chip r"><span class="dot"></span>REGESTA · FOR INDEPENDENT INSURANCE AGENCIES</span>
-    <h1 class="r d1">They don't leave a voicemail. <em class="loss">They call the next agency.</em></h1>
-    <p class="sub r d2">Somebody needs insurance. They search, they get three agencies, and they start dialing. Whoever picks up first writes the policy. So a missed call isn't a missed call, it's a customer you will never know you had. <b>This is a team member whose entire job is making sure that never happens again, and then going into the book you already own and finding the revenue sitting in it.</b></p>
+    <h1 class="r d1">Missed calls are <em class="loss">missed policies.</em></h1>
+    <div class="promise r d2">
+      <span>Never miss another call.</span>
+      <span>Never lose another lead.</span>
+      <span>Never leave anyone waiting.</span>
+    </div>
+    <p class="sub r d3">You know how it goes. They searched, they got three agencies, and they are working down the list. Whoever picks up first writes the policy. So the call nobody took was never really a missed call. It was a customer you will never know you had, and a number you will never see, because a lost policy doesn't show up anywhere in your books.</p>
+    <p class="sub r d4" style="margin-top:18px">This is a team member who answers all of them. Every call, every form, every message, at any hour, on any day of the week. Then it turns around and works the book you already own, every renewal and every quote that never closed, until they buy or tell you to stop. <b>You don't need it to save many. You need it to save one.</b></p>
 
-    <div class="revband r d3">
-      <div class="revtop">It works your phone, your leads, your reviews and your database. <em>It makes you money, 24 hours a day.</em></div>
+    <div class="revband r d5">
+      <div class="revtop">It works your phone, your leads, your reviews and your whole database. <em>It makes you money, 24 hours a day.</em></div>
       <ul class="revlist">
         <li><b>Your agency stops being closed.</b><span>Open for inquiries 24 hours a day, 7 days a week, including the 128 hours a week you are shut.</span></li>
         <li><b>You never miss a call.</b><span>Every one gets a text back in nine seconds, day or night.</span></li>
@@ -900,7 +909,7 @@
         <span class="pcopy">Ten roles, on duty 24/7, <b>completely hands-off</b>. We train it on your agency, we install it, we run it, and you answer the phone when it buzzes with a live one.</span>
       </div>
     </div>
-    <div class="scrollcue r d4"><span class="bar"></span>WATCH IT WORK A DAY, ON THE ACTUAL SCREENS</div>
+    <div class="scrollcue r d6"><span class="bar"></span>WATCH IT WORK A DAY, ON THE ACTUAL SCREENS</div>
   </div>
 </section>
 
@@ -985,8 +994,8 @@
 
     <div class="aside" style="margin-top:36px;max-width:700px">
       <div class="pt hot r d5">
-        <div class="k">Why answering instantly is worth this much</div>
-        <p>It isn't only about catching the lead. A customer who texts you and hears back in nine seconds, at nine at night, has just learned something about your agency. <b>Answering immediately reads as professionalism</b>, and it is the single cheapest way to look like the most organised agency in town.</p>
+        <div class="k">Speed is the whole reputation</div>
+        <p>Somebody who hears back in nine seconds at nine at night has just learned something about your agency, and they learned it before you ever spoke to them. <b>Being answered immediately is what people actually mean by professional</b>, and it is the cheapest way there is to be the most organised agency in town. It also works on the customers you already have, which is where retention quietly comes from.</p>
       </div>
     </div>
   </div>
@@ -1876,6 +1885,10 @@
 
     <div class="aside" style="margin-top:36px;max-width:700px">
       <div class="pt hot r d8">
+        <div class="k">Every one of those people felt looked after</div>
+        <p>Read the board again, but as a customer instead of an owner. Six people contacted your agency today and <b>every single one of them heard back straight away</b>. Not one of them sat wondering whether anyone got the message. That is what people mean when they say an agency is good to deal with, and it is the part your competition cannot copy by trying harder. They would have to be awake.</p>
+      </div>
+      <div class="pt hot r d9">
         <div class="k">Five of six calls, gone without it</div>
         <p>Your team took one call today. On any normal setup the other five are voicemails, and voicemails are people who <b>are already dialing the next agency</b>. Here, three booked themselves, one got put straight through to Ray, and one is on the callback list for the morning. Nobody at the agency did anything.</p>
       </div>
