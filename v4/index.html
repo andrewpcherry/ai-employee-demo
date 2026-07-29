@@ -291,10 +291,8 @@
   .plate li{display:flex;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:14px;color:var(--dim);line-height:1.5}
   .plate li b{color:var(--ink);font-weight:600}
   .plate li .tk{color:var(--green);font-weight:700;flex:none}
-  .bookbtn{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:26px;background:var(--green);color:var(--stage);font-family:var(--disp);font-weight:700;font-size:16px;border:none;border-radius:12px;padding:16px 28px;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
-  .bookbtn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(61,220,151,.3)}
-  .bookpending{display:none;margin-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--amber)}
-  .nourl .bookpending{display:block}
+  .nextstep{margin-top:22px;border:1px solid rgba(61,220,151,.45);border-radius:12px;padding:16px 20px;background:rgba(61,220,151,.07);font-size:15px;color:var(--dim);line-height:1.6;text-align:left}
+  .nextstep b{color:var(--green)}
   .finalline{margin-top:30px;font-family:var(--disp);font-weight:700;font-size:clamp(19px,2.6vw,26px);text-align:center}
   .finalline em{font-style:normal;color:var(--green)}
 
@@ -485,11 +483,11 @@
     <a href="#s3" class="hidesm">See it work</a>
     <a href="#s9">Economics</a>
     <a href="#jobs" class="hidesm">The eleven jobs</a>
-    <a href="#s10">Book</a>
+    <a href="#s10">Next step</a>
   </div>
 </nav>
 
-<a class="stickycta selfonly" id="stickyCta" href="#s10">Book the Revenue Gap Review</a>
+<a class="stickycta selfonly" id="stickyCta" href="#s10">The offer and next step</a>
 <span class="presdisc">Hartwell Insurance · illustrative agency demonstration</span>
 
 <main>
@@ -869,8 +867,7 @@
         <li><span class="tk">✓</span><span><b>Rate locked at $497</b> while the account remains continuously active</span></li>
       </ul>
       <div data-s="2" style="text-align:center">
-        <a class="bookbtn" href="#" id="bookBtn">Book the 15-minute Agency Revenue Gap Review</a>
-        <div class="bookpending">Booking link not configured yet</div>
+        <div class="nextstep">The next step is the fifteen-minute <b>Agency Revenue Gap Review</b>. We set it up together on our call. No forms, no links, one conversation.</div>
       </div>
     </div>
     <div class="finalline" data-s="2">One agentic team member. <em>Capturing new revenue. Protecting the revenue you already earned.</em></div>
@@ -942,11 +939,6 @@
 </div>
 
 <script>
-/* ============================================================
-   CONFIG
-   ============================================================ */
-var BOOKING_URL = ""; /* set before publishing; buttons show a pending notice while empty */
-
 var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 var PRESENT = /(?:\?|&)present=1(?:&|$)/.test(location.search);
 document.body.className = PRESENT ? "present" : "self";
@@ -1152,21 +1144,6 @@ if(PRESENT){
   goScene(m0 ? +m0[1] - 1 : 0, 0);
   wake();
 }
-
-/* ============================================================
-   BOOKING BUTTONS
-   ============================================================ */
-(function(){
-  var btn = document.getElementById("bookBtn");
-  if(BOOKING_URL){
-    btn.setAttribute("href", BOOKING_URL);
-    btn.setAttribute("target", "_blank");
-    btn.setAttribute("rel", "noopener");
-  } else {
-    btn.closest(".plate").classList.add("nourl");
-    btn.addEventListener("click", function(e){ e.preventDefault(); });
-  }
-})();
 
 /* ============================================================
    BREAK-EVEN CALCULATOR
