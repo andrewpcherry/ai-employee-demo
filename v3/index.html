@@ -392,6 +392,68 @@
   .mailmsg p{color:var(--dim);font-size:14.5px;line-height:1.58}
   .mailmsg.ai{background:rgba(61,220,151,.05)}
   .mailmsg.ai .mfrom .aitag{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:var(--green);background:rgba(61,220,151,.14);padding:2px 7px;border-radius:4px;margin-left:8px;vertical-align:2px}
+  .maildraft{display:flex;align-items:center;gap:5px;padding:12px 20px;opacity:0}
+  .on .maildraft{animation:blip .01s linear .45s forwards,blipout .01s linear 1.05s forwards}
+  .maildraft i{width:6px;height:6px;border-radius:50%;background:var(--green);animation:tdot 1s ease-in-out infinite}
+  .maildraft i:nth-child(2){animation-delay:.15s}.maildraft i:nth-child(3){animation-delay:.3s}
+  .maildraft span{font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--green);margin-left:6px}
+
+  /* ---------- leak pipeline (hero) ---------- */
+  .leakline{margin-top:36px;border:1px solid var(--line);border-radius:16px;padding:24px 26px 22px;background:linear-gradient(180deg,rgba(16,26,48,.55),rgba(10,16,32,.35))}
+  @media(max-width:560px){.leakline{padding:18px 16px}}
+  .ll-head{font-size:15.5px;color:var(--dim);max-width:760px;margin-bottom:24px;line-height:1.55}
+  .ll-head b{color:var(--ink)}
+  .ll-pipe{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr 34px 1fr 34px 1fr;align-items:stretch}
+  .ll-stage{border:1px solid var(--line);border-radius:12px;padding:14px 10px;background:rgba(9,15,28,.75);text-align:center}
+  .ll-stage i{display:inline-flex;width:22px;height:22px;border-radius:50%;background:rgba(90,169,255,.15);color:var(--blue);font-style:normal;font-family:var(--mono);font-size:11px;align-items:center;justify-content:center;margin-bottom:8px}
+  .ll-stage b{display:block;font-family:var(--disp);font-size:13.5px;color:var(--ink);line-height:1.25;margin-bottom:4px}
+  .ll-stage span{font-size:11px;color:var(--faint);line-height:1.45;display:block}
+  .ll-stage.s1 i{background:rgba(255,107,107,.15);color:var(--red)}
+  .ll-stage.win{border-color:rgba(61,220,151,.5)}
+  .ll-stage.win i{background:rgba(61,220,151,.15);color:var(--green)}
+  .ll-gap{position:relative;display:flex;align-items:center;justify-content:center;min-height:44px}
+  .ll-gap::before{content:"";position:absolute;left:3px;right:3px;top:50%;border-top:2px dashed rgba(255,107,107,.55);transition:border-color .6s}
+  .ll-gap .drip{position:absolute;top:50%;left:50%;width:7px;height:7px;margin-left:-4px;border-radius:50% 50% 50% 0;background:var(--red);opacity:0}
+  .on .ll-gap .drip{animation:dripfall 1.7s ease-in 1.4s infinite}
+  .on .ll-gap .drip.d2{animation-delay:2.3s}
+  @keyframes dripfall{0%{opacity:0;transform:rotate(-45deg) translate(0,0)}12%{opacity:1}72%{opacity:1}100%{opacity:0;transform:rotate(-45deg) translate(24px,24px)}}
+  .ll-gap .seal{position:absolute;width:22px;height:22px;border-radius:50%;background:var(--green);color:var(--stage);font-size:12px;font-weight:700;font-style:normal;display:flex;align-items:center;justify-content:center;transform:scale(0);transition:transform .45s cubic-bezier(.2,1.6,.4,1);z-index:2}
+  .leakline.sealed .ll-gap::before{border-color:rgba(61,220,151,.6);border-top-style:solid}
+  .leakline.sealed .ll-gap .drip{animation:none;opacity:0}
+  .leakline.sealed .ll-gap .seal{transform:scale(1)}
+  .leakline.sealed .g2 .seal{transition-delay:.18s}
+  .leakline.sealed .g3 .seal{transition-delay:.36s}
+  .leakline.sealed .g4 .seal{transition-delay:.54s}
+  .ll-cap{margin-top:22px;position:relative;min-height:24px;font-size:14.5px;line-height:1.5}
+  @media(max-width:640px){.ll-cap{min-height:48px}}
+  .ll-cap span{position:absolute;inset:0;transition:opacity .5s}
+  .ll-cap .leakword{color:var(--red)}
+  .ll-cap .sealword{color:var(--green);opacity:0;transition-delay:.3s}
+  .leakline.sealed .leakword{opacity:0}
+  .leakline.sealed .sealword{opacity:1}
+  @media(max-width:860px){
+    .ll-pipe{grid-template-columns:1fr}
+    .ll-gap{min-height:34px}
+    .ll-gap::before{left:50%;right:auto;top:4px;bottom:4px;width:0;border-top:none;border-left:2px dashed rgba(255,107,107,.55)}
+    .leakline.sealed .ll-gap::before{border-left-style:solid;border-left-color:rgba(61,220,151,.6)}
+    .ll-stage{display:flex;align-items:center;gap:10px;text-align:left;padding:11px 14px}
+    .ll-stage i{margin-bottom:0;flex:none}
+    .ll-stage b{margin-bottom:2px}
+  }
+
+  /* ---------- the relay (engine) ---------- */
+  .rl-title{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;margin:30px 0 16px;border-top:1px solid var(--line);padding-top:22px}
+  .rl-scroll{overflow-x:auto;padding-bottom:4px}
+  .rl-grid{display:grid;grid-template-columns:112px repeat(5,1fr);gap:8px 10px;align-items:center;min-width:660px}
+  .rl-lane{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;line-height:1.5}
+  .rl-lane.hum{color:var(--blue)}
+  .rl-lane.aiL{color:var(--green)}
+  .rl-mark{font-family:var(--mono);font-size:9.5px;color:var(--faint);text-align:center;letter-spacing:.12em}
+  .rl-cell{border:1px solid var(--line);border-radius:9px;padding:9px 8px;font-size:11.5px;color:var(--dim);text-align:center;line-height:1.35;opacity:0;transform:translateY(8px)}
+  .on .rl-cell{animation:rise .45s forwards}
+  .rl-cell.g{border-color:rgba(61,220,151,.4);color:var(--ink);background:rgba(61,220,151,.05)}
+  .rl-stop{margin-top:16px;font-size:13px;color:var(--dim);line-height:1.6}
+  .rl-stop b{color:var(--ink)}
 
   /* channel switcher + skins */
   .chanbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
@@ -584,7 +646,7 @@
   .slot{height:40px;border:1px dashed var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--faint)}
   .slot.taken{border-style:solid;background:rgba(90,169,255,.08);color:var(--dim)}
   .slot.fill{border:1px solid var(--green);position:relative;overflow:hidden}
-  .slot.fill .inner{position:absolute;inset:0;background:rgba(61,220,151,.15);display:flex;align-items:center;justify-content:center;color:var(--green);font-weight:700;opacity:0;transform:scale(.7);font-size:9px;text-align:center}
+  .slot.fill .inner{position:absolute;inset:0;background:#11301f;display:flex;align-items:center;justify-content:center;color:var(--green);font-weight:700;opacity:0;transform:scale(.7);font-size:9px;text-align:center}
   .on .slot.fill .inner{animation:pop .5s cubic-bezier(.2,1.5,.4,1) 2.9s forwards}
   .on .slot.fill{animation:pulse 1.2s ease-in-out 2.6s 2}
   @keyframes pulse{50%{box-shadow:0 0 0 6px rgba(61,220,151,.12)}}
@@ -925,6 +987,9 @@
     .qfield .qv{clip-path:none!important}
     .rstep{opacity:1!important}
     .greply,.bookcard .bconf{opacity:1!important}
+    .ll-gap .drip{display:none!important}
+    .ll-cap .leakword{opacity:0!important}
+    .maildraft{display:none!important}
   }
 </style>
 </head>
@@ -1039,7 +1104,26 @@
     <p class="sub r d5" style="margin-top:20px">Underneath all eleven roles it is one machine, and the machine is follow-up. Every call, form, chat and message that comes in gets answered, then chased for thirty days, then asked again every quarter for as long as they are on your book. <b>Nothing that ever contacts your agency gets dropped.</b></p>
     <p class="sub r d5" style="margin-top:20px">But the missed call is only the leak you can feel. <b>The rest is the revenue gap you can't, and it's bigger.</b> The quote you worked up in March that nobody followed up on. The renewal that lapsed because nobody called. The customer with one policy who should have two. The review that never got asked for, and the one that never got answered. Every one of those is money you already earned once and lost anyway, and no agency loses it on purpose. They lose it because everyone is on the phone.</p>
 
-    <div class="revband r d6">
+    <div class="leakline r d6" id="leakline">
+      <div class="ll-head"><b>Your agency doesn't lose revenue in one big moment.</b> It leaks through the moments nobody sees, owns, or follows through. Every inquiry has to survive the same five steps, and each box below is a step your agency already does. The leak isn't in the boxes.</div>
+      <div class="ll-pipe">
+        <div class="ll-stage s1"><i>1</i><b>New inquiry</b><span>Call, email, text or web</span></div>
+        <div class="ll-gap g1"><span class="drip"></span><span class="drip d2"></span><em class="seal">✓</em></div>
+        <div class="ll-stage"><i>2</i><b>Response</b><span>Answered in your voice</span></div>
+        <div class="ll-gap g2"><span class="drip"></span><span class="drip d2"></span><em class="seal">✓</em></div>
+        <div class="ll-stage"><i>3</i><b>Human handoff</b><span>Routed to the right person</span></div>
+        <div class="ll-gap g3"><span class="drip"></span><span class="drip d2"></span><em class="seal">✓</em></div>
+        <div class="ll-stage"><i>4</i><b>Follow-up</b><span>Quotes and renewals kept moving</span></div>
+        <div class="ll-gap g4"><span class="drip"></span><span class="drip d2"></span><em class="seal">✓</em></div>
+        <div class="ll-stage win"><i>5</i><b>Revenue retained</b><span>Booked, renewed, reviewed</span></div>
+      </div>
+      <div class="ll-cap">
+        <span class="leakword">It's in the gaps between them, and that is where the money drips out.</span>
+        <span class="sealword">The team member works the gaps between the steps. Nothing falls through.</span>
+      </div>
+    </div>
+
+    <div class="revband r d7">
       <div class="revtop">Which is why it has eleven jobs, and answering the phone is only one of them. <em>Nine of them close the revenue gap. Two go and make you money.</em></div>
       <ul class="revlist">
         <li><b>No more missed calls.</b><span>Every one gets a text back in nine seconds, at any hour, on any day.</span></li>
@@ -1120,6 +1204,27 @@
           <p>Insurance renews every year, so somebody not buying in March is often buying by October. Four touches a year, every year, means you are never more than ninety days from being in front of them.</p>
         </div>
       </div>
+
+      <div class="rl-title">One quote, two lanes · who carries what</div>
+      <div class="rl-scroll">
+        <div class="rl-grid">
+          <span class="rl-lane"></span>
+          <span class="rl-mark">QUOTE SENT</span><span class="rl-mark">DAY 1</span><span class="rl-mark">DAY 4</span><span class="rl-mark">DAY 11</span><span class="rl-mark">DECISION</span>
+          <span class="rl-lane hum">Your licensed team</span>
+          <div class="rl-cell" style="animation-delay:.2s">Producer advises</div>
+          <div class="rl-cell" style="animation-delay:.9s">Available for a reply</div>
+          <div class="rl-cell" style="animation-delay:1.6s">Handles the objection</div>
+          <div class="rl-cell" style="animation-delay:2.3s">Reviews the escalation</div>
+          <div class="rl-cell" style="animation-delay:3s">Binds or closes</div>
+          <span class="rl-lane aiL">The team member</span>
+          <div class="rl-cell g" style="animation-delay:.55s">Starts the follow-up</div>
+          <div class="rl-cell g" style="animation-delay:1.25s">Checks the timing</div>
+          <div class="rl-cell g" style="animation-delay:1.95s">Answers approved questions</div>
+          <div class="rl-cell g" style="animation-delay:2.65s">Offers the booking</div>
+          <div class="rl-cell g" style="animation-delay:3.35s">Stops the sequence</div>
+        </div>
+      </div>
+      <div class="rl-stop"><b>It carries the repetition. Your licensed people carry the judgment.</b> The sequence stops the moment the customer replies, books, opts out, or needs a licensed opinion.</div>
 
       <div class="en-guarantee">Nobody who ever contacts your agency is dropped. <em>Not after a week, not after a year, not ever.</em></div>
       <div class="en-sub">This is the part that decides whether an inquiry becomes a policy, and it is the first thing that goes in every agency when the phones are busy. <a href="#r2">See the whole thing, touch by touch</a>.</div>
@@ -2155,6 +2260,7 @@
             <div class="msubj">Subject: Adding two vehicles to our policy</div>
             <p>Hi, we just picked up two box trucks for the business and need them added to our commercial auto. Can you help?</p>
           </div>
+          <div class="maildraft"><i></i><i></i><i></i><span>EMAIL AI IS DRAFTING</span></div>
           <div class="mailmsg ai" style="animation-delay:1.1s">
             <div class="mtop"><span class="mfrom">Hartwell Insurance <span class="aitag">EMAIL AI · SENT INSTANTLY</span></span><span class="mtime">11:02 PM</span></div>
             <p>Happy to add them, Sarah. Could you send the VINs, where they'll be garaged, and the date you want coverage to start? I'll have this ready for the commercial team the moment I have those.</p>
@@ -2168,6 +2274,7 @@
         <div class="honest">Scope, honestly: Email AI answers in the thread, asks for what's still missing, and gets the conversation ready to bind. It never quotes or binds coverage itself, that stays with a licensed person, it just makes sure nobody starts the next morning from a cold inbox.</div>
       </div>
       <div class="aside">
+        <div class="freechip r d2">INCLUDED IN THE $497 · NOT AN ADD-ON</div>
         <div class="receipts" style="margin-bottom:26px">
           <div class="receipt" style="animation-delay:3.2s">
             <span class="rk"><svg><use href="#i-people"/></svg></span>
@@ -2463,6 +2570,10 @@
 (function(){
 "use strict";
 var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* hero leak pipeline: leak for a few seconds, then the team member seals the gaps */
+var leakEl = document.getElementById("leakline");
+if(leakEl){ setTimeout(function(){ leakEl.classList.add("sealed"); }, RM ? 400 : 6800); }
 
 /* ============================================================
    1. SYSTEM MAP
